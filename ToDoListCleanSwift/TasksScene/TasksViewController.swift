@@ -16,7 +16,6 @@ protocol ITasksViewController: AnyObject {
 class TasksViewController: UIViewController {
 	
 	var interactor: ITasksInteractor?
-	var presenter: ITasksPresenter?
 	var viewData: TaskModel.ViewData = TaskModel.ViewData(tasksBySections: [])
 	let tasksTableView = UITableView()
 	
@@ -25,7 +24,7 @@ class TasksViewController: UIViewController {
 		navigationItem.title = "To-do List"
 		setupTableView()
 		setupTableViewConstraints()
-		interactor?.fetchData(request: .data)
+		interactor?.fetchData()
 	}
 	
 	private func setupTableView() {

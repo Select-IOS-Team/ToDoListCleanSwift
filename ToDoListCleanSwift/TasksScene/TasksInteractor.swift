@@ -10,7 +10,7 @@ import Foundation
 /// Протокол интерактора
 protocol ITasksInteractor: AnyObject {
 	func didCheckboxTapped(indexPath: IndexPath)
-	func fetchData(request: TaskModel.Request)
+	func fetchData()
 }
 
 /// Класс интерактора
@@ -20,7 +20,7 @@ class TasksInteractor: ITasksInteractor {
 	var presenter: ITasksPresenter?
 	var worker: ITasksWorker?
 	
-	func fetchData(request: TaskModel.Request) {
+	func fetchData() {
 		var result: [(section: SectionsTypes, tasks: [Task])] = []
 		guard let sectionsTypes = sectionsAdapter?.getSectionsTypes() else { return }
 		for sectionsType in sectionsTypes {
@@ -35,7 +35,7 @@ class TasksInteractor: ITasksInteractor {
 		guard let sectionType = sectionsAdapter?.getSectionType(index: indexPath.section) else { return }
 		guard let task = sectionsAdapter?.getTasksForSectionsType(sectionType: sectionType)[indexPath.row] else { return }
 		task.completeTask()
-		fetchData(request: .data)
+		fetchData()
 	}
 	
 }

@@ -8,11 +8,7 @@ import Foundation
 
 /// Модель вью
 enum TaskModel {
-	
-	enum Request {
-		case data
-	}
-	
+		
 	struct Response {
 		var data: [ResponseData]
 	}
