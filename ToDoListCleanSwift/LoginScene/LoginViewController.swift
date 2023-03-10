@@ -13,7 +13,7 @@ protocol ILoginViewController: AnyObject {
 
 class LoginViewController: UIViewController {
 
-	private var interactor: ILoginInteractor?
+	var interactor: ILoginInteractor?
 	private var router: IMainRouter?
 	
 	@IBOutlet weak var textFieldLogin: UITextField!
@@ -27,13 +27,6 @@ class LoginViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		assembly()
-	}
-	
-	func assembly() {
-		let worker = LoginWorker()
-		let presenter = LoginPresenter(viewController: self)
-		interactor = LoginInteractor(worker: worker, presenter: presenter)
 	}
 
 }
