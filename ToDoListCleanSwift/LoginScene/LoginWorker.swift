@@ -20,7 +20,7 @@ protocol ILoginWorker {
 class LoginWorker: ILoginWorker {
 	
 	func login(login: String, password: String) -> LoginDTO {
-		guard login == "Admin" && password == "pa$$32!" else {
+		guard login == "1" && password == "1" else {
 			return LoginDTO(success: 0, login: login, lastLoginDate: Date())
 		}
 		return LoginDTO(success: 1, login: login, lastLoginDate: Date())

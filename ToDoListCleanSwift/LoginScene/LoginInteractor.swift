@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ILoginDateStore {
-	var email: String { get set }
-	var password: String { get set }
-}
-
 protocol ILoginInteractor {
 	func login(request: LoginModels.Request)
 }

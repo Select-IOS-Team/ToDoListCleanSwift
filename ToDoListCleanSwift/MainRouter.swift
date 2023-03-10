@@ -7,20 +7,23 @@
 
 import Foundation
 
-protocol IMainRoutingLogic {
-	func routeToSomewhere()
+protocol IMainRouter {
+	func routeToTasksViewController()
 }
 
-class MainRouter: NSObject, IMainRoutingLogic {
-	weak var loginViewController: LoginViewController?
+class MainRouter: IMainRouter {
+	private var loginViewController: ILoginViewController
 	
-	func routeToSomewhere() {
-		let taskViewController = TasksDependenciesBuilder.build()
-		guard let from = loginViewController else { return }
-		navigateToSomewhere(source: from, destination: taskViewController)
+	init(loginViewController: ILoginViewController) {
+		self.loginViewController = loginViewController
 	}
 	
-	func navigateToSomewhere(source: LoginViewController, destination: TasksViewController) {
+	func routeToTasksViewController() {
+		let tasksViewController = TasksDependenciesBuilder.build()
+		navigateToToTasksViewController(source: loginViewController as! LoginViewController, destination: tasksViewController)
+	}
+	
+	func navigateToToTasksViewController(source: LoginViewController, destination: TasksViewController) {
 		source.show(destination, sender: nil)
 	}
 	

@@ -14,7 +14,7 @@ protocol ILoginViewController: AnyObject {
 class LoginViewController: UIViewController {
 
 	private var interactor: ILoginInteractor?
-	private var router = MainRouter()
+	private var router: IMainRouter?
 	
 	@IBOutlet weak var textFieldLogin: UITextField!
 	@IBOutlet weak var textFieldPassword: UITextField!
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 		assembly()
 	}
-
+	
 	func assembly() {
 		let worker = LoginWorker()
 		let presenter = LoginPresenter(viewController: self)
@@ -40,26 +40,24 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: ILoginViewController {
 	
-	func render(viewModel: LoginModels.ViewModel) {
-		let alert: UIAlertController
+	public func render(viewModel: LoginModels.ViewModel) {
 		if viewModel.success {
-			alert = UIAlertController(
-				title: "Success",
-				message: viewModel.userName,
-				preferredStyle: .alert)
-		} else {
-			alert = UIAlertController(
-				title: "Error",
-				message: "",
-				preferredStyle: .alert)
-		}
-		let action = UIAlertAction(title: "Ok", style: .default) { [weak self] UIAlertAction in
-			if viewModel.success {
-				guard let self else { return }
-				self.router.loginViewController = self
-				self.router.routeToSomewhere()
+			showAlert(title: "Success!", message: viewModel.userName) { _ in
+				let router = MainRouter(loginViewController: self)
+				router.routeToTasksViewController()
 			}
+		} else {
+			showAlert(title: "Error", message: "")
 		}
+	}
+	
+	private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+		let alert = UIAlertController(
+			title: title,
+			message: message,
+			preferredStyle: .alert)
+		
+		let action = UIAlertAction(title: "OK", style: .default, handler: completion)
 		alert.addAction(action)
 		present(alert, animated: true)
 	}
