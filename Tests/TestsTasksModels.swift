@@ -19,18 +19,6 @@ final class TestRegularTask: XCTestCase {
 	override func tearDown() {
 		super.tearDown()
     }
-
-	func test_regularTask_titleShouldBeFilled() {
-		
-		// arrange
-		let sut = TasksStub.regularTask
-		
-		// act
-		let title = sut.title
-		
-		// assert
-		XCTAssertEqual(title, sut.title, "Values should be equals")
-	}
 	
 	/// Тест: после вызова метода значение должно быть инвертировано
 	func test_regularTask_completedShouldBeTrue() {
@@ -60,18 +48,24 @@ final class TestImportantTask: XCTestCase {
 	}
 	
 	/// Тест: различие м-ду датой выполнения и текущей должно быть в rowValue по приоритету
-	func test_importantTask_withLowPriority_completionDateAsDifferenceLow() {
+	func test_importantTask_DifferenceShouldBeNotNilEqualRawValue() {
 		
-		// arrange
-		let sut = TasksStub.importantTaskLow
+		ImportantTaskPriorities.allCases.forEach { priority in
+			
+			// arrange
+			guard let sut = TasksStub.importantTaskByRawValue(rawValue: priority.rawValue) else { return }
+			
+			// act
+			let completionDate = sut.completionDate
+			let differenceSeconds = Date().distance(to: completionDate)
+			let differenceDays = Int(round(differenceSeconds / 60 / 60 / 24))
+			
+			// assert
+			XCTAssertNotNil(sut, "Instance by priority.rawValue return nil")
+			XCTAssertEqual(differenceDays, priority.rawValue, "Difference for \(priority) should be \(priority.rawValue)")
+			
+		}
 		
-		// act
-		let completionDate = sut.completionDate
-		let differenceSeconds = Date().distance(to: completionDate)
-		let differenceDays = Int(round(differenceSeconds / 60 / 60 / 24))
-		
-		// assert
-		XCTAssertEqual(differenceDays, ImportantTaskPriorities.low.rawValue, "Values should be equals")
 	}
 	
 }
@@ -83,5 +77,10 @@ enum TasksStub {
 	static var importantTaskHigh = ImportantTask(title: "Important task high", priority: .high)
 	static var importantTaskMedium = ImportantTask(title: "Important task medium", priority: .medium)
 	static var importantTaskLow = ImportantTask(title: "Important task low", priority: .low)
+	
+	static func importantTaskByRawValue(rawValue: Int) -> ImportantTask? {
+		guard let priority = ImportantTaskPriorities(rawValue: rawValue) else { return nil }
+		return ImportantTask(title: "Important task example", priority: priority)
+	}
 	
 }
