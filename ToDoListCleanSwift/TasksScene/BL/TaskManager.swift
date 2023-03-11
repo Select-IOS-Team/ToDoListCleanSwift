@@ -8,7 +8,7 @@
 import Foundation
 
 /// Приоритеты важных задач
-enum ImportantTaskPriorities: Int, CustomStringConvertible {
+enum ImportantTaskPriorities: Int, CustomStringConvertible, CaseIterable {
 	case high   = 1
 	case medium = 2
 	case low    = 3
