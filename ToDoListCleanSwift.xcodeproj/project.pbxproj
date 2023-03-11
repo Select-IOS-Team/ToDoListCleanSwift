@@ -32,7 +32,8 @@
 		8563F4E229A531AC0006C378 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4E129A531AC0006C378 /* CheckboxButton.swift */; };
 		8563F4E729A666870006C378 /* TasksDependenciesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */; };
 		8563F4E929A6ACFB0006C378 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8563F4E829A6ACFB0006C378 /* README.md */; };
-		85E0C11529BBB5FD00E8A29B /* TestsTasksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0C11429BBB5FD00E8A29B /* TestsTasksModels.swift */; };
+		85E0C11529BBB5FD00E8A29B /* RegularTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0C11429BBB5FD00E8A29B /* RegularTaskTests.swift */; };
+		85E0C11C29BC85A900E8A29B /* ImportantTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E0C11B29BC85A900E8A29B /* ImportantTaskTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,8 @@
 		8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDependenciesBuilder.swift; sourceTree = "<group>"; };
 		8563F4E829A6ACFB0006C378 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		85E0C11229BBB5FC00E8A29B /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		85E0C11429BBB5FD00E8A29B /* TestsTasksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsTasksModels.swift; sourceTree = "<group>"; };
+		85E0C11429BBB5FD00E8A29B /* RegularTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTaskTests.swift; sourceTree = "<group>"; };
+		85E0C11B29BC85A900E8A29B /* ImportantTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantTaskTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +191,8 @@
 		85E0C11329BBB5FD00E8A29B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				85E0C11429BBB5FD00E8A29B /* TestsTasksModels.swift */,
+				85E0C11429BBB5FD00E8A29B /* RegularTaskTests.swift */,
+				85E0C11B29BC85A900E8A29B /* ImportantTaskTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -324,7 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E0C11529BBB5FD00E8A29B /* TestsTasksModels.swift in Sources */,
+				85E0C11529BBB5FD00E8A29B /* RegularTaskTests.swift in Sources */,
+				85E0C11C29BC85A900E8A29B /* ImportantTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +491,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,6 +520,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
