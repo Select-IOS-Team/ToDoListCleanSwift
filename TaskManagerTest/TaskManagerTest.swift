@@ -8,18 +8,18 @@
 import XCTest
 @testable import ToDoListCleanSwift
 
-final class TaskManagerTest: XCTestCase {
+final class TaskManagerTests: XCTestCase {
 	
 	var sut: TaskManager!
+	
+	override func setUp() {
+		super.setUp()
+		sut = TaskManager()
+	}
 
-    override func setUpWithError() throws {
-        sut = TaskManager()
-		let repository = Repository()
-		sut.addTasks(tasks: repository.getAllTasks())
-    }
-
-    override func tearDownWithError() throws {
+    override func tearDown() {
 		sut = nil
+		super.tearDown()
     }
 	
 	func test_allTasks_shouldBeEqual() {
@@ -27,6 +27,7 @@ final class TaskManagerTest: XCTestCase {
 		let tasks = TasksStub.tasks
 
 		// When
+		sut.addTasks(tasks: TasksStub.tasks)
 		let result = sut.allTasks()
 
 		// Then
@@ -38,6 +39,7 @@ final class TaskManagerTest: XCTestCase {
 		let tasks = TasksStub.completedTasks
 
 		// When
+		sut.addTasks(tasks: TasksStub.tasks)
 		let result = sut.completedTasks()
 
 		// Then
@@ -49,6 +51,7 @@ final class TaskManagerTest: XCTestCase {
 		let tasks = TasksStub.uncompletedTasks
 
 		// When
+		sut.addTasks(tasks: TasksStub.tasks)
 		let result = sut.uncompletedTasks()
 
 		// Then
@@ -62,6 +65,7 @@ final class TaskManagerTest: XCTestCase {
 		tasks.append(TasksStub.newTask)
 
 		// When
+		sut.addTasks(tasks: TasksStub.tasks)
 		sut.addTask(task: TasksStub.newTask)
 		let result = sut.allTasks()
 
@@ -71,11 +75,11 @@ final class TaskManagerTest: XCTestCase {
 
 	func test_addTasks_shouldBeEqual() {
 		// Given
-		var tasks = TasksStub.tasks
-		tasks.append(contentsOf: [TasksStub.newTask])
+		var tasks = [Task]()
+		tasks.append(contentsOf: TasksStub.tasks)
 
 		// When
-		sut.addTasks(tasks: [TasksStub.newTask])
+		sut.addTasks(tasks: TasksStub.tasks)
 		let result = sut.allTasks()
 
 		// Then
@@ -87,6 +91,7 @@ final class TaskManagerTest: XCTestCase {
 		let tasks = TasksStub.tasksListAfterRemove
 
 		// When
+		sut.addTasks(tasks: TasksStub.tasks)
 		let removeItem = sut.allTasks()[4]
 		sut.removeTask(task: removeItem)
 		let result = sut.allTasks()
@@ -95,26 +100,28 @@ final class TaskManagerTest: XCTestCase {
 		XCTAssertEqual(result, tasks)
 	}
 	
-	enum TasksStub {
-		static var tasks = [RegularTask(title: "Regular task 1"),
-							RegularTask(title: "Regular task 2"),
-							ImportantTask(title: "Important task 1", priority: .high),
-							ImportantTask(title: "Important task 2", priority: .medium),
-							ImportantTask(title: "Important task 3", priority: .low)]
+	private enum TasksStub {
+		static var tasks = [
+			RegularTask(title: "Regular task 1", completed: true),
+			RegularTask(title: "Regular task 2"),
+			ImportantTask(title: "Important task 1", priority: .high),
+			ImportantTask(title: "Important task 2", priority: .medium),
+			ImportantTask(title: "Important task 3", priority: .low)]
 		
-		static var completedTasks = [Task]()
+		static var completedTasks = [RegularTask(title: "Regular task 1", completed: true)]
 		
-		static var uncompletedTasks = [RegularTask(title: "Regular task 1"),
-									   RegularTask(title: "Regular task 2"),
-									   ImportantTask(title: "Important task 1", priority: .high),
-									   ImportantTask(title: "Important task 2", priority: .medium),
-									   ImportantTask(title: "Important task 3", priority: .low)]
+		static var uncompletedTasks = [
+			RegularTask(title: "Regular task 2"),
+			ImportantTask(title: "Important task 1", priority: .high),
+			ImportantTask(title: "Important task 2", priority: .medium),
+			ImportantTask(title: "Important task 3", priority: .low)]
 		
 		static var newTask = RegularTask(title: "new task")
 		
-		static var tasksListAfterRemove = [RegularTask(title: "Regular task 1"),
-										   RegularTask(title: "Regular task 2"),
-										   ImportantTask(title: "Important task 1", priority: .high),
-										   ImportantTask(title: "Important task 2", priority: .medium)]
+		static var tasksListAfterRemove = [
+			RegularTask(title: "Regular task 1", completed: true),
+			RegularTask(title: "Regular task 2"),
+			ImportantTask(title: "Important task 1", priority: .high),
+			ImportantTask(title: "Important task 2", priority: .medium)]
 	}
 }
