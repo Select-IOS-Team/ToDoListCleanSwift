@@ -30,6 +30,12 @@ class Task {
 	
 }
 
+extension Task: Equatable {
+	static func == (lhs: Task, rhs: Task) -> Bool {
+		return(lhs.title == rhs.title && lhs.completed == rhs.completed)
+	}
+}
+
 /// Класс обычноной задачи
 class RegularTask: Task {}
 
