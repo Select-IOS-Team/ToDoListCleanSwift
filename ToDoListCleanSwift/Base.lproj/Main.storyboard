@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUy-WQ-2RO">
-                                <rect key="frame" x="50" y="339" width="291" height="34"/>
+                                <rect key="frame" x="51" y="339" width="291" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="291" id="UFs-J0-3Sa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="UFs-J0-3Sa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swf-Pl-XkB">
-                                <rect key="frame" x="163" y="497.99999999999994" width="66" height="34.333333333333314"/>
+                                <rect key="frame" x="163.66666666666666" y="497.99999999999994" width="66" height="34.333333333333314"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="66" id="0cS-IK-GCH"/>
@@ -39,9 +39,9 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="93i-De-N4K">
-                                <rect key="frame" x="50" y="400" width="291" height="34"/>
+                                <rect key="frame" x="51" y="400" width="291" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="291" id="Wcy-t9-Dzk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="291" id="Wcy-t9-Dzk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -50,15 +50,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="93i-De-N4K" secondAttribute="trailing" constant="52" id="0LG-wQ-nUG"/>
-                            <constraint firstItem="zUy-WQ-2RO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="4Wv-PO-xU1"/>
+                            <constraint firstItem="zUy-WQ-2RO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5CD-yb-EKO"/>
                             <constraint firstItem="swf-Pl-XkB" firstAttribute="top" secondItem="93i-De-N4K" secondAttribute="bottom" constant="64" id="AHG-iQ-wkE"/>
-                            <constraint firstItem="swf-Pl-XkB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="163" id="VVh-bL-CKJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zUy-WQ-2RO" secondAttribute="trailing" constant="52" id="drj-DY-gYg"/>
                             <constraint firstItem="zUy-WQ-2RO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="hfM-od-QHw"/>
-                            <constraint firstItem="93i-De-N4K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="kUi-nS-4QW"/>
                             <constraint firstItem="93i-De-N4K" firstAttribute="top" secondItem="zUy-WQ-2RO" secondAttribute="bottom" constant="27" id="l2b-Ch-7i1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="swf-Pl-XkB" secondAttribute="trailing" constant="164" id="tkc-rb-Mfd"/>
+                            <constraint firstItem="swf-Pl-XkB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="unP-xY-soe"/>
+                            <constraint firstItem="93i-De-N4K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xGt-Pc-Vie"/>
                         </constraints>
                     </view>
                     <connections>
