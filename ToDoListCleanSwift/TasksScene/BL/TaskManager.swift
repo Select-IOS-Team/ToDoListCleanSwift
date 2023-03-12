@@ -8,10 +8,18 @@
 import Foundation
 
 /// Приоритеты важных задач
-enum ImportantTaskPriorities: Int, CustomStringConvertible {
-	case high   = 1
-	case medium = 2
-	case low    = 3
+enum ImportantTaskPriorities: CustomStringConvertible, CaseIterable {
+	case high
+	case medium
+	case low
+	
+	var dayCountForCompletion: Int {
+		switch self {
+		case .high: return 1
+		case .medium: return 2
+		case .low: return 3
+		}
+	}
 	
 	/// Описание приоритета
 	var description : String {

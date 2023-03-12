@@ -39,7 +39,7 @@ final class OrderedTaskManager: ITaskManager {
 	private func sorted(tasks: [Task]) -> [Task] {
 		tasks.sorted {
 			if let task0 = $0 as? ImportantTask, let task1 = $1 as? ImportantTask {
-				return task0.priority.rawValue < task1.priority.rawValue
+				return task0.priority.dayCountForCompletion < task1.priority.dayCountForCompletion
 			}
 			
 			if $0 is ImportantTask, $1 is RegularTask {
