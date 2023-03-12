@@ -1,5 +1,5 @@
 //
-//  TaskManagerTest.swift
+//  TaskManagerTests.swift
 //  TaskManagerTest
 //
 //  Created by Dmitry Serebrov on 12.03.2023.
@@ -9,19 +9,34 @@ import XCTest
 @testable import ToDoListCleanSwift
 
 final class TaskManagerTests: XCTestCase {
-	
-	var sut: TaskManager!
-	
+
+	// MARK: - Private properties
+
+	private var sut: TaskManager!
+
+	// MARK: - Lifecycle
+
 	override func setUp() {
 		super.setUp()
 		sut = TaskManager()
 	}
 
-    override func tearDown() {
+	override func tearDown() {
 		sut = nil
 		super.tearDown()
-    }
-	
+	}
+
+	// MARK: - Tests
+
+	// Проверка того, что менеджер после инициализации имеет пустой список задач
+	func test_taskListIsEmptyAfterInit() {
+		// when
+		let tasks = sut.allTasks()
+
+		// then
+		XCTAssertTrue(tasks.isEmpty)
+	}
+
 	func test_allTasks_shouldBeEqual() {
 		// Given
 		let tasks = TasksStub.tasks
@@ -106,7 +121,8 @@ final class TaskManagerTests: XCTestCase {
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium),
-			ImportantTask(title: "Important task 3", priority: .low)]
+			ImportantTask(title: "Important task 3", priority: .low)
+		]
 		
 		static var completedTasks = [RegularTask(title: "Regular task 1", completed: true)]
 		
@@ -114,7 +130,8 @@ final class TaskManagerTests: XCTestCase {
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium),
-			ImportantTask(title: "Important task 3", priority: .low)]
+			ImportantTask(title: "Important task 3", priority: .low)
+		]
 		
 		static var newTask = RegularTask(title: "new task")
 		
@@ -122,6 +139,7 @@ final class TaskManagerTests: XCTestCase {
 			RegularTask(title: "Regular task 1", completed: true),
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
-			ImportantTask(title: "Important task 2", priority: .medium)]
+			ImportantTask(title: "Important task 2", priority: .medium)
+		]
 	}
 }
