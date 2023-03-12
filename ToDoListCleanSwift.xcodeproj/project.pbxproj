@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
 		8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A929A4E2C80006C378 /* SceneDelegate.swift */; };
 		8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4AB29A4E2C80006C378 /* LoginViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				8563F4E829A6ACFB0006C378 /* README.md */,
+				5EB995AE29BC26740046FA0C /* .gitignore */,
 				8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */,
 				85E0C11329BBB5FD00E8A29B /* Tests */,
 				8563F4A529A4E2C80006C378 /* Products */,
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB995AF29BC26740046FA0C /* .gitignore in Resources */,
 				8563F4B429A4E2C90006C378 /* LaunchScreen.storyboard in Resources */,
 				8563F4B129A4E2C90006C378 /* Assets.xcassets in Resources */,
 				8563F4E929A6ACFB0006C378 /* README.md in Resources */,
