@@ -12,15 +12,15 @@ protocol ILoginInteractor {
 }
 
 class LoginInteractor: ILoginInteractor {
-	
+
 	private var worker: ILoginWorker
 	private var presenter: ILoginPresenter
-	
+
 	init(worker: ILoginWorker, presenter: ILoginPresenter) {
 		self.worker = worker
 		self.presenter = presenter
 	}
-	
+
 	func login(request: LoginModels.Request) {
 		let result = worker.login(login: request.login, password: request.password)
 		let response = LoginModels.Response(
@@ -29,5 +29,4 @@ class LoginInteractor: ILoginInteractor {
 			lastLoginDate: result.lastLoginDate)
 		presenter.present(response: response)
 	}
-	
 }

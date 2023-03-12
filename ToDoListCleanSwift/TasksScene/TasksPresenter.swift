@@ -14,15 +14,15 @@ protocol ITasksPresenter {
 
 /// Класс презентера
 class TasksPresenter: ITasksPresenter {
-	
+
 	private weak var view: ITasksViewController!
 	private var sectionsAdapter: ISectionsAdapter!
-	
+
 	init(view: ITasksViewController!, sectionsAdapter: ISectionsAdapter!) {
 		self.view = view
 		self.sectionsAdapter = sectionsAdapter
 	}
-	
+
 	func presentData(response: TaskModel.Response) {
 		var sectionTypes = [TaskModel.ViewData.Section]()
 		for dataItem in response.data {
@@ -33,11 +33,11 @@ class TasksPresenter: ITasksPresenter {
 		}
 		view.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
 	}
-	
+
 	private func createViewDataFromTasks(tasks: [Task]) -> [TaskModel.ViewData.Task] {
 		tasks.map { createViewData(task: $0) }
 	}
-	
+
 	private func createViewData(task: Task) -> TaskModel.ViewData.Task {
 		if let task = task as? ImportantTask {
 			let importantTask = TaskModel.ViewData.ImportantTask(
@@ -50,14 +50,14 @@ class TasksPresenter: ITasksPresenter {
 		} else {
 			return .regularTask(TaskModel.ViewData.RegularLask(
 				title: task.title,
-				completed: task.completed))
+				completed: task.completed
+			))
 		}
 	}
-	
+
 	private func getStringByDate(date: Date) -> String {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "dd.MM.yyyy HH:mm"
 		return formatter.string(from: date)
 	}
-	
 }
