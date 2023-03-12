@@ -17,8 +17,8 @@ class Task {
 	/// Уникальный идентификатор
 	var id: String
 	
-	init(title: String) {
-		self.completed = false
+	init(title: String, completed: Bool = false) {
+		self.completed = completed
 		self.title = title
 		self.id = String(describing: UUID())
 	}
@@ -28,6 +28,12 @@ class Task {
 		self.completed = !self.completed
 	}
 	
+}
+
+extension Task: Equatable {
+	static func == (lhs: Task, rhs: Task) -> Bool {
+		return(lhs.title == rhs.title && lhs.completed == rhs.completed)
+	}
 }
 
 /// Класс обычноной задачи
