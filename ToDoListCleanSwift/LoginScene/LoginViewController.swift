@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
 
 	var interactor: ILoginInteractor?
 	private var router: IMainRouter?
-	
+
 	@IBOutlet weak var textFieldLogin: UITextField!
 	@IBOutlet weak var textFieldPassword: UITextField!
 	@IBAction func loginButton(_ sender: UIButton) {
@@ -24,15 +24,14 @@ class LoginViewController: UIViewController {
 			interactor?.login(request: request)
 		}
 	}
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
-
 }
 
 extension LoginViewController: ILoginViewController {
-	
+
 	public func render(viewModel: LoginModels.ViewModel) {
 		if viewModel.success {
 			showAlert(title: "Success!", message: viewModel.userName) { _ in
@@ -43,16 +42,15 @@ extension LoginViewController: ILoginViewController {
 			showAlert(title: "Error", message: "")
 		}
 	}
-	
+
 	private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
 		let alert = UIAlertController(
 			title: title,
 			message: message,
-			preferredStyle: .alert)
-		
+			preferredStyle: .alert
+		)
 		let action = UIAlertAction(title: "OK", style: .default, handler: completion)
 		alert.addAction(action)
 		present(alert, animated: true)
 	}
-	
 }

@@ -10,7 +10,7 @@ import Foundation
 /// Класс сборщика
 final class TasksDependenciesBuilder {
 	static func build() -> TasksViewController {
-		
+
 		let tasksViewController = TasksViewController()
 		let tasksWorker: ITasksWorker = TasksWorker()
 		let taskManager = OrderedTaskManager(taskManager: TaskManager())
@@ -18,12 +18,12 @@ final class TasksDependenciesBuilder {
 		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
 		let tasksPresenter: ITasksPresenter = TasksPresenter(view: tasksViewController, sectionsAdapter: sectionsAdapter)
 		let tasksInteractor = TasksInteractor()
-		
+
 		tasksViewController.interactor = tasksInteractor
 		tasksInteractor.presenter = tasksPresenter
 		tasksInteractor.worker = tasksWorker
 		tasksInteractor.sectionsAdapter = sectionsAdapter
-		
+
 		taskManager.addTasks(tasks: repository.getAllTasks())
 		return tasksViewController
 	}

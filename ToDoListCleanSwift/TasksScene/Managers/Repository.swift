@@ -14,7 +14,7 @@ protocol IRepository {
 
 /// Класс репозитория
 final class Repository: IRepository {
-	
+
 	/// Получить все задачи
 	func getAllTasks() -> [Task] {
 		[
@@ -25,5 +25,4 @@ final class Repository: IRepository {
 			ImportantTask(title: "Important task 3", priority: .low)
 		]
 	}
-	
 }

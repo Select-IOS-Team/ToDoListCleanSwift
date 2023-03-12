@@ -8,16 +8,16 @@ import Foundation
 
 /// Модель вью
 enum TaskModel {
-		
+
 	struct Response {
 		var data: [ResponseData]
 	}
-	
+
 	struct ResponseData {
 		let sectionType: SectionsTypes
 		let sectionTasks: [Task]
 	}
-	
+
 	struct ViewData {
 		struct RegularLask {
 			let title: String
@@ -33,7 +33,7 @@ enum TaskModel {
 		enum Task {
 			case regularTask(RegularLask)
 			case importantTask(ImportantTask)
-			
+
 		}
 		struct Section {
 			let title: String
