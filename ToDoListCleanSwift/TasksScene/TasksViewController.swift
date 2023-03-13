@@ -75,7 +75,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 
 		cell.completeAction = { [weak self] in
-			guard let self else { return }
+			guard let self = self else { return }
 			self.interactor?.didCheckboxTapped(indexPath: indexPath)
 		}
 		return cell
