@@ -27,7 +27,8 @@ final class ImportantTaskTests: XCTestCase {
 			XCTAssertEqual(
 				differenceDays,
 				priority.dayCountForCompletion,
-				"Difference for \(priority) should be \(priority.dayCountForCompletion)")
+				"Difference for \(priority) should be \(priority.dayCountForCompletion)"
+			)
 		}
 	}
 }

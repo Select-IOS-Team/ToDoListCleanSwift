@@ -1,9 +1,9 @@
-//////
-//////  MainRouter.swift
-//////  ToDoListCleanSwift
-//////
-//////  Created by Evgeni Meleshin on 21.02.2023.
-//////
+//
+//  MainRouter.swift
+//  ToDoListCleanSwift
+//
+//  Created by Evgeni Meleshin on 21.02.2023.
+//
 
 import Foundation
 

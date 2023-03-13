@@ -16,9 +16,9 @@ class LoginViewController: UIViewController {
 	var interactor: ILoginInteractor?
 	private var router: IMainRouter?
 
-	@IBOutlet weak var textFieldLogin: UITextField!
-	@IBOutlet weak var textFieldPassword: UITextField!
-	@IBAction func loginButton(_ sender: UIButton) {
+	@IBOutlet private weak var textFieldLogin: UITextField!
+	@IBOutlet private weak var textFieldPassword: UITextField!
+	@IBAction private func loginButton(_ sender: UIButton) {
 		if let login = textFieldLogin.text, let password = textFieldPassword.text {
 			let request = LoginModels.Request(login: login, password: password)
 			interactor?.login(request: request)

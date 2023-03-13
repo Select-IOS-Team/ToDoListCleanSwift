@@ -24,8 +24,10 @@ enum SectionsTypes: Int, CustomStringConvertible, CaseIterable {
 
 	var description: String {
 		switch self {
-		case .uncompletedTasks: return "Невыполненные задачи"
-		case .completedTasks: return "Выполненные задачи"
+		case .uncompletedTasks:
+			return "Невыполненные задачи"
+		case .completedTasks:
+			return "Выполненные задачи"
 		}
 	}
 }
@@ -57,6 +59,8 @@ final class SectionAdapter: ISectionsAdapter {
 		for sectionType in sectionsTypes {
 			let index = getTasksForSectionsType(sectionType: sectionType).firstIndex { task === $0 }
 			if index != nil {
+				// TODO: - change logic
+				// swiftlint:disable:next force_unwrapping
 				return (sectionType, index!)
 			}
 		}

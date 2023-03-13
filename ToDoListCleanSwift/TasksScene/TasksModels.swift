@@ -33,7 +33,6 @@ enum TaskModel {
 		enum Task {
 			case regularTask(RegularLask)
 			case importantTask(ImportantTask)
-
 		}
 		struct Section {
 			let title: String

@@ -61,7 +61,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 
 		switch taskData {
 		case .importantTask(let task):
-			let pinkColor = #colorLiteral(red: 1, green: 0.8035419583, blue: 0.8338577151, alpha: 1)
+			let pinkColor: UIColor = .systemPink
 			cell.backgroundColor = task.overdue ? pinkColor : .white
 			cell.title.text = task.title
 			cell.completionDate.text = task.completionDate

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Данные для ответа
 public struct LoginDTO {
 	var success: Int
 	var login: String
