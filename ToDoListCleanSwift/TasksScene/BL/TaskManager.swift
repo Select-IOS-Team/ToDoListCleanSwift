@@ -8,29 +8,26 @@
 import Foundation
 
 /// Приоритеты важных задач
-enum ImportantTaskPriorities: CustomStringConvertible, CaseIterable {
-	case high
+enum ImportantTaskPriorities: Int, CustomStringConvertible, CaseIterable {
+	case high = 1
 	case medium
 	case low
 
 	var dayCountForCompletion: Int {
-		switch self {
-		case .high: return 1
-		case .medium: return 2
-		case .low: return 3
-		}
+		self.rawValue
 	}
 
 	/// Описание приоритета
 	var description: String {
 		switch self {
-
-		case .high: return "high"
-		case .medium: return "medium"
-		case .low: return "low"
+		case .high:
+			return "high"
+		case .medium:
+			return "medium"
+		case .low:
+			return "low"
 		}
 	}
-
 }
 
 /// Протокол менеджера задач
@@ -54,12 +51,12 @@ final class TaskManager {
 
 	/// Получить выполненные задачи
 	public func completedTasks() -> [Task] {
-		tasksList.filter({ $0.completed == true})
+		tasksList.filter { $0.completed == true }
 	}
 
 	/// Получить навыполненные задачи
 	public func uncompletedTasks() -> [Task] {
-		return tasksList.filter({ $0.completed != true})
+		return tasksList.filter { $0.completed != true }
 	}
 
 	/// Добавить задачу в список
@@ -67,6 +64,8 @@ final class TaskManager {
 		tasksList.append(task)
 	}
 
+	/// Добавить задачи
+	/// - Parameter tasks: массив новых задач
 	public func addTasks(tasks: [Task]) {
 		tasksList.append(contentsOf: tasks)
 	}

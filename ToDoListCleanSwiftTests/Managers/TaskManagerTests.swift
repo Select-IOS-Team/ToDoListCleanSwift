@@ -9,27 +9,13 @@ import XCTest
 @testable import ToDoListCleanSwift
 
 final class TaskManagerTests: XCTestCase {
-
-	// MARK: - Private properties
-
-	private var sut: TaskManager!
-
-	// MARK: - Lifecycle
-
-	override func setUp() {
-		super.setUp()
-		sut = TaskManager()
-	}
-
-	override func tearDown() {
-		sut = nil
-		super.tearDown()
-	}
-
 	// MARK: - Tests
 
 	// Проверка того, что менеджер после инициализации имеет пустой список задач
 	func test_taskListIsEmptyAfterInit() {
+		// given
+		let sut = TaskManager()
+		
 		// when
 		let tasks = sut.allTasks()
 
@@ -39,6 +25,7 @@ final class TaskManagerTests: XCTestCase {
 
 	func test_allTasks_shouldBeEqual() {
 		// Given
+		let sut = TaskManager()
 		let tasks = TasksStub.tasks
 
 		// When
@@ -51,6 +38,7 @@ final class TaskManagerTests: XCTestCase {
 
 	func test_completedTasks_shouldBeEqual() {
 		// Given
+		let sut = TaskManager()
 		let tasks = TasksStub.completedTasks
 
 		// When
@@ -64,6 +52,7 @@ final class TaskManagerTests: XCTestCase {
 	func test_uncompletedTasks_shouldBeEqual() {
 		// Given
 		let tasks = TasksStub.uncompletedTasks
+		let sut = TaskManager()
 
 		// When
 		sut.addTasks(tasks: TasksStub.tasks)
@@ -71,11 +60,11 @@ final class TaskManagerTests: XCTestCase {
 
 		// Then
 		XCTAssertEqual(result, tasks)
-
 	}
 
 	func test_addTask_shouldBeEqual() {
 		// Given
+		let sut = TaskManager()
 		var tasks = TasksStub.tasks
 		tasks.append(TasksStub.newTask)
 
@@ -90,6 +79,7 @@ final class TaskManagerTests: XCTestCase {
 
 	func test_addTasks_shouldBeEqual() {
 		// Given
+		let sut = TaskManager()
 		var tasks = [Task]()
 		tasks.append(contentsOf: TasksStub.tasks)
 
@@ -103,6 +93,7 @@ final class TaskManagerTests: XCTestCase {
 
 	func test_removeTask_shouldBeEqual() {
 		// Given
+		let sut = TaskManager()
 		let tasks = TasksStub.tasksListAfterRemove
 
 		// When

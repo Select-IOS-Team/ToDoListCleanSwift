@@ -15,11 +15,10 @@ protocol ITasksPresenter {
 /// Класс презентера
 class TasksPresenter: ITasksPresenter {
 
-	private weak var view: ITasksViewController!
-	private var sectionsAdapter: ISectionsAdapter!
+	weak var view: ITasksViewController?
+	private var sectionsAdapter: ISectionsAdapter
 
-	init(view: ITasksViewController!, sectionsAdapter: ISectionsAdapter!) {
-		self.view = view
+	init(sectionsAdapter: ISectionsAdapter) {
 		self.sectionsAdapter = sectionsAdapter
 	}
 
@@ -28,10 +27,11 @@ class TasksPresenter: ITasksPresenter {
 		for dataItem in response.data {
 			let section = TaskModel.ViewData.Section(
 				title: dataItem.sectionType.description,
-				tasks: createViewDataFromTasks(tasks: dataItem.sectionTasks))
+				tasks: createViewDataFromTasks(tasks: dataItem.sectionTasks)
+			)
 			sectionTypes.append(section)
 		}
-		view.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
+		view?.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
 	}
 
 	private func createViewDataFromTasks(tasks: [Task]) -> [TaskModel.ViewData.Task] {
@@ -45,13 +45,16 @@ class TasksPresenter: ITasksPresenter {
 				completed: task.completed,
 				priority: task.priority.description,
 				completionDate: getStringByDate(date: task.completionDate),
-				overdue: task.completionDate < Date() ? true : false)
+				overdue: task.completionDate < Date() ? true : false
+			)
 			return .importantTask(importantTask)
 		} else {
-			return .regularTask(TaskModel.ViewData.RegularLask(
-				title: task.title,
-				completed: task.completed
-			))
+			return .regularTask(
+				TaskModel.ViewData.RegularLask(
+					title: task.title,
+					completed: task.completed
+				)
+			)
 		}
 	}
 

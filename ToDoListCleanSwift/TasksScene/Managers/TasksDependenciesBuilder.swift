@@ -8,7 +8,7 @@
 import Foundation
 
 /// Класс сборщика
-final class TasksDependenciesBuilder {
+enum TasksDependenciesBuilder {
 	static func build() -> TasksViewController {
 
 		let tasksViewController = TasksViewController()
@@ -16,9 +16,10 @@ final class TasksDependenciesBuilder {
 		let taskManager = OrderedTaskManager(taskManager: TaskManager())
 		let repository: IRepository = Repository()
 		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
-		let tasksPresenter: ITasksPresenter = TasksPresenter(view: tasksViewController, sectionsAdapter: sectionsAdapter)
+		let tasksPresenter = TasksPresenter(sectionsAdapter: sectionsAdapter)
 		let tasksInteractor = TasksInteractor()
 
+		tasksPresenter.view = tasksViewController
 		tasksViewController.interactor = tasksInteractor
 		tasksInteractor.presenter = tasksPresenter
 		tasksInteractor.worker = tasksWorker

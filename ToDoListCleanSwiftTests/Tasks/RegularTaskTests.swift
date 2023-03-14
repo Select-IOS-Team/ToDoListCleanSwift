@@ -26,5 +26,4 @@ final class RegularTaskTests: XCTestCase {
 		// assert
 		XCTAssertNotEqual(startState, endState, "Values should not be equals")
 	}
-
 }

@@ -45,7 +45,7 @@ class ImportantTask: Task {
 	var priority: ImportantTaskPriorities
 	/// Дата выполнения задачи
 	var completionDate: Date {
-		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date())!
+		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date()) ?? Date()
 	}
 	init(title: String, priority: ImportantTaskPriorities) {
 		self.priority = priority
