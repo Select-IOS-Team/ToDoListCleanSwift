@@ -1,5 +1,5 @@
 //
-//  TasksModels.swift
+//  TasksModel.swift
 //  ToDoListCleanSwift
 //
 //  Created by Evgeni Meleshin on 21.02.2023.
@@ -19,19 +19,19 @@ enum TaskModel {
 	}
 
 	struct ViewData {
-		struct RegularLask {
+		struct RegularTask {
 			let title: String
-			let completed: Bool
+			let checkboxImageName: String
 		}
 		struct ImportantTask {
 			let title: String
-			let completed: Bool
-			let priority: String
-			let completionDate: String
-			let overdue: Bool
+			let checkboxImageName: String
+			let isExpired: Bool
+			let priorityText: String
+			let executionDate: String
 		}
 		enum Task {
-			case regularTask(RegularLask)
+			case regularTask(RegularTask)
 			case importantTask(ImportantTask)
 		}
 		struct Section {

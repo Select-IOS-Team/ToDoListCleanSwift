@@ -15,6 +15,14 @@ protocol ITasksPresenter {
 /// Класс презентера
 class TasksPresenter: ITasksPresenter {
 
+	// MARK: - Nested types
+
+	private enum Constants {
+		static let completedCheckboxImageName = "checkmark.circle.fill"
+		static let uncompletedCheckboxImageName = "circle"
+		static let priorityLabelText = "Priority: "
+	}
+
 	weak var view: ITasksViewController?
 	private var sectionsAdapter: ISectionsAdapter
 
@@ -39,28 +47,32 @@ class TasksPresenter: ITasksPresenter {
 	}
 
 	private func createViewData(task: Task) -> TaskModel.ViewData.Task {
-		if let task = task as? ImportantTask {
+		if let importantTask = task as? ImportantTask {
 			let importantTask = TaskModel.ViewData.ImportantTask(
-				title: task.title,
-				completed: task.completed,
-				priority: task.priority.description,
-				completionDate: getStringByDate(date: task.completionDate),
-				overdue: task.completionDate < Date() ? true : false
+				title: importantTask.title,
+				checkboxImageName: checkboxImageName(for: importantTask),
+				isExpired: importantTask.completionDate < Date(),
+				priorityText: Constants.priorityLabelText + importantTask.priority.description,
+				executionDate: getStringByDate(importantTask.completionDate)
 			)
 			return .importantTask(importantTask)
 		} else {
 			return .regularTask(
-				TaskModel.ViewData.RegularLask(
+				TaskModel.ViewData.RegularTask(
 					title: task.title,
-					completed: task.completed
+					checkboxImageName: checkboxImageName(for: task)
 				)
 			)
 		}
 	}
 
-	private func getStringByDate(date: Date) -> String {
+	private func getStringByDate(_ date: Date) -> String {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "dd.MM.yyyy HH:mm"
 		return formatter.string(from: date)
+	}
+
+	private func checkboxImageName(for task: Task) -> String {
+		task.isCompleted ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
 	}
 }

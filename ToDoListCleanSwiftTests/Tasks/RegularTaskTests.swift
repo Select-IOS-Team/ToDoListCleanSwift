@@ -19,9 +19,9 @@ final class RegularTaskTests: XCTestCase {
 		let sut = RegularTask(title: "Regular task example")
 
 		// act
-		let startState = sut.completed
-		sut.completeTask()
-		let endState = sut.completed
+		let startState = sut.isCompleted
+		sut.toggleCompletetionState()
+		let endState = sut.isCompleted
 
 		// assert
 		XCTAssertNotEqual(startState, endState, "Values should not be equals")

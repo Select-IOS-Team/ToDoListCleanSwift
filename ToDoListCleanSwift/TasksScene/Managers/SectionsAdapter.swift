@@ -57,11 +57,8 @@ final class SectionAdapter: ISectionsAdapter {
 
 	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionsTypes, index: Int)? {
 		for sectionType in sectionsTypes {
-			let index = getTasksForSectionsType(sectionType: sectionType).firstIndex { task === $0 }
-			if index != nil {
-				// TODO: - change logic
-				// swiftlint:disable:next force_unwrapping
-				return (sectionType, index!)
+			if let index = getTasksForSectionsType(sectionType: sectionType).firstIndex(where: { task === $0 }) {
+				return (sectionType, index)
 			}
 		}
 		return nil

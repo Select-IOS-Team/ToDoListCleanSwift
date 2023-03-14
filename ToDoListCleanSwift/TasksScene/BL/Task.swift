@@ -13,25 +13,22 @@ class Task {
 	/// Заголовок задачи
 	var title: String
 	/// Признак выполнения
-	var completed: Bool
-	/// Уникальный идентификатор
-	var id: String
+	var isCompleted: Bool
 
-	init(title: String, completed: Bool = false) {
-		self.completed = completed
+	init(title: String, isCompleted: Bool = false) {
+		self.isCompleted = isCompleted
 		self.title = title
-		self.id = String(describing: UUID())
 	}
 
 	/// Установка/снятие отметки выполнения
-	func completeTask() {
-		self.completed = !self.completed
+	func toggleCompletetionState() {
+		isCompleted.toggle()
 	}
 }
 
 extension Task: Equatable {
 	static func == (lhs: Task, rhs: Task) -> Bool {
-		return(lhs.title == rhs.title && lhs.completed == rhs.completed)
+		return(lhs.title == rhs.title && lhs.isCompleted == rhs.isCompleted)
 	}
 }
 
@@ -56,13 +53,13 @@ class ImportantTask: Task {
 extension RegularTask: CustomStringConvertible {
 	/// Описание обычной задачи
 	var description: String {
-		return "Title: \(title), completed: \(completed)"
+		return "Title: \(title), completed: \(isCompleted)"
 	}
 }
 
 extension ImportantTask: CustomStringConvertible {
 	/// Описание важной задачи
 	var description: String {
-		return "Title: \(title), completed: \(completed), priority: \(priority), date of completion: \(completionDate))"
+		return "Title: \(title), completed: \(isCompleted), priority: \(priority), date of completion: \(completionDate))"
 	}
 }
