@@ -8,7 +8,7 @@
 import UIKit
 
 /// Ячейка обычной задачи.
-final class RegularTaskTableViewCell: UITableViewCell, IConfigurableTableCell {
+final class RegularTaskTableViewCell: UITableViewCell {
 
 	// MARK: - Nested types
 	
@@ -57,17 +57,23 @@ final class RegularTaskTableViewCell: UITableViewCell, IConfigurableTableCell {
 		completionCheckboxImageView.image = nil
 		titleLabel.text = nil
 	}
+}
 
-	// MARK: - IConfigurableTableCell
+// MARK: - IConfigurableTableCell
+
+extension RegularTaskTableViewCell: IConfigurableTableCell {
 
 	func configure(with model: ConfigurationModel) {
 		titleLabel.text = model.title
 		completionCheckboxImageView.image = UIImage(systemName: model.checkboxImageName)
 	}
+}
 
-	// MARK: - Private methods
+// MARK: - Private methods
 
-	private func setupUI() {
+private extension RegularTaskTableViewCell {
+
+	func setupUI() {
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(completionCheckboxImageView)
 
@@ -76,7 +82,7 @@ final class RegularTaskTableViewCell: UITableViewCell, IConfigurableTableCell {
 		completionCheckboxImageView.addGestureRecognizer(tapGestureRecognizer)
 	}
 
-	private func setupLayout() {
+	func setupLayout() {
 		NSLayoutConstraint.activate([
 			contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.contentViewHeight),
 
@@ -100,14 +106,12 @@ final class RegularTaskTableViewCell: UITableViewCell, IConfigurableTableCell {
 		])
 	}
 
-	private func configureUI() {
+	func configureUI() {
 		selectionStyle = .none
 	}
 
-	// MARK: - Actions
-
 	@objc
-	private func didTapCheckbox() {
+	func didTapCheckbox() {
 		completionCheckboxTapAction?()
 	}
 }

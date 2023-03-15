@@ -8,7 +8,7 @@
 import UIKit
 
 /// Ячейка важной задачи.
-final class ImportantTaskTableViewCell: UITableViewCell, IConfigurableTableCell {
+final class ImportantTaskTableViewCell: UITableViewCell {
 
 	// MARK: - Nested types
 
@@ -72,8 +72,11 @@ final class ImportantTaskTableViewCell: UITableViewCell, IConfigurableTableCell 
 		priorityLabel.text = nil
 		executionDateLabel.text = nil
 	}
+}
 
-	// MARK: - IConfigurableTableCell
+// MARK: - IConfigurableTableCell
+
+extension ImportantTaskTableViewCell: IConfigurableTableCell {
 
 	func configure(with model: ConfigurationModel) {
 		titleLabel.text = model.title
@@ -81,13 +84,16 @@ final class ImportantTaskTableViewCell: UITableViewCell, IConfigurableTableCell 
 		priorityLabel.text = model.priorityText
 		executionDateLabel.text = model.executionDate
 		contentView.backgroundColor = model.isExpired
-			? Constants.expiredTaskBackgroundColor
-			: Constants.unexpiredTaskBackgroundColor
+		? Constants.expiredTaskBackgroundColor
+		: Constants.unexpiredTaskBackgroundColor
 	}
+}
+
+private extension ImportantTaskTableViewCell {
 
 	// MARK: - Private methods
 
-	private func setupUI() {
+	func setupUI() {
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(completionCheckboxImageView)
 		contentView.addSubview(priorityLabel)
@@ -98,7 +104,7 @@ final class ImportantTaskTableViewCell: UITableViewCell, IConfigurableTableCell 
 		completionCheckboxImageView.addGestureRecognizer(tapGestureRecognizer)
 	}
 
-	private func setupLayout() {
+	func setupLayout() {
 		NSLayoutConstraint.activate([
 			completionCheckboxImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 			completionCheckboxImageView.leadingAnchor.constraint(
@@ -139,14 +145,12 @@ final class ImportantTaskTableViewCell: UITableViewCell, IConfigurableTableCell 
 		executionDateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 	}
 
-	private func configureUI() {
+	func configureUI() {
 		selectionStyle = .none
 	}
 
-	// MARK: - Actions
-
 	@objc
-	private func didTapCheckbox() {
+	func didTapCheckbox() {
 		completionCheckboxTapAction?()
 	}
 }
