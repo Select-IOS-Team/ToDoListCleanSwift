@@ -34,7 +34,7 @@ class TasksInteractor: ITasksInteractor {
 	func didCheckboxTapped(indexPath: IndexPath) {
 		guard let sectionType = sectionsAdapter?.getSectionType(index: indexPath.section) else { return }
 		guard let task = sectionsAdapter?.getTasksForSectionsType(sectionType: sectionType)[indexPath.row] else { return }
-		task.completeTask()
+		task.toggleCompletetionState()
 		fetchData()
 	}
 }

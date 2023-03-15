@@ -13,7 +13,7 @@ protocol ITasksViewController: AnyObject {
 }
 
 /// Класс контроллера задач
-class TasksViewController: UIViewController {
+final class TasksViewController: UIViewController {
 
 	var interactor: ITasksInteractor?
 	var viewData: TaskModel.ViewData = TaskModel.ViewData(tasksBySections: [])
@@ -29,10 +29,10 @@ class TasksViewController: UIViewController {
 
 	private func setupTableView() {
 		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
-		tasksTableView.delegate = self
 		tasksTableView.dataSource = self
 		tasksTableView.backgroundColor = .white
-		tasksTableView.register(TaskViewCell.self, forCellReuseIdentifier: "cell")
+		tasksTableView.registerCell(type: RegularTaskTableViewCell.self)
+		tasksTableView.registerCell(type: ImportantTaskTableViewCell.self)
 		view.addSubview(tasksTableView)
 	}
 
@@ -44,7 +44,7 @@ class TasksViewController: UIViewController {
 	}
 }
 
-extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+extension TasksViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let section = viewData.tasksBySections[section]
@@ -52,33 +52,35 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(
-			withIdentifier: "cell",
-			for: indexPath
-		) as? TaskViewCell else { return UITableViewCell() }
 		let sectionTasks = viewData.tasksBySections[indexPath.section].tasks
 		let taskData = sectionTasks[indexPath.row]
 
 		switch taskData {
-		case .importantTask(let task):
-			let pinkColor: UIColor = .systemPink
-			cell.backgroundColor = task.overdue ? pinkColor : .white
-			cell.title.text = task.title
-			cell.completionDate.text = task.completionDate
-			cell.priority.text = task.priority
-			cell.checkbox.isChecked = task.completed
-			cell.checkbox.toggle()
-		case .regularTask(let task):
-			cell.title.text = task.title
-			cell.checkbox.isChecked = task.completed
-			cell.checkbox.toggle()
-		}
+		case .importantTask(let model):
+			guard let cell = tableView.dequeue(
+				type: ImportantTaskTableViewCell.self,
+				for: indexPath
+			) else { return UITableViewCell() }
 
-		cell.completeAction = { [weak self] in
-			guard let self = self else { return }
-			self.interactor?.didCheckboxTapped(indexPath: indexPath)
+			cell.configure(with: model)
+			cell.completionCheckboxTapAction = { [weak self] in
+				guard let self = self else { return }
+				self.interactor?.didCheckboxTapped(indexPath: indexPath)
+			}
+			return cell
+		case .regularTask(let model):
+			guard let cell = tableView.dequeue(
+				type: RegularTaskTableViewCell.self,
+				for: indexPath
+			) else { return UITableViewCell() }
+
+			cell.configure(with: model)
+			cell.completionCheckboxTapAction = { [weak self] in
+				guard let self = self else { return }
+				self.interactor?.didCheckboxTapped(indexPath: indexPath)
+			}
+			return cell
 		}
-		return cell
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {

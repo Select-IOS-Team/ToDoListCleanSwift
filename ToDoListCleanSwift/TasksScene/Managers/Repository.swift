@@ -18,11 +18,15 @@ final class Repository: IRepository {
 	/// Получить все задачи
 	func getAllTasks() -> [Task] {
 		[
-			RegularTask(title: "Regular task 1"),
-			RegularTask(title: "Regular task 2"),
-			ImportantTask(title: "Important task 1", priority: .high),
-			ImportantTask(title: "Important task 2", priority: .medium),
-			ImportantTask(title: "Important task 3", priority: .low)
+			RegularTask(title: "To clean the room"),
+			RegularTask(title: "Learning English"),
+			RegularTask(title: "Walk"),
+			RegularTask(title: "To wash the dishes"),
+			ImportantTask(title: "Workout", priority: .medium),
+			ImportantTask(title: "To fix shoes", priority: .medium),
+			ImportantTask(title: "Homework", priority: .high),
+			ImportantTask(title: "Relax", priority: .high),
+			ImportantTask(title: "To bake coockies and three cakes (for two lines in title)", priority: .low)
 		]
 	}
 }

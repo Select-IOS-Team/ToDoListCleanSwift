@@ -108,14 +108,14 @@ final class TaskManagerTests: XCTestCase {
 
 	private enum TasksStub {
 		static var tasks = [
-			RegularTask(title: "Regular task 1", completed: true),
+			RegularTask(title: "Regular task 1", isCompleted: true),
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium),
 			ImportantTask(title: "Important task 3", priority: .low)
 		]
 
-		static var completedTasks = [RegularTask(title: "Regular task 1", completed: true)]
+		static var completedTasks = [RegularTask(title: "Regular task 1", isCompleted: true)]
 
 		static var uncompletedTasks = [
 			RegularTask(title: "Regular task 2"),
@@ -127,7 +127,7 @@ final class TaskManagerTests: XCTestCase {
 		static var newTask = RegularTask(title: "new task")
 
 		static var tasksListAfterRemove = [
-			RegularTask(title: "Regular task 1", completed: true),
+			RegularTask(title: "Regular task 1", isCompleted: true),
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium)

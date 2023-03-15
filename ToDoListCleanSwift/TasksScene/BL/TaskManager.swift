@@ -51,12 +51,12 @@ final class TaskManager {
 
 	/// Получить выполненные задачи
 	public func completedTasks() -> [Task] {
-		tasksList.filter { $0.completed == true }
+		tasksList.filter { $0.isCompleted == true }
 	}
 
 	/// Получить навыполненные задачи
 	public func uncompletedTasks() -> [Task] {
-		return tasksList.filter { $0.completed != true }
+		return tasksList.filter { $0.isCompleted != true }
 	}
 
 	/// Добавить задачу в список
