@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TaskManagerPackage
 
 /// Протокол презентера
 protocol ITasksPresenter {

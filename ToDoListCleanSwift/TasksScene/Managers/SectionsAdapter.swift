@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TaskManagerPackage
 
 /// Протокол типов секций
 protocol ISectionsAdapter {
