@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TaskManagerPackage
 
 /// Класс сборщика
 enum TasksDependenciesBuilder {

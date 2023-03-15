@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TaskManagerPackage
 
 /// Протокол интерактора
 protocol ITasksInteractor: AnyObject {
