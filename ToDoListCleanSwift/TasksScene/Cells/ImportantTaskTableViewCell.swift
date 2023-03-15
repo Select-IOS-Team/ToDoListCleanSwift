@@ -89,9 +89,9 @@ extension ImportantTaskTableViewCell: IConfigurableTableCell {
 	}
 }
 
-private extension ImportantTaskTableViewCell {
+// MARK: - Private methods
 
-	// MARK: - Private methods
+private extension ImportantTaskTableViewCell {
 
 	func setupUI() {
 		contentView.addSubview(titleLabel)
