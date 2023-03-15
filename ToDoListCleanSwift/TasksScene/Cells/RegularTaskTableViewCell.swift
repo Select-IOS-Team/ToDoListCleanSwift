@@ -11,7 +11,7 @@ import UIKit
 final class RegularTaskTableViewCell: UITableViewCell {
 
 	// MARK: - Nested types
-	
+
 	private enum Constants {
 		static let titleLabelNumberOfLines: Int = 2
 		static let contentViewHeight: CGFloat = 56
@@ -19,7 +19,7 @@ final class RegularTaskTableViewCell: UITableViewCell {
 		static let contentSpace: CGFloat = 12
 		static let checkboxImageViewSize: CGFloat = 32
 	}
-	
+
 	typealias ConfigurationModel = TaskModel.ViewData.RegularTask
 
 	// MARK: - Internal properties

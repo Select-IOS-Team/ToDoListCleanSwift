@@ -7,14 +7,24 @@
 
 import Foundation
 
-/// Приоритеты важных задач
-enum ImportantTaskPriorities: Int, CustomStringConvertible, CaseIterable {
-	case high = 1
+/// Приоритет важных задач.
+enum ImportantTaskPriority: CustomStringConvertible, CaseIterable {
+	case high
 	case medium
 	case low
 
+	/// Количество дней на выполнение задачи на основе её приоритета.
 	var dayCountForCompletion: Int {
-		self.rawValue
+		// swiftlint:disable numbers_smell
+		switch self {
+		case .high:
+			return 1
+		case .medium:
+			return 2
+		case .low:
+			return 3
+		}
+		// swiftlint:enable numbers_smell
 	}
 
 	/// Описание приоритета
@@ -45,33 +55,33 @@ final class TaskManager {
 	private var tasksList: [Task] = []
 
 	/// Получить все задачи
-	public func allTasks() -> [Task] {
+	func allTasks() -> [Task] {
 		tasksList
 	}
 
 	/// Получить выполненные задачи
-	public func completedTasks() -> [Task] {
+	func completedTasks() -> [Task] {
 		tasksList.filter { $0.isCompleted == true }
 	}
 
 	/// Получить навыполненные задачи
-	public func uncompletedTasks() -> [Task] {
+	func uncompletedTasks() -> [Task] {
 		return tasksList.filter { $0.isCompleted != true }
 	}
 
 	/// Добавить задачу в список
-	public func addTask(task: Task) {
+	func addTask(task: Task) {
 		tasksList.append(task)
 	}
 
 	/// Добавить задачи
 	/// - Parameter tasks: массив новых задач
-	public func addTasks(tasks: [Task]) {
+	func addTasks(tasks: [Task]) {
 		tasksList.append(contentsOf: tasks)
 	}
 
 	/// Удалить задачу из списка
-	public func removeTask(task: Task) {
+	func removeTask(task: Task) {
 		tasksList.removeAll { value in value === task }
 	}
 }

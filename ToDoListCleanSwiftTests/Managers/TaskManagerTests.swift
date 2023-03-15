@@ -9,13 +9,14 @@ import XCTest
 @testable import ToDoListCleanSwift
 
 final class TaskManagerTests: XCTestCase {
+
 	// MARK: - Tests
 
 	// Проверка того, что менеджер после инициализации имеет пустой список задач
 	func test_taskListIsEmptyAfterInit() {
 		// given
 		let sut = TaskManager()
-		
+
 		// when
 		let tasks = sut.allTasks()
 
@@ -105,6 +106,8 @@ final class TaskManagerTests: XCTestCase {
 		// Then
 		XCTAssertEqual(result, tasks)
 	}
+
+	// MARK: - Stub
 
 	private enum TasksStub {
 		static var tasks = [

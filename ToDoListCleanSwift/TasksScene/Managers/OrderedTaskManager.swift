@@ -17,22 +17,22 @@ final class OrderedTaskManager: ITaskManager {
 	}
 
 	/// Получить и отсортировать все задачи
-	public func allTasks() -> [Task] {
+	func allTasks() -> [Task] {
 		sorted(tasks: taskManager.allTasks())
 	}
 
 	/// Получить и отсортировать выполненные задачи
-	public func completedTasks() -> [Task] {
+	func completedTasks() -> [Task] {
 		sorted(tasks: taskManager.completedTasks())
 	}
 
 	/// Получить и отсортировать невыполненные задачи
-	public func uncompletedTasks() -> [Task] {
+	func uncompletedTasks() -> [Task] {
 		sorted(tasks: taskManager.uncompletedTasks())
 	}
 
 	/// Добавить задачи
-	public func addTasks(tasks: [Task]) {
+	func addTasks(tasks: [Task]) {
 		taskManager.addTasks(tasks: tasks)
 	}
 

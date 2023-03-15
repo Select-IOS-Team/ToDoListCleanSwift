@@ -26,7 +26,7 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 	typealias ConfigurationModel = TaskModel.ViewData.ImportantTask
 
 	// MARK: - Internal properties
-	
+
 	var completionCheckboxTapAction: (() -> Void)?
 
 	// MARK: - Private properties
@@ -84,8 +84,8 @@ extension ImportantTaskTableViewCell: IConfigurableTableCell {
 		priorityLabel.text = model.priorityText
 		executionDateLabel.text = model.executionDate
 		contentView.backgroundColor = model.isExpired
-		? Constants.expiredTaskBackgroundColor
-		: Constants.unexpiredTaskBackgroundColor
+			? Constants.expiredTaskBackgroundColor
+			: Constants.unexpiredTaskBackgroundColor
 	}
 }
 
