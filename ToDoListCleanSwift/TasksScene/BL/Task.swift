@@ -39,12 +39,12 @@ class RegularTask: Task {}
 class ImportantTask: Task {
 
 	/// Приоритет важности задачи
-	var priority: ImportantTaskPriorities
+	var priority: ImportantTaskPriority
 	/// Дата выполнения задачи
 	var completionDate: Date {
 		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date()) ?? Date()
 	}
-	init(title: String, priority: ImportantTaskPriorities) {
+	init(title: String, priority: ImportantTaskPriority) {
 		self.priority = priority
 		super.init(title: title)
 	}

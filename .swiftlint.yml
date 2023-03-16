@@ -15,7 +15,7 @@ opt_in_rules:
   - force_unwrapping
   - implicitly_unwrapped_optional
   - joined_default_parameter
-#!  - lower_acl_than_parent
+  - lower_acl_than_parent
   - missing_docs
   - modifier_order
   - multiline_arguments
@@ -76,7 +76,7 @@ vertical_parameter_alignment_on_call: error
 anyobject_protocol: error
 private_outlet:
   allow_private_set: true
-#! lower_acl_than_parent: error
+lower_acl_than_parent: error
 operator_usage_whitespace:
   severity: error
   skip_aligned_constants: false
@@ -167,8 +167,6 @@ identifier_name:
     - y
     - z
     - id
-    # !используется в циклах
-    - i
 
 # настройка уровня вложения
 nesting:
@@ -176,11 +174,6 @@ nesting:
 
 # максимально допустимое кол-во предупреждений
 warning_threshold: 120
-
-# !отключение правил
-disabled_rules:
-# !отключение хвостовых пробелов
-- trailing_whitespace
 
 # тип отчёта по правилам, варианты: (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 reporter: "xcode"
