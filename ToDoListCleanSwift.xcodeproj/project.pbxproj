@@ -184,16 +184,8 @@
 				8563F4CD29A4FB600006C378 /* TasksPresenter.swift */,
 				8563F4DE29A511AB0006C378 /* Managers */,
 				8563F4E529A65A000006C378 /* Cells */,
-				8563F4D329A50FC70006C378 /* BL */,
 			);
 			path = TasksScene;
-			sourceTree = "<group>";
-		};
-		8563F4D329A50FC70006C378 /* BL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BL;
 			sourceTree = "<group>";
 		};
 		8563F4DE29A511AB0006C378 /* Managers */ = {
