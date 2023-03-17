@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import TaskManagerPackage
+import ToDoListBusinessLogic
 
 /// Протокол интерактора
 protocol ITasksInteractor: AnyObject {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import TaskManagerPackage
+import ToDoListBusinessLogic
 
 /// Протокол воркера
 protocol ITasksWorker {
