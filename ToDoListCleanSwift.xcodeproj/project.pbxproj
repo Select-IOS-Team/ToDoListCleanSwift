@@ -33,7 +33,7 @@
 		8563F4DD29A511420006C378 /* SectionsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4DC29A511420006C378 /* SectionsAdapter.swift */; };
 		8563F4E729A666870006C378 /* TasksDependenciesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */; };
 		8563F4E929A6ACFB0006C378 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8563F4E829A6ACFB0006C378 /* README.md */; };
-		85E0C12B29C2569E00E8A29B /* TaskManagerPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12A29C2569E00E8A29B /* TaskManagerPackage */; };
+		85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ToDoListCleanSwift.app; path = "/Users/evgenimeleshin/Desktop/Swiftbook. Middle iOS/Homework7/ToDoListCleanSwift/build/Debug-iphoneos/ToDoListCleanSwift.app"; sourceTree = "<absolute>"; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8563F4AB29A4E2C80006C378 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 		8563F4DC29A511420006C378 /* SectionsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsAdapter.swift; sourceTree = "<group>"; };
 		8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDependenciesBuilder.swift; sourceTree = "<group>"; };
 		8563F4E829A6ACFB0006C378 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		85E0C12829C2566400E8A29B /* TaskManagerPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TaskManagerPackage; path = ../../M2L3/TaskManagerPackage; sourceTree = "<group>"; };
-		CEB5EAB029BDAF5F00DBDAD3 /* ToDoListCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListCleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ToDoListBusinessLogic; path = ../../M2L3/ToDoListBusinessLogic; sourceTree = "<group>"; };
+		CEB5EAB029BDAF5F00DBDAD3 /* ToDoListCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ToDoListCleanSwiftTests.xctest; path = "/Users/evgenimeleshin/Desktop/Swiftbook. Middle iOS/Homework7/ToDoListCleanSwift/build/Debug-iphoneos/ToDoListCleanSwiftTests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E0C12B29C2569E00E8A29B /* TaskManagerPackage in Frameworks */,
+				85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,22 +127,12 @@
 		8563F49B29A4E2C80006C378 = {
 			isa = PBXGroup;
 			children = (
-				85E0C12729C2566400E8A29B /* Packages */,
+				85E0C12C29C445E300E8A29B /* Packages */,
 				8563F4E829A6ACFB0006C378 /* README.md */,
 				5EB995AE29BC26740046FA0C /* .gitignore */,
 				8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */,
-				8563F4A529A4E2C80006C378 /* Products */,
-				85E0C12929C2569E00E8A29B /* Frameworks */,
+				85E0C12E29C4463100E8A29B /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		8563F4A529A4E2C80006C378 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */,
-				CEB5EAB029BDAF5F00DBDAD3 /* ToDoListCleanSwiftTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */ = {
@@ -207,15 +197,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		85E0C12729C2566400E8A29B /* Packages */ = {
+		85E0C12C29C445E300E8A29B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				85E0C12829C2566400E8A29B /* TaskManagerPackage */,
+				85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
 		};
-		85E0C12929C2569E00E8A29B /* Frameworks */ = {
+		85E0C12E29C4463100E8A29B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -240,7 +230,7 @@
 			);
 			name = ToDoListCleanSwift;
 			packageProductDependencies = (
-				85E0C12A29C2569E00E8A29B /* TaskManagerPackage */,
+				85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */,
 			);
 			productName = ToDoListCleanSwift;
 			productReference = 8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */;
@@ -292,7 +282,7 @@
 				Base,
 			);
 			mainGroup = 8563F49B29A4E2C80006C378;
-			productRefGroup = 8563F4A529A4E2C80006C378 /* Products */;
+			productRefGroup = 8563F49B29A4E2C80006C378;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -653,9 +643,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		85E0C12A29C2569E00E8A29B /* TaskManagerPackage */ = {
+		85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TaskManagerPackage;
+			productName = ToDoListBusinessLogic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
