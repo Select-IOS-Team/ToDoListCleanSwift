@@ -12,13 +12,13 @@ protocol ILoginPresenter {
 }
 
 class LoginPresenter: ILoginPresenter {
-	
+
 	private weak var viewController: ILoginViewController?
-	
+
 	init(viewController: ILoginViewController) {
 		self.viewController = viewController
 	}
-	
+
 	func present(response: LoginModels.Response) {
 		let viewModel = LoginModels.ViewModel(
 			success: response.success,
@@ -27,5 +27,4 @@ class LoginPresenter: ILoginPresenter {
 		)
 		viewController?.render(viewModel: viewModel)
 	}
-	
 }

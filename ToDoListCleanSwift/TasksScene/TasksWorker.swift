@@ -14,7 +14,7 @@ protocol ITasksWorker {
 
 /// Класс воркера
 class TasksWorker: ITasksWorker {
-	
+
 	func fillResponse(result: [(section: SectionsTypes, tasks: [Task])]) -> TaskModel.Response {
 		var response = TaskModel.Response(data: [])
 		for item in result {
@@ -22,5 +22,4 @@ class TasksWorker: ITasksWorker {
 		}
 		return response
 	}
-	
 }

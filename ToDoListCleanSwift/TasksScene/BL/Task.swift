@@ -9,7 +9,7 @@ import Foundation
 
 /// Класс задачи
 class Task {
-	
+
 	/// Заголовок задачи
 	var title: String
 	/// Признак выполнения
@@ -20,14 +20,18 @@ class Task {
 	init(title: String, completed: Bool = false) {
 		self.completed = completed
 		self.title = title
-		self.id = String(describing: UUID())
 	}
-	
+
 	/// Установка/снятие отметки выполнения
-	func completeTask() {
-		self.completed = !self.completed
+	func toggleCompletetionState() {
+		isCompleted.toggle()
 	}
-	
+}
+
+extension Task: Equatable {
+	static func == (lhs: Task, rhs: Task) -> Bool {
+		return(lhs.title == rhs.title && lhs.isCompleted == rhs.isCompleted)
+	}
 }
 
 extension Task: Equatable {
@@ -41,30 +45,29 @@ class RegularTask: Task {}
 
 /// Класс важной задачи
 class ImportantTask: Task {
-	
+
 	/// Приоритет важности задачи
-	var priority: ImportantTaskPriorities
+	var priority: ImportantTaskPriority
 	/// Дата выполнения задачи
 	var completionDate: Date {
-		return Calendar.current.date(byAdding: .day, value: priority.rawValue, to: Date())!
+		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date()) ?? Date()
 	}
-	init(title: String, priority: ImportantTaskPriorities) {
+	init(title: String, priority: ImportantTaskPriority) {
 		self.priority = priority
 		super.init(title: title)
 	}
-	
 }
 
 extension RegularTask: CustomStringConvertible {
 	/// Описание обычной задачи
 	var description: String {
-		return "Title: \(title), completed: \(completed)"
+		return "Title: \(title), completed: \(isCompleted)"
 	}
 }
 
 extension ImportantTask: CustomStringConvertible {
 	/// Описание важной задачи
 	var description: String {
-		return "Title: \(title), completed: \(completed), priority: \(priority), date of completion: \(completionDate))"
+		return "Title: \(title), completed: \(isCompleted), priority: \(priority), date of completion: \(completionDate))"
 	}
 }

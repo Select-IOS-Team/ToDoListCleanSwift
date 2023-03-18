@@ -11,7 +11,6 @@ enum LoginModels {
 	struct Request {
 		var login: String
 		var password: String
-		
 	}
 	struct Response {
 		var success: Bool
