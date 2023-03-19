@@ -104,7 +104,7 @@ final class SectionAdapterTests: XCTestCase {
 		// then
 		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод")
 		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод")
-		XCTAssertNil(sectionTypeAndIndex)
+		XCTAssertNil(sectionTypeAndIndex, "Полученное значение типа секции и индекса не соответствует ожидаемому")
 	}
 
 	// Проверка того, что возвращаемый индекс для секции невыполненных задач равен 0
