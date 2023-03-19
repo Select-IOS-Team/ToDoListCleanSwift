@@ -77,3 +77,17 @@ class TasksPresenter: ITasksPresenter {
 		task.isCompleted ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
 	}
 }
+
+private extension ImportantTask.Priority {
+	/// Описание приоритета важной задачи
+	var description: String {
+		switch self {
+		case .high:
+			return "high"
+		case .medium:
+			return "medium"
+		case .low:
+			return "low"
+		}
+	}
+}
