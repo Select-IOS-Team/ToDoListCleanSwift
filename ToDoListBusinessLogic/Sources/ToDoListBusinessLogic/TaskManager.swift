@@ -1,6 +1,6 @@
 //
 //  TaskManager.swift
-//  TodoList
+//  ToDoListBusinessLogic
 //
 //  Created by Evgeni Meleshin on 10.02.2023.
 //

@@ -1,6 +1,6 @@
 //
 //  RegularTaskTests.swift
-//  RegularTaskTests
+//  ToDoListBusinessLogicTests
 //
 //  Created by Evgeni Meleshin on 10.03.2023.
 //
