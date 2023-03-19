@@ -1,3 +1,3 @@
 # ToDoListBusinessLogic
 
-A description of this package.
+Бизнес-логика и тесты для нее для приложения ToDo List.
