@@ -1,6 +1,8 @@
+/// Шаблон теста
 public struct ToDoListBusinessLogic {
-    public private(set) var text = "Hello, World!"
-
-    public init() {
-    }
+	/// Шаблон метода
+	public private(set) var text = "Hello, World!"
+	/// Шаблон инициализатора
+	public init() {
+	}
 }

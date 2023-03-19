@@ -32,9 +32,13 @@ public enum ImportantTaskPriorities: Int, CustomStringConvertible, CaseIterable 
 
 /// Протокол менеджера задач
 public protocol ITaskManager {
+	/// Получает все задачи
 	func allTasks() -> [Task]
+	/// Получает выполненные задачи
 	func completedTasks() -> [Task]
+	/// Получает невыполненные задачи
 	func uncompletedTasks() -> [Task]
+	/// Добавляет задачи
 	func addTasks(tasks: [Task])
 }
 
@@ -44,8 +48,8 @@ public final class TaskManager {
 	/// Список задач
 	private var tasksList: [Task] = []
 
+	/// Инициализатор
 	public init() {}
-	
 	/// Получить все задачи
 	public func allTasks() -> [Task] {
 		tasksList

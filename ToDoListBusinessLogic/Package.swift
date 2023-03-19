@@ -11,17 +11,18 @@ let package = Package(
 	products: [
 		.library(
 			name: "ToDoListBusinessLogic",
-			targets: ["ToDoListBusinessLogic"])
+			targets: ["ToDoListBusinessLogic"]
+		)
 	],
-	dependencies: [
-		
-	],
+	dependencies: [],
 	targets: [
 		.target(
 			name: "ToDoListBusinessLogic",
-			dependencies: []),
+			dependencies: []
+		),
 		.testTarget(
 			name: "ToDoListBusinessLogicTests",
-			dependencies: ["ToDoListBusinessLogic"]),
+			dependencies: ["ToDoListBusinessLogic"]
+		)
 	]
 )

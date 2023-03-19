@@ -15,6 +15,7 @@ public class Task {
 	/// Признак выполнения
 	public var isCompleted: Bool
 
+	/// Инициализатор
 	public init(title: String, isCompleted: Bool = false) {
 		self.isCompleted = isCompleted
 		self.title = title

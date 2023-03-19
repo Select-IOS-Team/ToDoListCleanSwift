@@ -15,7 +15,7 @@ final class TaskManagerTests: XCTestCase {
 	func test_taskListIsEmptyAfterInit() {
 		// given
 		let sut = TaskManager()
-		
+
 		// when
 		let tasks = sut.allTasks()
 
