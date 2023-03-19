@@ -15,11 +15,11 @@ protocol ITasksInteractor: AnyObject {
 
 /// Класс интерактора
 class TasksInteractor: ITasksInteractor {
-	
+
 	var sectionsAdapter: ISectionsAdapter?
 	var presenter: ITasksPresenter?
 	var worker: ITasksWorker?
-	
+
 	func fetchData() {
 		var result: [(section: SectionsTypes, tasks: [Task])] = []
 		guard let sectionsTypes = sectionsAdapter?.getSectionsTypes() else { return }
@@ -30,12 +30,11 @@ class TasksInteractor: ITasksInteractor {
 		guard let response = worker?.fillResponse(result: result) else { return }
 		presenter?.presentData(response: response)
 	}
-	
+
 	func didCheckboxTapped(indexPath: IndexPath) {
 		guard let sectionType = sectionsAdapter?.getSectionType(index: indexPath.section) else { return }
 		guard let task = sectionsAdapter?.getTasksForSectionsType(sectionType: sectionType)[indexPath.row] else { return }
-		task.completeTask()
+		task.toggleCompletetionState()
 		fetchData()
 	}
-	
 }

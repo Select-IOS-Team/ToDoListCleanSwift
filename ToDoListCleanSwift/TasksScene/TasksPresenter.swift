@@ -14,50 +14,65 @@ protocol ITasksPresenter {
 
 /// Класс презентера
 class TasksPresenter: ITasksPresenter {
-	
-	private weak var view: ITasksViewController!
-	private var sectionsAdapter: ISectionsAdapter!
-	
-	init(view: ITasksViewController!, sectionsAdapter: ISectionsAdapter!) {
-		self.view = view
+
+	// MARK: - Nested types
+
+	private enum Constants {
+		static let completedCheckboxImageName = "checkmark.circle.fill"
+		static let uncompletedCheckboxImageName = "circle"
+		static let priorityLabelText = "Priority: "
+	}
+
+	weak var view: ITasksViewController?
+	private var sectionsAdapter: ISectionsAdapter
+
+	init(sectionsAdapter: ISectionsAdapter) {
 		self.sectionsAdapter = sectionsAdapter
 	}
-	
+
 	func presentData(response: TaskModel.Response) {
 		var sectionTypes = [TaskModel.ViewData.Section]()
 		for dataItem in response.data {
 			let section = TaskModel.ViewData.Section(
 				title: dataItem.sectionType.description,
-				tasks: createViewDataFromTasks(tasks: dataItem.sectionTasks))
+				tasks: createViewDataFromTasks(tasks: dataItem.sectionTasks)
+			)
 			sectionTypes.append(section)
 		}
-		view.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
+		view?.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
 	}
-	
+
 	private func createViewDataFromTasks(tasks: [Task]) -> [TaskModel.ViewData.Task] {
 		tasks.map { createViewData(task: $0) }
 	}
-	
+
 	private func createViewData(task: Task) -> TaskModel.ViewData.Task {
-		if let task = task as? ImportantTask {
+		if let importantTask = task as? ImportantTask {
 			let importantTask = TaskModel.ViewData.ImportantTask(
-				title: task.title,
-				completed: task.completed,
-				priority: task.priority.description,
-				completionDate: getStringByDate(date: task.completionDate),
-				overdue: task.completionDate < Date() ? true : false)
+				title: importantTask.title,
+				checkboxImageName: checkboxImageName(for: importantTask),
+				isExpired: importantTask.completionDate < Date(),
+				priorityText: Constants.priorityLabelText + importantTask.priority.description,
+				executionDate: getStringByDate(importantTask.completionDate)
+			)
 			return .importantTask(importantTask)
 		} else {
-			return .regularTask(TaskModel.ViewData.RegularLask(
-				title: task.title,
-				completed: task.completed))
+			return .regularTask(
+				TaskModel.ViewData.RegularTask(
+					title: task.title,
+					checkboxImageName: checkboxImageName(for: task)
+				)
+			)
 		}
 	}
-	
-	private func getStringByDate(date: Date) -> String {
+
+	private func getStringByDate(_ date: Date) -> String {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "dd.MM.yyyy HH:mm"
 		return formatter.string(from: date)
 	}
-	
+
+	private func checkboxImageName(for task: Task) -> String {
+		task.isCompleted ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
+	}
 }
