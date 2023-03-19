@@ -14,7 +14,7 @@ final class ImportantTaskTests: XCTestCase {
 
 	// Различие м-ду датой выполнения и текущей должно быть в dayCountForCompletion по приоритету
 	func test_importantTask_DifferenceShouldBeEqualDayCount() {
-		ImportantTaskPriorities.allCases.forEach { priority in
+		ImportantTask.Priority.allCases.forEach { priority in
 			// arrange
 			let sut = ImportantTask(title: "Important task example", priority: priority)
 
