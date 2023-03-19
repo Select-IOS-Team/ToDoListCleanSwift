@@ -1,6 +1,6 @@
 //
 //  ImportantTaskTests.swift
-//  ToDoListBusinessLogicTests
+//  ImportantTaskTests
 //
 //  Created by Evgeni Meleshin on 10.03.2023.
 //
