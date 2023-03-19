@@ -9,9 +9,9 @@ import XCTest
 @testable import ToDoListCleanSwift
 
 final class TaskManagerTests: XCTestCase {
-	
-	var sut: TaskManager!
-	
+
+	var sut: TaskManager?
+
 	override func setUp() {
 		super.setUp()
 		sut = TaskManager()
@@ -21,14 +21,14 @@ final class TaskManagerTests: XCTestCase {
 		sut = nil
 		super.tearDown()
     }
-	
+
 	func test_allTasks_shouldBeEqual() {
 		// Given
 		let tasks = TasksStub.tasks
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		let result = sut.allTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		let result = sut?.allTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
@@ -39,8 +39,8 @@ final class TaskManagerTests: XCTestCase {
 		let tasks = TasksStub.completedTasks
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		let result = sut.completedTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		let result = sut?.completedTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
@@ -51,12 +51,11 @@ final class TaskManagerTests: XCTestCase {
 		let tasks = TasksStub.uncompletedTasks
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		let result = sut.uncompletedTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		let result = sut?.uncompletedTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
-
 	}
 
 	func test_addTask_shouldBeEqual() {
@@ -65,9 +64,9 @@ final class TaskManagerTests: XCTestCase {
 		tasks.append(TasksStub.newTask)
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		sut.addTask(task: TasksStub.newTask)
-		let result = sut.allTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		sut?.addTask(task: TasksStub.newTask)
+		let result = sut?.allTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
@@ -79,8 +78,8 @@ final class TaskManagerTests: XCTestCase {
 		tasks.append(contentsOf: TasksStub.tasks)
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		let result = sut.allTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		let result = sut?.allTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
@@ -91,37 +90,40 @@ final class TaskManagerTests: XCTestCase {
 		let tasks = TasksStub.tasksListAfterRemove
 
 		// When
-		sut.addTasks(tasks: TasksStub.tasks)
-		let removeItem = sut.allTasks()[4]
-		sut.removeTask(task: removeItem)
-		let result = sut.allTasks()
+		sut?.addTasks(tasks: TasksStub.tasks)
+		let removeItem = sut?.allTasks()[4]
+		sut?.removeTask(task: removeItem ?? Task(title: ""))
+		let result = sut?.allTasks()
 
 		// Then
 		XCTAssertEqual(result, tasks)
 	}
-	
+
 	private enum TasksStub {
 		static var tasks = [
 			RegularTask(title: "Regular task 1", completed: true),
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium),
-			ImportantTask(title: "Important task 3", priority: .low)]
-		
+			ImportantTask(title: "Important task 3", priority: .low)
+		]
+
 		static var completedTasks = [RegularTask(title: "Regular task 1", completed: true)]
-		
+
 		static var uncompletedTasks = [
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			ImportantTask(title: "Important task 2", priority: .medium),
-			ImportantTask(title: "Important task 3", priority: .low)]
-		
+			ImportantTask(title: "Important task 3", priority: .low)
+		]
+
 		static var newTask = RegularTask(title: "new task")
-		
+
 		static var tasksListAfterRemove = [
 			RegularTask(title: "Regular task 1", completed: true),
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
-			ImportantTask(title: "Important task 2", priority: .medium)]
+			ImportantTask(title: "Important task 2", priority: .medium)
+		]
 	}
 }

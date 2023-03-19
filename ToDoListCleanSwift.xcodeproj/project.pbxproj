@@ -36,10 +36,18 @@
 		8563F4DD29A511420006C378 /* SectionsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4DC29A511420006C378 /* SectionsAdapter.swift */; };
 		8563F4E729A666870006C378 /* TasksDependenciesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */; };
 		8563F4E929A6ACFB0006C378 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8563F4E829A6ACFB0006C378 /* README.md */; };
+		CE0A9A3429C6464B00E2CE56 /* OrderedTaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A9A3329C6464B00E2CE56 /* OrderedTaskManagerTests.swift */; };
 		CEB5EAB329BDAF5F00DBDAD3 /* TaskManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5EAB229BDAF5F00DBDAD3 /* TaskManagerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE0A9A3529C6464B00E2CE56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8563F49C29A4E2C80006C378 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8563F4A329A4E2C80006C378;
+			remoteInfo = ToDoListCleanSwift;
+		};
 		CEB5EAB429BDAF5F00DBDAD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8563F49C29A4E2C80006C378 /* Project object */;
@@ -81,12 +89,21 @@
 		8563F4DC29A511420006C378 /* SectionsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsAdapter.swift; sourceTree = "<group>"; };
 		8563F4E629A666870006C378 /* TasksDependenciesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDependenciesBuilder.swift; sourceTree = "<group>"; };
 		8563F4E829A6ACFB0006C378 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CE0A9A3129C6464B00E2CE56 /* OrderedTaskManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderedTaskManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0A9A3329C6464B00E2CE56 /* OrderedTaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedTaskManagerTests.swift; sourceTree = "<group>"; };
 		CEB5EAB029BDAF5F00DBDAD3 /* TaskManagerTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB5EAB229BDAF5F00DBDAD3 /* TaskManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8563F4A129A4E2C80006C378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE0A9A2E29C6464B00E2CE56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -129,23 +146,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		5EB995B429BE31150046FA0C /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				CEB5EAB229BDAF5F00DBDAD3 /* TaskManagerTests.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		5EB995B529BE40540046FA0C /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				85E0C11429BBB5FD00E8A29B /* RegularTaskTests.swift */,
-				85E0C11B29BC85A900E8A29B /* ImportantTaskTests.swift */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
 		8563F49B29A4E2C80006C378 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +153,7 @@
 				5EB995AE29BC26740046FA0C /* .gitignore */,
 				8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */,
 				CEB5EAB129BDAF5F00DBDAD3 /* TaskManagerTest */,
+				CE0A9A3229C6464B00E2CE56 /* OrderedTaskManagerTests */,
 				8563F4A529A4E2C80006C378 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +163,7 @@
 			children = (
 				8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */,
 				CEB5EAB029BDAF5F00DBDAD3 /* TaskManagerTest.xctest */,
+				CE0A9A3129C6464B00E2CE56 /* OrderedTaskManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,13 +241,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		CEB5EAB129BDAF5F00DBDAD3 /* ToDoListCleanSwiftTests */ = {
+		CE0A9A3229C6464B00E2CE56 /* OrderedTaskManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				5EB995B529BE40540046FA0C /* Tasks */,
-				5EB995B429BE31150046FA0C /* Managers */,
+				CE0A9A3329C6464B00E2CE56 /* OrderedTaskManagerTests.swift */,
 			);
-			path = ToDoListCleanSwiftTests;
+			path = OrderedTaskManagerTests;
 			sourceTree = "<group>";
 		};
 		CEB5EAB129BDAF5F00DBDAD3 /* TaskManagerTest */ = {
@@ -276,6 +277,24 @@
 			productName = ToDoListCleanSwift;
 			productReference = 8563F4A429A4E2C80006C378 /* ToDoListCleanSwift.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CE0A9A3029C6464B00E2CE56 /* OrderedTaskManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE0A9A3729C6464B00E2CE56 /* Build configuration list for PBXNativeTarget "OrderedTaskManagerTests" */;
+			buildPhases = (
+				CE0A9A2D29C6464B00E2CE56 /* Sources */,
+				CE0A9A2E29C6464B00E2CE56 /* Frameworks */,
+				CE0A9A2F29C6464B00E2CE56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE0A9A3629C6464B00E2CE56 /* PBXTargetDependency */,
+			);
+			name = OrderedTaskManagerTests;
+			productName = OrderedTaskManagerTests;
+			productReference = CE0A9A3129C6464B00E2CE56 /* OrderedTaskManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		CEB5EAAF29BDAF5F00DBDAD3 /* TaskManagerTest */ = {
 			isa = PBXNativeTarget;
@@ -308,6 +327,10 @@
 					8563F4A329A4E2C80006C378 = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					CE0A9A3029C6464B00E2CE56 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8563F4A329A4E2C80006C378;
+					};
 					CEB5EAAF29BDAF5F00DBDAD3 = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = 8563F4A329A4E2C80006C378;
@@ -329,6 +352,7 @@
 			targets = (
 				8563F4A329A4E2C80006C378 /* ToDoListCleanSwift */,
 				CEB5EAAF29BDAF5F00DBDAD3 /* TaskManagerTest */,
+				CE0A9A3029C6464B00E2CE56 /* OrderedTaskManagerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,6 +370,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE0A9A2F29C6464B00E2CE56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB5EAAE29BDAF5F00DBDAD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,6 +389,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		5A411CB129BF3EC500AE3C78 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -407,6 +439,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE0A9A2D29C6464B00E2CE56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE0A9A3429C6464B00E2CE56 /* OrderedTaskManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB5EAAC29BDAF5F00DBDAD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,6 +458,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE0A9A3629C6464B00E2CE56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8563F4A329A4E2C80006C378 /* ToDoListCleanSwift */;
+			targetProxy = CE0A9A3529C6464B00E2CE56 /* PBXContainerItemProxy */;
+		};
 		CEB5EAB529BDAF5F00DBDAD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8563F4A329A4E2C80006C378 /* ToDoListCleanSwift */;
@@ -566,7 +611,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G2VF2J7D53;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -595,7 +640,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G2VF2J7D53;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -614,6 +659,40 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE0A9A3829C6464B00E2CE56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = leila.OrderedTaskManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoListCleanSwift";
+			};
+			name = Debug;
+		};
+		CE0A9A3929C6464B00E2CE56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = leila.OrderedTaskManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoListCleanSwift";
 			};
 			name = Release;
 		};
@@ -672,6 +751,15 @@
 			buildConfigurations = (
 				8563F4B929A4E2C90006C378 /* Debug */,
 				8563F4BA29A4E2C90006C378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE0A9A3729C6464B00E2CE56 /* Build configuration list for PBXNativeTarget "OrderedTaskManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE0A9A3829C6464B00E2CE56 /* Debug */,
+				CE0A9A3929C6464B00E2CE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

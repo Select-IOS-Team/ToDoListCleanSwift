@@ -46,7 +46,7 @@ final class OrderedTaskManager: ITaskManager {
 				return true
 			}
 
-			if  $0 is RegularTask, $1 is ImportantTask {
+			if $0 is RegularTask, $1 is ImportantTask {
 				return false
 			}
 

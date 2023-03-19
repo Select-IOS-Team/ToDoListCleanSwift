@@ -16,21 +16,16 @@ class Task {
 	var completed: Bool
 	/// Уникальный идентификатор
 	var id: String
-	
+
 	init(title: String, completed: Bool = false) {
 		self.completed = completed
 		self.title = title
+		self.id = String(describing: UUID())
 	}
 
 	/// Установка/снятие отметки выполнения
 	func toggleCompletetionState() {
-		isCompleted.toggle()
-	}
-}
-
-extension Task: Equatable {
-	static func == (lhs: Task, rhs: Task) -> Bool {
-		return(lhs.title == rhs.title && lhs.isCompleted == rhs.isCompleted)
+		completed.toggle()
 	}
 }
 
@@ -52,22 +47,23 @@ class ImportantTask: Task {
 	var completionDate: Date {
 		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date()) ?? Date()
 	}
-	init(title: String, priority: ImportantTaskPriority) {
+	init(title: String, priority: ImportantTaskPriority, completed: Bool = false) {
 		self.priority = priority
 		super.init(title: title)
+		self.completed = completed
 	}
 }
 
 extension RegularTask: CustomStringConvertible {
 	/// Описание обычной задачи
 	var description: String {
-		return "Title: \(title), completed: \(isCompleted)"
+		return "Title: \(title), completed: \(completed)"
 	}
 }
 
 extension ImportantTask: CustomStringConvertible {
 	/// Описание важной задачи
 	var description: String {
-		return "Title: \(title), completed: \(isCompleted), priority: \(priority), date of completion: \(completionDate))"
+		return "Title: \(title), completed: \(completed), priority: \(priority), date of completion: \(completionDate))"
 	}
 }

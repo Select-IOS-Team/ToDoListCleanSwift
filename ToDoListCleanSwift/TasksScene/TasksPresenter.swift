@@ -73,6 +73,6 @@ class TasksPresenter: ITasksPresenter {
 	}
 
 	private func checkboxImageName(for task: Task) -> String {
-		task.isCompleted ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
+		task.completed ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
 	}
 }
