@@ -8,58 +8,78 @@
 import Foundation
 
 /// Класс задачи
-class Task {
+public class Task {
 
 	/// Заголовок задачи
-	var title: String
+	public var title: String
 	/// Признак выполнения
-	var isCompleted: Bool
+	public var isCompleted: Bool
 
-	init(title: String, isCompleted: Bool = false) {
+	/// Инициализатор
+	public init(title: String, isCompleted: Bool = false) {
 		self.isCompleted = isCompleted
 		self.title = title
 	}
 
 	/// Установка/снятие отметки выполнения
-	func toggleCompletetionState() {
+	public func toggleCompletetionState() {
 		isCompleted.toggle()
 	}
 }
 
 extension Task: Equatable {
-	static func == (lhs: Task, rhs: Task) -> Bool {
+	public static func == (lhs: Task, rhs: Task) -> Bool {
 		return(lhs.title == rhs.title && lhs.isCompleted == rhs.isCompleted)
 	}
 }
 
 /// Класс обычноной задачи
-class RegularTask: Task {}
+public final class RegularTask: Task {}
 
 /// Класс важной задачи
-class ImportantTask: Task {
+public final class ImportantTask: Task {
 
 	/// Приоритет важности задачи
-	var priority: ImportantTaskPriority
+	public var priority: Priority
 	/// Дата выполнения задачи
-	var completionDate: Date {
+	public var completionDate: Date {
 		return Calendar.current.date(byAdding: .day, value: priority.dayCountForCompletion, to: Date()) ?? Date()
 	}
-	init(title: String, priority: ImportantTaskPriority) {
+	public init(title: String, priority: Priority) {
 		self.priority = priority
 		super.init(title: title)
+	}
+	/// Приоритеты важных задач
+	public enum Priority: CaseIterable {
+		case high
+		case medium
+		case low
+		/// Количество дней на выполнение задачи на основе её приоритета.
+		var dayCountForCompletion: Int {
+			// swiftlint:disable numbers_smell
+			switch self {
+			case .high:
+				return 1
+			case .medium:
+				return 2
+			case .low:
+				return 3
+			}
+			// swiftlint:enable numbers_smell
+		}
 	}
 }
 
 extension RegularTask: CustomStringConvertible {
 	/// Описание обычной задачи
-	var description: String {
+	public var description: String {
 		return "Title: \(title), completed: \(isCompleted)"
 	}
 }
 
 extension ImportantTask: CustomStringConvertible {
 	/// Описание важной задачи
-	var description: String {
+	public var description: String {
 		return "Title: \(title), completed: \(isCompleted), priority: \(priority), date of completion: \(completionDate))"
 	}
 }

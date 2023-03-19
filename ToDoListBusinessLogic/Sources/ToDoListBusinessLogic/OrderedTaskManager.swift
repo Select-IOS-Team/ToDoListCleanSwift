@@ -8,31 +8,31 @@
 import Foundation
 
 /// Класс сортирующего задачи менеджера
-final class OrderedTaskManager: ITaskManager {
+public final class OrderedTaskManager: ITaskManager {
 
 	let taskManager: ITaskManager
 
-	init(taskManager: ITaskManager) {
+	public init(taskManager: ITaskManager) {
 		self.taskManager = taskManager
 	}
 
 	/// Получить и отсортировать все задачи
-	func allTasks() -> [Task] {
+	public func allTasks() -> [Task] {
 		sorted(tasks: taskManager.allTasks())
 	}
 
 	/// Получить и отсортировать выполненные задачи
-	func completedTasks() -> [Task] {
+	public func completedTasks() -> [Task] {
 		sorted(tasks: taskManager.completedTasks())
 	}
 
 	/// Получить и отсортировать невыполненные задачи
-	func uncompletedTasks() -> [Task] {
+	public func uncompletedTasks() -> [Task] {
 		sorted(tasks: taskManager.uncompletedTasks())
 	}
 
 	/// Добавить задачи
-	func addTasks(tasks: [Task]) {
+	public func addTasks(tasks: [Task]) {
 		taskManager.addTasks(tasks: tasks)
 	}
 

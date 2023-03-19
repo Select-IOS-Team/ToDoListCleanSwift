@@ -7,14 +7,14 @@
 
 import Foundation
 import XCTest
-@testable import ToDoListCleanSwift
+@testable import ToDoListBusinessLogic
 
 /// Класс тестов для важной задачи
 final class ImportantTaskTests: XCTestCase {
 
 	// Различие м-ду датой выполнения и текущей должно быть в dayCountForCompletion по приоритету
 	func test_importantTask_DifferenceShouldBeEqualDayCount() {
-		ImportantTaskPriority.allCases.forEach { priority in
+		ImportantTask.Priority.allCases.forEach { priority in
 			// arrange
 			let sut = ImportantTask(title: "Important task example", priority: priority)
 

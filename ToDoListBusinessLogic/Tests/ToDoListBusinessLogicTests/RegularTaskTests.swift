@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import ToDoListCleanSwift
+@testable import ToDoListBusinessLogic
 
 /// Класс тестов для обычной задачи
 final class RegularTaskTests: XCTestCase {

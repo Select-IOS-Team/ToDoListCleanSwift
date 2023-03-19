@@ -6,10 +6,9 @@
 //
 
 import XCTest
-@testable import ToDoListCleanSwift
+@testable import ToDoListBusinessLogic
 
 final class TaskManagerTests: XCTestCase {
-
 	// MARK: - Tests
 
 	// Проверка того, что менеджер после инициализации имеет пустой список задач
@@ -106,8 +105,6 @@ final class TaskManagerTests: XCTestCase {
 		// Then
 		XCTAssertEqual(result, tasks)
 	}
-
-	// MARK: - Stub
 
 	private enum TasksStub {
 		static var tasks = [

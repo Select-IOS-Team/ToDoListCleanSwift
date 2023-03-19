@@ -5,6 +5,7 @@
 //  Created by Evgeni Meleshin on 21.02.2023.
 //
 import Foundation
+import ToDoListBusinessLogic
 
 /// Модель вью
 enum TaskModel {
