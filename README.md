@@ -22,3 +22,25 @@
 	* Added autorization screen
 	
 	* Realized Clean Swift conception
+	
+	* Realized UNIT Tests for business logic in project
+	
+	* Business Logic is separated and connected as separate package "ToDoListBusinessLogic"
+	
+# Project build
+
+	* Project using *swiftlint* for code style control. All adding moduls must correspond rules.
+	For install *swiftlint* use Brew in your terminal. Do the following steps:
+	- brew install
+	- brew install swiftlint
+	Then in buld phases of your project you need to add new script (with name "Run Swiftlint") and fill the text place with:
+	
+		export PATH="$PATH:/opt/homebrew/bin"
+		if which swiftlint > /dev/null; then
+			swiftlint
+		else
+			echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+			exit 1
+		fi
+		
+	Checkbox "Based on dependancy analysis" must be false.
