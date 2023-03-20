@@ -12,8 +12,8 @@ import XCTest
 /// Класс тестов для обычной задачи
 final class RegularTaskTests: XCTestCase {
 
-	// После вызова метода значение должно быть инвертировано
-	func test_regularTask_completedShouldBeTrue() {
+	// После вызова метода toggleCompletetionState невыполненная задача должна стать выполненной
+	func test_toggleCompletetionState_uncompletedTask_afterCompletedShouldBeTrue() {
 
 		// arrange
 		let sut = RegularTask(title: "Regular task example")
