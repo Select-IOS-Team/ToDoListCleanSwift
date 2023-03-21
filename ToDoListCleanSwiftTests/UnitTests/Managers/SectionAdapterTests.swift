@@ -13,7 +13,7 @@ final class SectionAdapterTests: XCTestCase {
 
 	// MARK: - Private properties
 
-	private var taskManagerMock: TaskManagerMock! // swiftlint:disable:this implicitly_unwrapped_optional
+	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	// MARK: - Tests
 
@@ -35,14 +35,14 @@ final class SectionAdapterTests: XCTestCase {
 		// arrange
 		let sut = makeSut()
 		let expectedTasks = [RegularTask(title: "Regular task 1", isCompleted: true)]
-		taskManagerMock.stubbedCompletedTasksResult = expectedTasks
+		taskManagerSpy.stubbedCompletedTasksResult = expectedTasks
 
 		// act
 		let tasks = sut.getTasksForSectionsType(sectionType: .completedTasks)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
-		XCTAssertFalse(taskManagerMock.invokedUncompletedTasks, "Вызван не требуемый вызова метод uncompletedTasks()")
+		XCTAssertTrue(taskManagerSpy.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
+		XCTAssertFalse(taskManagerSpy.invokedUncompletedTasks, "Вызван не требуемый вызова метод uncompletedTasks()")
 		XCTAssertEqual(tasks, expectedTasks, "Полученные задачи не соответствуют ожидаемым")
 	}
 
@@ -55,14 +55,14 @@ final class SectionAdapterTests: XCTestCase {
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high)
 		]
-		taskManagerMock.stubbedUncompletedTasksResult = expectedTasks
+		taskManagerSpy.stubbedUncompletedTasksResult = expectedTasks
 
 		// act
 		let tasks = sut.getTasksForSectionsType(sectionType: .uncompletedTasks)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
-		XCTAssertFalse(taskManagerMock.invokedCompletedTasks, "Вызван не требуемый вызова метод completedTasks()")
+		XCTAssertTrue(taskManagerSpy.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
+		XCTAssertFalse(taskManagerSpy.invokedCompletedTasks, "Вызван не требуемый вызова метод completedTasks()")
 		XCTAssertEqual(tasks, expectedTasks, "Полученные задачи не соответствуют ожидаемым")
 	}
 
@@ -72,8 +72,8 @@ final class SectionAdapterTests: XCTestCase {
 		let sut = makeSut()
 		let task = ImportantTask(title: "Important task 3", priority: .medium)
 
-		taskManagerMock.stubbedCompletedTasksResult = [RegularTask(title: "Regular task 1", isCompleted: true)]
-		taskManagerMock.stubbedUncompletedTasksResult = [
+		taskManagerSpy.stubbedCompletedTasksResult = [RegularTask(title: "Regular task 1", isCompleted: true)]
+		taskManagerSpy.stubbedUncompletedTasksResult = [
 			RegularTask(title: "Regular task 2"),
 			ImportantTask(title: "Important task 1", priority: .high),
 			task
@@ -101,8 +101,8 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionTypeAndIndex = sut.getSectionTypeAndIndex(task: task)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
-		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
+		XCTAssertTrue(taskManagerSpy.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
+		XCTAssertTrue(taskManagerSpy.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
 		XCTAssertNil(sectionTypeAndIndex, "Полученное значение типа секции и индекса не соответствует ожидаемому (nil)")
 	}
 
@@ -161,8 +161,8 @@ final class SectionAdapterTests: XCTestCase {
 
 private extension SectionAdapterTests {
 
-	private func makeSut() -> SectionAdapter {
-		taskManagerMock = TaskManagerMock()
-		return SectionAdapter(taskManager: taskManagerMock)
+	func makeSut() -> SectionAdapter {
+		taskManagerSpy = TaskManagerSpy()
+		return SectionAdapter(taskManager: taskManagerSpy)
 	}
 }

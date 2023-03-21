@@ -12,7 +12,7 @@
 		5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */; };
 		5E53E6A929C0E7E9007634A4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */; };
 		5E53E6AA29C0E7E9007634A4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */; };
-		5E7E0F5329C58E3400BD13F4 /* TaskManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5229C58E3400BD13F4 /* TaskManagerMock.swift */; };
+		5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */; };
 		5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */; };
 		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
@@ -55,7 +55,7 @@
 		5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5E7E0F4729C58DDF00BD13F4 /* ToDoListCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListCleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E7E0F5229C58E3400BD13F4 /* TaskManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerMock.swift; sourceTree = "<group>"; };
+		5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerSpy.swift; sourceTree = "<group>"; };
 		5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionAdapterTests.swift; sourceTree = "<group>"; };
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E40155029C974D0001F2DBB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		5E53E6A229C0E78E007634A4 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,24 +139,24 @@
 		5E7E0F4829C58DE000BD13F4 /* ToDoListCleanSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E0F5029C58E1600BD13F4 /* Mocks */,
+				5E7E0F5029C58E1600BD13F4 /* TestDoubles */,
 				5E7E0F5129C58E1C00BD13F4 /* UnitTests */,
 			);
 			path = ToDoListCleanSwiftTests;
 			sourceTree = "<group>";
 		};
-		5E7E0F5029C58E1600BD13F4 /* Mocks */ = {
+		5E7E0F5029C58E1600BD13F4 /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E0F5229C58E3400BD13F4 /* TaskManagerMock.swift */,
+				5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */,
 			);
-			path = Mocks;
+			path = TestDoubles;
 			sourceTree = "<group>";
 		};
 		5E7E0F5129C58E1C00BD13F4 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */,
+				5E40155029C974D0001F2DBB /* Managers */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -373,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7E0F5329C58E3400BD13F4 /* TaskManagerMock.swift in Sources */,
+				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  TaskManagerMock.swift
+//  TaskManagerSpy.swift
 //  ToDoListCleanSwiftTests
 //
 //  Created by Evgeniy Novgorodov on 15.03.2023.
@@ -7,7 +7,7 @@
 
 @testable import ToDoListBusinessLogic
 
-final class TaskManagerMock: ITaskManager {
+final class TaskManagerSpy: ITaskManager {
 
 	var invokedAllTasks = false
 	var invokedAllTasksCount = 0
