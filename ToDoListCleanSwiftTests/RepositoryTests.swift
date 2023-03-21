@@ -48,11 +48,11 @@ final class RepositoryTests: XCTestCase {
 		)
 		XCTAssertTrue(
 			tasks.contains(where: { $0.title == "To wash the dishes" }),
-			"Нет записи с заголовком: Workout"
+			"Нет записи с заголовком: To wash the dishes"
 		)
 		XCTAssertTrue(
 			tasks.contains(where: { $0.title == "Workout" }),
-			"Нет записи с заголовком: Learning English"
+			"Нет записи с заголовком: Workout"
 		)
 		XCTAssertTrue(
 			tasks.contains(where: { $0.title == "To fix shoes" }),
