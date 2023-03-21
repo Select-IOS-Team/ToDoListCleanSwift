@@ -9,18 +9,16 @@ import XCTest
 import ToDoListBusinessLogic
 @testable import ToDoListCleanSwift
 
-// swiftlint:disable implicitly_unwrapped_optional
-
 final class SectionAdapterTests: XCTestCase {
 
 	// MARK: - Private properties
 
-	private var taskManagerMock: TaskManagerMock!
+	private var taskManagerMock: TaskManagerMock! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	// MARK: - Tests
 
 	// Проверка получаемых типов секций
-	func test_getSectionsTypes_isExpected() {
+	func test_getSectionsTypes_sectionsTypesAreExpected() {
 		// arrange
 		let sut = makeSut()
 		let expectedSectionsTypes: [SectionsTypes] = [.uncompletedTasks, .completedTasks]
@@ -29,11 +27,11 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionsTypes = sut.getSectionsTypes()
 
 		// assert
-		XCTAssertEqual(sectionsTypes, expectedSectionsTypes, "Типы секций не соответствуют ожидаемым")
+		XCTAssertEqual(sectionsTypes, expectedSectionsTypes, "Полученные типы секций не соответствуют ожидаемому результату")
 	}
 
-	// Проверка того, что получаются выполненные задачи при запросе для секции выполненных задач
-	func test_getTasksForSectionsType_withSectionTypeIsCompletedTasks_shouldGetCompletedTasks() {
+	// Проверка того, что у TaskManager'а запрашиваются выполненные задачи при получении задач для секции выполненных задач
+	func test_getTasksForSectionsType_withSectionTypeIsCompletedTasks_shouldInvokeCompletedTasks() {
 		// arrange
 		let sut = makeSut()
 		let expectedTasks = [RegularTask(title: "Regular task 1", isCompleted: true)]
@@ -43,13 +41,14 @@ final class SectionAdapterTests: XCTestCase {
 		let tasks = sut.getTasksForSectionsType(sectionType: .completedTasks)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод")
-		XCTAssertFalse(taskManagerMock.invokedUncompletedTasks, "Вызван не требуемый вызова метод")
+		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
+		XCTAssertFalse(taskManagerMock.invokedUncompletedTasks, "Вызван не требуемый вызова метод uncompletedTasks()")
 		XCTAssertEqual(tasks, expectedTasks, "Полученные задачи не соответствуют ожидаемым")
 	}
 
-	// Проверка того, что получаются невыполненные задачи при запросе для секции невыполненных задач
-	func test_getTasksForSectionsType_withSectionTypeIsUncompletedTasks_shouldGetUncompletedTasks() {
+	// Проверка того, что у TaskManager'а запрашиваются невыполненные задачи при получении задач
+	// для секции невыполненных задач
+	func test_getTasksForSectionsType_withSectionTypeIsUncompletedTasks_shouldInvokeUncompletedTasks() {
 		// arrange
 		let sut = makeSut()
 		let expectedTasks = [
@@ -62,13 +61,13 @@ final class SectionAdapterTests: XCTestCase {
 		let tasks = sut.getTasksForSectionsType(sectionType: .uncompletedTasks)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод")
-		XCTAssertFalse(taskManagerMock.invokedCompletedTasks, "Вызван не требуемый вызова метод")
+		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
+		XCTAssertFalse(taskManagerMock.invokedCompletedTasks, "Вызван не требуемый вызова метод completedTasks()")
 		XCTAssertEqual(tasks, expectedTasks, "Полученные задачи не соответствуют ожидаемым")
 	}
 
 	// Проверка того, что возвращается верный индекс если искомая задача присутствует
-	func test_getSectionTypeAndIndex_withTargetTask_shouldReturnCorrectSectionTypeAndIndex () {
+	func test_getSectionTypeAndIndex_withTargetTask_shouldReturnCorrectSectionTypeAndIndex() {
 		// arrange
 		let sut = makeSut()
 		let task = ImportantTask(title: "Important task 3", priority: .medium)
@@ -93,7 +92,7 @@ final class SectionAdapterTests: XCTestCase {
 	}
 
 	// Проверка того, что возвращается nil если искомая задача отсутствует
-	func test_getSectionTypeAndIndex_withoutTargetTask_shouldReturnCorrectSectionTypeAndIndex() {
+	func test_getSectionTypeAndIndex_withoutTargetTask_shouldReturnNil() {
 		// arrange
 		let sut = makeSut()
 		let task = ImportantTask(title: "Important task 3", priority: .medium)
@@ -102,9 +101,9 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionTypeAndIndex = sut.getSectionTypeAndIndex(task: task)
 
 		// assert
-		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод")
-		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод")
-		XCTAssertNil(sectionTypeAndIndex, "Полученное значение типа секции и индекса не соответствует ожидаемому")
+		XCTAssertTrue(taskManagerMock.invokedUncompletedTasks, "Не был вызван требуемый вызова метод uncompletedTasks()")
+		XCTAssertTrue(taskManagerMock.invokedCompletedTasks, "Не был вызван требуемый вызова метод completedTasks()")
+		XCTAssertNil(sectionTypeAndIndex, "Полученное значение типа секции и индекса не соответствует ожидаемому (nil)")
 	}
 
 	// Проверка того, что возвращаемый индекс для секции невыполненных задач равен 0
@@ -117,7 +116,7 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionTypeIndex = sut.getSectionTypeIndex(sectionType: sectionType)
 
 		// assert
-		XCTAssertEqual(sectionTypeIndex, 0, "Полученный индекс секции не соответствует ожидаемому")
+		XCTAssertEqual(sectionTypeIndex, 0, "Полученный индекс секции не соответствует ожидаемому (0)")
 	}
 
 	// Проверка того, что возвращаемый индекс для секции выполненных задач равен 1
@@ -130,7 +129,7 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionTypeIndex = sut.getSectionTypeIndex(sectionType: sectionType)
 
 		// assert
-		XCTAssertEqual(sectionTypeIndex, 1, "Полученный индекс секции не соответствует ожидаемому")
+		XCTAssertEqual(sectionTypeIndex, 1, "Полученный индекс секции не соответствует ожидаемому (1)")
 	}
 
 	// Проверка того, что возвращаемый тип секции для индекса 0 - невыполненные задачи
@@ -142,7 +141,7 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionType = sut.getSectionType(index: 0)
 
 		// assert
-		XCTAssertEqual(sectionType, .uncompletedTasks, "Полученный тип секции не соответствует ожидаемому")
+		XCTAssertEqual(sectionType, .uncompletedTasks, "Полученный тип секции не соответствует ожидаемому (uncompletedTasks)")
 	}
 
 	// Проверка того, что возвращаемый тип секции для индекса 1 - выполненные задачи
@@ -154,7 +153,7 @@ final class SectionAdapterTests: XCTestCase {
 		let sectionType = sut.getSectionType(index: 1)
 
 		// assert
-		XCTAssertEqual(sectionType, .completedTasks, "Полученный тип секции не соответствует ожидаемому")
+		XCTAssertEqual(sectionType, .completedTasks, "Полученный тип секции не соответствует ожидаемому (completedTasks)")
 	}
 }
 
