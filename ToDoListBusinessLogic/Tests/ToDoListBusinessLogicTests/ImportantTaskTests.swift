@@ -11,24 +11,61 @@ import XCTest
 
 /// Класс тестов для важной задачи
 final class ImportantTaskTests: XCTestCase {
+	// После создания задачи с высоким приоритетом, дата ее выполнения должна быть равна текущей + 1 день
+	func test_completionDate_withHighPriority_shouldBeEqualCurrentDatePlusOneDay() {
 
-	// Различие м-ду датой выполнения и текущей должно быть в dayCountForCompletion по приоритету
-	func test_importantTask_DifferenceShouldBeEqualDayCount() {
-		ImportantTask.Priority.allCases.forEach { priority in
-			// arrange
-			let sut = ImportantTask(title: "Important task example", priority: priority)
+		// arrange
+		let sut = ImportantTask(title: "Important task with high priority", priority: .high)
 
-			// act
-			let completionDate = sut.completionDate
-			let differenceSeconds = Date().distance(to: completionDate)
-			let differenceDays = Int(round(differenceSeconds / 60 / 60 / 24))
+		// act
+		let differenceDays = dayCountForCompletion(task: sut)
 
-			// assert
-			XCTAssertEqual(
-				differenceDays,
-				priority.dayCountForCompletion,
-				"Difference for \(priority) should be \(priority.dayCountForCompletion)"
-			)
-		}
+		// assert
+		XCTAssertEqual(
+			differenceDays,
+			1,
+			"Completion date for important task with high priority should be current date + 1 day"
+		)
+	}
+	// После создания задачи со средним приоритетом, дата ее выполнения должна быть равна текущей + 2 дня
+	func test_completionDate_withMediumPriority_shouldBeEqualCurrentDatePlusTwoDays() {
+
+		// arrange
+		let sut = ImportantTask(title: "Important task with medium priority", priority: .medium)
+
+		// act
+		let differenceDays = dayCountForCompletion(task: sut)
+
+		// assert
+		XCTAssertEqual(
+			differenceDays,
+			2,
+			"Completion date for important task with medium priority should be current date + 2 days"
+		)
+	}
+
+	// После создания задачи с низким приоритетом, дата ее выполнения должна быть равна текущей + 3 дня
+	func test_completionDate_withLowPriority_shouldBeEqualCurrentDatePlusThreeDays() {
+
+		// arrange
+		let sut = ImportantTask(title: "Important task with low priority", priority: .low)
+
+		// act
+		let differenceDays = dayCountForCompletion(task: sut)
+
+		// assert
+		XCTAssertEqual(
+			differenceDays,
+			3,
+			"Completion date for important task with low priority should be current date + 3 days"
+		)
+	}
+}
+
+private extension ImportantTaskTests {
+	func dayCountForCompletion(task: ImportantTask) -> Int {
+		let completionDate = task.completionDate
+		let differenceSeconds = Date().distance(to: completionDate)
+		return Int(round(differenceSeconds / 60 / 60 / 24))
 	}
 }
