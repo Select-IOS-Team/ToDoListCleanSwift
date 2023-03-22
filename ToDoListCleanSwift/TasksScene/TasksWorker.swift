@@ -10,6 +10,7 @@ import ToDoListBusinessLogic
 
 /// Протокол воркера
 protocol ITasksWorker {
+	/// Возвращает модель TaskModel.Response на основе переданных данных
 	func fillResponse(result: [(section: SectionsTypes, tasks: [Task])]) -> TaskModel.Response
 }
 
