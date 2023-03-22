@@ -18,7 +18,7 @@ final class ImportantTaskTests: XCTestCase {
 		let sut = ImportantTask(title: "Important task with high priority", priority: .high)
 
 		// act
-		let differenceDays = dayCountForCompletion(task: sut, daysCount: 1)
+		let differenceDays = dayCountForCompletion(task: sut)
 
 		// assert
 		XCTAssertEqual(
@@ -34,7 +34,7 @@ final class ImportantTaskTests: XCTestCase {
 		let sut = ImportantTask(title: "Important task with medium priority", priority: .medium)
 
 		// act
-		let differenceDays = dayCountForCompletion(task: sut, daysCount: 2)
+		let differenceDays = dayCountForCompletion(task: sut)
 
 		// assert
 		XCTAssertEqual(
@@ -51,7 +51,7 @@ final class ImportantTaskTests: XCTestCase {
 		let sut = ImportantTask(title: "Important task with low priority", priority: .low)
 
 		// act
-		let differenceDays = dayCountForCompletion(task: sut, daysCount: 3)
+		let differenceDays = dayCountForCompletion(task: sut)
 
 		// assert
 		XCTAssertEqual(
@@ -63,7 +63,7 @@ final class ImportantTaskTests: XCTestCase {
 }
 
 private extension ImportantTaskTests {
-	func dayCountForCompletion(task: ImportantTask, daysCount: Int) -> Int {
+	func dayCountForCompletion(task: ImportantTask) -> Int {
 		let completionDate = task.completionDate
 		let differenceSeconds = Date().distance(to: completionDate)
 		return Int(round(differenceSeconds / 60 / 60 / 24))
