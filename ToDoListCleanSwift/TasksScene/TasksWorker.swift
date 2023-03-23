@@ -8,19 +8,21 @@
 import Foundation
 import ToDoListBusinessLogic
 
-/// Протокол воркера
+/// Воркер, подготавливающий модели данных о секциях и задачах для презентера
 protocol ITasksWorker {
-	/// Возвращает модель TaskModel.Response на основе переданных данных
-	func fillResponse(result: [(section: SectionsTypes, tasks: [Task])]) -> TaskModel.Response
+	/// Преобразует данные о секциях и из задачах из массива кортежей в модель TaskModel.Response.
+	/// - Parameter data: Массив кортежей с параметрами: sectionType - тип секции и tasks - массив задач в секции
+	/// - Returns: Модель TaskModel.Response, содержащая переданные на вход данные
+	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response
 }
 
 /// Класс воркера
 class TasksWorker: ITasksWorker {
 
-	func fillResponse(result: [(section: SectionsTypes, tasks: [Task])]) -> TaskModel.Response {
+	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response {
 		var response = TaskModel.Response(data: [])
-		for item in result {
-			response.data.append(TaskModel.ResponseData(sectionType: item.section, sectionTasks: item.tasks))
+		for item in data {
+			response.data.append(TaskModel.ResponseData(sectionType: item.sectionType, sectionTasks: item.tasks))
 		}
 		return response
 	}

@@ -15,7 +15,7 @@ enum TaskModel {
 	}
 
 	struct ResponseData: Equatable {
-		let sectionType: SectionsTypes
+		let sectionType: SectionType
 		let sectionTasks: [Task]
 	}
 

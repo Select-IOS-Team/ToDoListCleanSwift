@@ -22,13 +22,13 @@ class TasksInteractor: ITasksInteractor {
 	var worker: ITasksWorker?
 
 	func fetchData() {
-		var result: [(section: SectionsTypes, tasks: [Task])] = []
+		var data: [(sectionType: SectionType, tasks: [Task])] = []
 		guard let sectionsTypes = sectionsAdapter?.getSectionsTypes() else { return }
 		for sectionsType in sectionsTypes {
 			guard let sectionTasks = sectionsAdapter?.getTasksForSectionsType(sectionType: sectionsType) else { return }
-			result.append((section: sectionsType, tasks: sectionTasks))
+			data.append((sectionType: sectionsType, tasks: sectionTasks))
 		}
-		guard let response = worker?.fillResponse(result: result) else { return }
+		guard let response = worker?.convertToTaskModelResponse(data: data) else { return }
 		presenter?.presentData(response: response)
 	}
 

@@ -21,7 +21,7 @@ final class SectionAdapterTests: XCTestCase {
 	func test_getSectionsTypes_sectionsTypesAreExpected() {
 		// arrange
 		let sut = makeSut()
-		let expectedSectionsTypes: [SectionsTypes] = [.uncompletedTasks, .completedTasks]
+		let expectedSectionsTypes: [SectionType] = [.uncompletedTasks, .completedTasks]
 
 		// act
 		let sectionsTypes = sut.getSectionsTypes()
@@ -110,7 +110,7 @@ final class SectionAdapterTests: XCTestCase {
 	func test_getSectionTypeIndex_withSectionTypeIsUncompletedTasks_shouldEqualZero() {
 		// arrange
 		let sut = makeSut()
-		let sectionType = SectionsTypes.uncompletedTasks
+		let sectionType = SectionType.uncompletedTasks
 
 		// act
 		let sectionTypeIndex = sut.getSectionTypeIndex(sectionType: sectionType)
@@ -123,7 +123,7 @@ final class SectionAdapterTests: XCTestCase {
 	func test_getSectionTypeIndex_withSectionTypeIsCompletedTasks_shouldEqualOne() {
 		// arrange
 		let sut = makeSut()
-		let sectionType = SectionsTypes.completedTasks
+		let sectionType = SectionType.completedTasks
 
 		// act
 		let sectionTypeIndex = sut.getSectionTypeIndex(sectionType: sectionType)

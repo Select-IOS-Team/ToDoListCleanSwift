@@ -36,13 +36,13 @@ final class TasksWorkerTests: XCTestCase {
 		// assert
 		XCTAssertEqual(
 			response.data[0].sectionType,
-			SectionsTypes.uncompletedTasks,
+			SectionType.uncompletedTasks,
 			"Первой секцией в списке должны быть невыполненные задачи"
 		)
 
 		XCTAssertEqual(
 			response.data[1].sectionType,
-			SectionsTypes.completedTasks,
+			SectionType.completedTasks,
 			"Второй секцией в списке должны быть выполненные задачи"
 		)
 		XCTAssertEqual(response.data[0].sectionTasks.count, 1, "Первая секция должна содержать 1 задачу")
@@ -58,14 +58,14 @@ final class TasksWorkerTests: XCTestCase {
 
 // MARK: - Private Methods
 private extension TasksWorkerTests {
-	private func prepareStub() -> [(SectionsTypes, [Task])] {
+	private func prepareStub() -> [(SectionType, [Task])] {
 		let importantTask1 = ImportantTask(title: "Important task 1", priority: .high)
 			importantTask1.toggleCompletetionState()
 		let importantTask2 = ImportantTask(title: "Important task 2", priority: .low)
 			importantTask2.toggleCompletetionState()
 		return [
-			(section: SectionsTypes.uncompletedTasks, tasks: [RegularTask(title: "Regular task")]),
-			(section: SectionsTypes.completedTasks, tasks: [importantTask1, importantTask2])
+			(section: SectionType.uncompletedTasks, tasks: [RegularTask(title: "Regular task")]),
+			(section: SectionType.completedTasks, tasks: [importantTask1, importantTask2])
 		]
 	}
 	private func prepareExpectedResult() -> TaskModel.Response {
