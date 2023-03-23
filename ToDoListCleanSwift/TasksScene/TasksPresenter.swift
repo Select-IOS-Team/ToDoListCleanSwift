@@ -8,8 +8,10 @@
 import Foundation
 import ToDoListBusinessLogic
 
-/// Протокол презентера
+/// Презентер, подготавливающий модель вью для вьюконтроллера
 protocol ITasksPresenter {
+	/// Преобразует данные из`TaskModel.Response` в модели секций `TaskModel.ViewData.Section` и распределяет по ним задачи
+	/// - Parameter response: структура `TaskModel.Response`
 	func presentData(response: TaskModel.Response)
 }
 
