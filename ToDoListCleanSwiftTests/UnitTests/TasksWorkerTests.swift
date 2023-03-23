@@ -19,19 +19,11 @@ final class TasksWorkerTests: XCTestCase {
 
 		// arrange
 		let sut = TasksWorker()
-		let result = prepareStub()
+		let data = prepareStub()
 		let expectedResult = prepareExpectedResult()
 
 		// act
-		let response = sut.fillResponse(result: result)
-		// swiftlint: disable: force_cast
-		let firstImportantTask = response.data[1].sectionTasks[0] as! ImportantTask
-		let secondImportantTask = response.data[1].sectionTasks[1] as! ImportantTask
-		// swiftlint: enable: force_cast
-		// swiftlint: disable: force_unwrapping
-		let indexFirstImportantTask = response.data[1].sectionTasks.firstIndex(of: firstImportantTask)!
-		let indexSecondImportantTask = response.data[1].sectionTasks.firstIndex(of: secondImportantTask)!
-		// swiftlint: enable: force_unwrapping
+		let response = sut.convertToTaskModelResponse(data: data)
 
 		// assert
 		XCTAssertEqual(
@@ -47,11 +39,6 @@ final class TasksWorkerTests: XCTestCase {
 		)
 		XCTAssertEqual(response.data[0].sectionTasks.count, 1, "Первая секция должна содержать 1 задачу")
 		XCTAssertEqual(response.data[1].sectionTasks.count, 2, "Вторая секция должна содержать 2 задачи")
-		XCTAssertLessThan(
-			indexFirstImportantTask,
-			indexSecondImportantTask,
-			"Задача с приоритетом high должна быть быть выше задачи с приоритетом low"
-		)
 		XCTAssertEqual(response.data, expectedResult.data, "Структура TaskModel.Response не соответствует переданным данным")
 	}
 }
@@ -60,9 +47,7 @@ final class TasksWorkerTests: XCTestCase {
 private extension TasksWorkerTests {
 	private func prepareStub() -> [(SectionType, [Task])] {
 		let importantTask1 = ImportantTask(title: "Important task 1", priority: .high)
-			importantTask1.toggleCompletetionState()
 		let importantTask2 = ImportantTask(title: "Important task 2", priority: .low)
-			importantTask2.toggleCompletetionState()
 		return [
 			(section: SectionType.uncompletedTasks, tasks: [RegularTask(title: "Regular task")]),
 			(section: SectionType.completedTasks, tasks: [importantTask1, importantTask2])
@@ -70,9 +55,7 @@ private extension TasksWorkerTests {
 	}
 	private func prepareExpectedResult() -> TaskModel.Response {
 		let importantTask1 = ImportantTask(title: "Important task 1", priority: .high)
-			importantTask1.toggleCompletetionState()
 		let importantTask2 = ImportantTask(title: "Important task 2", priority: .low)
-			importantTask2.toggleCompletetionState()
 		let dataUncompletedTasks = TaskModel.ResponseData(
 			sectionType: .uncompletedTasks, sectionTasks: [RegularTask(title: "Regular task")]
 		)
