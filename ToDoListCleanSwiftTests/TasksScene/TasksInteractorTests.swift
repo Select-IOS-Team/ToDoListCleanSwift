@@ -37,7 +37,7 @@ final class TasksInteractorTests: XCTestCase {
 		sut.didCheckboxTapped(indexPath: IndexPath(row: 0, section: 0))
 
 		// assert
-		XCTAssertTrue(task.isCompleted, "Задача должна быть выполнена")
+		XCTAssertTrue(task.isCompleted, "Метод didCheckboxTapped не выполнил задачу")
 	}
 }
 
