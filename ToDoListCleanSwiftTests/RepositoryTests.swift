@@ -7,7 +7,6 @@
 
 import XCTest
 import ToDoListBusinessLogic
-
 @testable import ToDoListCleanSwift
 
 final class RepositoryTests: XCTestCase {
