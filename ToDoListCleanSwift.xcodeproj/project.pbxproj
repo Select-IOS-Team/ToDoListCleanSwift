@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0E1B5C29CDC156004B70B2 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0E1B5B29CDC156004B70B2 /* RepositoryTests.swift */; };
 		5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */; };
 		5E53E6A129C0E6C7007634A4 /* ImportantTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */; };
 		5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E0E1B5B29CDC156004B70B2 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTests.swift; path = ToDoListCleanSwiftTests/RepositoryTests.swift; sourceTree = SOURCE_ROOT; };
 		5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableTableCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		5E40155029C974D0001F2DBB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				5E0E1B5B29CDC156004B70B2 /* RepositoryTests.swift */,
 				5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */,
 			);
 			path = Managers;
@@ -383,6 +386,7 @@
 			files = (
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
+				5E0E1B5C29CDC156004B70B2 /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
