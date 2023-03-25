@@ -11,7 +11,6 @@ import Foundation
 public struct LoginDTO: Equatable {
 	var success: Int
 	var login: String
-	var lastLoginDate: Date
 }
 
 protocol ILoginWorker {
@@ -22,8 +21,8 @@ class LoginWorker: ILoginWorker {
 
 	func login(login: String, password: String) -> LoginDTO {
 		guard login == "1" && password == "1" else {
-			return LoginDTO(success: 0, login: login, lastLoginDate: Date())
+			return LoginDTO(success: 0, login: login)
 		}
-		return LoginDTO(success: 1, login: login, lastLoginDate: Date())
+		return LoginDTO(success: 1, login: login)
 	}
 }
