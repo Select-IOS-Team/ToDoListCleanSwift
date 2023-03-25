@@ -93,7 +93,7 @@ final class OrderedTaskManagerTests: XCTestCase {
 		XCTAssertEqual(
 			taskManagerSpy.invokedAddTasksParameters?.tasks,
 			addingTasks,
-			"Добавляемый миссив задач не соответствует переданному для добавления"
+			"Добавляемый массив задач не соответствует переданному для добавления"
 		)
 	}
 
