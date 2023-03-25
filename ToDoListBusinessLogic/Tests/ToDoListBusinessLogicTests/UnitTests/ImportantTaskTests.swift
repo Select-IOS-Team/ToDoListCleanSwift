@@ -11,6 +11,7 @@ import XCTest
 
 /// Класс тестов для важной задачи
 final class ImportantTaskTests: XCTestCase {
+
 	// После создания задачи с высоким приоритетом, дата ее выполнения должна быть равна текущей + 1 день
 	func test_completionDate_withHighPriority_shouldBeEqualCurrentDatePlusOneDay() {
 
@@ -27,6 +28,7 @@ final class ImportantTaskTests: XCTestCase {
 			"Completion date for important task with high priority should be current date + 1 day"
 		)
 	}
+
 	// После создания задачи со средним приоритетом, дата ее выполнения должна быть равна текущей + 2 дня
 	func test_completionDate_withMediumPriority_shouldBeEqualCurrentDatePlusTwoDays() {
 

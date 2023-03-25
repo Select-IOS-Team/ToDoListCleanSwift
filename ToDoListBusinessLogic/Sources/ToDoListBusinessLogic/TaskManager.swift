@@ -7,49 +7,60 @@
 
 import Foundation
 
-/// Протокол менеджера задач
+/// Менеджер задач.
 public protocol ITaskManager {
-	/// Получает все задачи
+	/// Возвращает все задачи.
 	func allTasks() -> [Task]
-	/// Получает выполненные задачи
+	/// Возвращает выполненные задачи.
 	func completedTasks() -> [Task]
-	/// Получает невыполненные задачи
+	/// Возвращает невыполненные задачи.
 	func uncompletedTasks() -> [Task]
-	/// Добавляет задачи
+	/// Добавляет задачу.
+	/// - Parameter task: Добавляемая задача.
+	func addTask(task: Task)
+	/// Добавляет массив задач.
+	/// - Parameter tasks: Массив добавляемых задач.
 	func addTasks(tasks: [Task])
+	/// Удаляет задачу.
+	/// - Parameter task: Задача, которую необходимо удалить.
+	func removeTask(task: Task)
 }
 
 /// Класс менеджера задач
-public final class TaskManager {
-	/// Список задач
+public final class TaskManager: ITaskManager {
+
+	// MARK: - Private properties
+
 	private var tasksList: [Task] = []
+
+	// MARK: - Lifecycle
+
 	/// Инициализатор
 	public init() {}
-	/// Получить все задачи
+
+	// MARK: - ITaskManager
+
 	public func allTasks() -> [Task] {
 		tasksList
 	}
-	/// Получить выполненные задачи
+
 	public func completedTasks() -> [Task] {
-		tasksList.filter { $0.isCompleted == true }
+		tasksList.filter { $0.isCompleted }
 	}
-	/// Получить навыполненные задачи
+
 	public func uncompletedTasks() -> [Task] {
-		return tasksList.filter { $0.isCompleted != true }
+		return tasksList.filter { !$0.isCompleted }
 	}
-	/// Добавить задачу в список
+
 	public func addTask(task: Task) {
 		tasksList.append(task)
 	}
-	/// Добавить задачи
-	/// - Parameter tasks: массив новых задач
+
 	public func addTasks(tasks: [Task]) {
 		tasksList.append(contentsOf: tasks)
 	}
-	/// Удалить задачу из списка
+
 	public func removeTask(task: Task) {
-		tasksList.removeAll { value in value === task }
+		tasksList.removeAll { $0 === task }
 	}
 }
-
-extension TaskManager: ITaskManager {}
