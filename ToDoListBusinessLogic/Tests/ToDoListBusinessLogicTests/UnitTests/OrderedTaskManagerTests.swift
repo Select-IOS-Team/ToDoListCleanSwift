@@ -169,13 +169,3 @@ private extension OrderedTaskManagerTests {
 		return OrderedTaskManager(taskManager: taskManagerSpy)
 	}
 }
-
-// MARK: - Extensions
-
-private extension Task {
-
-	func toggledCompletetionState() -> Self {
-		toggleCompletetionState()
-		return self
-	}
-}
