@@ -8,7 +8,7 @@
 import Foundation
 
 /// Данные для ответа
-public struct LoginDTO {
+public struct LoginDTO: Equatable {
 	var success: Int
 	var login: String
 	var lastLoginDate: Date
