@@ -66,7 +66,6 @@ final class OrderedTaskManagerTests: XCTestCase {
 		// arrange
 		let sut = makeSut()
 		let addingTask = TasksStub.regularTask
-		let expectedTasks = [addingTask]
 
 		// act
 		sut.addTask(task: addingTask)

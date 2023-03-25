@@ -45,7 +45,7 @@ public final class OrderedTaskManager: ITaskManager {
 	public func removeTask(task: Task) {
 		taskManager.removeTask(task: task)
 	}
-	
+
 	// MARK: - Private methods
 
 	private func sorted(tasks: [Task]) -> [Task] {
