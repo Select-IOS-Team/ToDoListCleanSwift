@@ -13,6 +13,7 @@ final class LoginWorkerTests: XCTestCase {
 	private let validLoginDTO = LoginDTO(success: 1, login: "1")
 	private let invalidPasswordLoginDTO = LoginDTO(success: 0, login: "1")
 	private let invalidLoginLoginDTO = LoginDTO(success: 0, login: "0")
+	private let invalidDataLoginDTO = LoginDTO(success: 0, login: "0")
 
 	func test_login_withValidData_shouldEqualWithValidLoginDTO() {
 		let sut = LoginWorker()
@@ -35,6 +36,14 @@ final class LoginWorkerTests: XCTestCase {
 
 		let result = sut.login(login: "0", password: "1")
 
-		XCTAssertEqual(result, invalidPasswordLoginDTO, "Не соответствует ответу для неверного логина")
+		XCTAssertEqual(result, invalidLoginLoginDTO, "Не соответствует ответу для неверного логина")
+	}
+
+	func test_login_withInvalidAllData_shouldEqualWithInvalidDataLoginDTO() {
+		let sut = LoginWorker()
+
+		let result = sut.login(login: "0", password: "0")
+
+		XCTAssertEqual(result, invalidDataLoginDTO, "Не соответствует ответу для неверного логина")
 	}
 }
