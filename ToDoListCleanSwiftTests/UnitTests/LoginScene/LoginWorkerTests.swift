@@ -44,6 +44,6 @@ final class LoginWorkerTests: XCTestCase {
 
 		let result = sut.login(login: "0", password: "0")
 
-		XCTAssertEqual(result, invalidDataLoginDTO, "Не соответствует ответу для неверного логина")
+		XCTAssertEqual(result, invalidDataLoginDTO, "Не соответствует ответу для неверных логина и пароля")
 	}
 }
