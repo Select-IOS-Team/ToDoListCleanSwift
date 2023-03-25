@@ -24,7 +24,7 @@ final class TaskManagerTests: XCTestCase {
 		XCTAssertTrue(tasks.isEmpty, "TaskManager после инициализации имеет не пустой список задач")
 	}
 
-	// Проверка 
+	// Проверка того, что при получении всех задач, возвращаются все задачи
 	func test_allTasks_shouldReturnAllTasks() {
 		// arrange
 		let sut = TaskManager()
