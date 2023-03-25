@@ -50,7 +50,7 @@ public final class ImportantTask: Task {
 		super.init(title: title)
 	}
 	/// Приоритеты важных задач
-	public enum Priority: CaseIterable {
+	public enum Priority: CaseIterable, Comparable {
 		case high
 		case medium
 		case low

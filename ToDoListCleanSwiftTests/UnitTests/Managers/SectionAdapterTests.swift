@@ -157,7 +157,7 @@ final class SectionAdapterTests: XCTestCase {
 	}
 }
 
-// MARK: - Private methods
+// MARK: - Private
 
 private extension SectionAdapterTests {
 
