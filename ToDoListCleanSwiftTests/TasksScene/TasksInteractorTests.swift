@@ -23,11 +23,34 @@ final class TasksInteractorTests: XCTestCase {
 		taskManagerSpy = TaskManagerSpy()
 		sectionAdapterSpy = SectionAdapterSpy(taskManager: taskManagerSpy)
 		sut.sectionsAdapter = sectionAdapterSpy
+		let request = prepareRequest()
+		let expectedResponse = prepareExpectedResponse()
+		worker.stubbedResponse = expectedResponse
 
 		// act
 		sut.fetchSectionsWithTasksAndConvertToPresentModel()
 
 		// assert
+		XCTAssertEqual(
+			worker.stubbedRequest[0].sectionType,
+			request[0].0,
+			"Переданная в воркер секция 1 отличается от первой секции в реквесте"
+		)
+		XCTAssertEqual(
+			worker.stubbedRequest[1].sectionType,
+			request[1].0,
+			"Переданная в воркер секция 2 отличается от второй секции в реквесте"
+		)
+		XCTAssertEqual(
+			worker.stubbedRequest[0].tasks,
+			request[1].1,
+			"Переданный в воркер массив задач для секции 1 отличается от массива в реквесте"
+		)
+		XCTAssertEqual(
+			presenter.invokedPresentParameters?.data,
+			expectedResponse.data,
+			"Передаваемое в презентер значение отличается от ожидаемого"
+		)
 		XCTAssertTrue(sectionAdapterSpy.getSectionsTypesIsCalled, "Не вызван метод sectionAdapter.getSectionType")
 		XCTAssertTrue(
 			sectionAdapterSpy.getTasksForSectionsTypeIsCalled,
@@ -55,6 +78,10 @@ final class TasksInteractorTests: XCTestCase {
 			sectionAdapterSpy.getTasksForSectionsTypeIsCalled,
 			"Не вызван метод sectionAdapter.getTasksForSectionsType"
 		)
+		XCTAssertTrue(
+			presenter.presentDataIsCalled,
+			"Не вызван метод presenter.presentData"
+		)
 		XCTAssertTrue(task.isCompleted, "У задачи не произошла смена состояния выполненности")
 	}
 }
@@ -67,5 +94,20 @@ private extension TasksInteractorTests {
 		interactor.worker = worker
 		interactor.presenter = presenter
 		return interactor
+	}
+	private func prepareRequest() -> [(SectionType, [Task])] {
+		return [
+			(section: SectionType.uncompletedTasks, tasks: [RegularTask(title: "Regular task")]),
+			(section: SectionType.completedTasks, tasks: [])
+		]
+	}
+	private func prepareExpectedResponse() -> TaskModel.Response {
+		let dataUncompletedTasks = TaskModel.ResponseData(
+			sectionType: .uncompletedTasks, sectionTasks: [RegularTask(title: "Regular task")]
+		)
+		let dataCompletedTasks = TaskModel.ResponseData(
+			sectionType: .completedTasks, sectionTasks: []
+		)
+		return TaskModel.Response(data: [dataUncompletedTasks, dataCompletedTasks])
 	}
 }

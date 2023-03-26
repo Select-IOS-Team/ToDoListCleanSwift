@@ -12,10 +12,15 @@ final class TasksWorkerSpy: ITasksWorker {
 
 	// MARK: - Internal properties
 	private (set) var convertIsCalled = false
+	// swiftlint:disable: implicitly_unwrapped_optional
+	var stubbedRequest: [(sectionType: SectionType, tasks: [Task])]!
+	// swiftlint:enable: implicitly_unwrapped_optional
+	var stubbedResponse = TaskModel.Response(data: [])
 
 	// MARK: - Internal methods
 	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response {
 		convertIsCalled = true
-		return ToDoListCleanSwift.TaskModel.Response(data: [])
+		stubbedRequest = data
+		return stubbedResponse
 	}
 }
