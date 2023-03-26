@@ -5,6 +5,7 @@
 //  Created by Evgeni Meleshin on 21.02.2023.
 //
 import Foundation
+import ToDoListBusinessLogic
 
 /// Модель вью
 enum TaskModel {
@@ -13,8 +14,8 @@ enum TaskModel {
 		var data: [ResponseData]
 	}
 
-	struct ResponseData {
-		let sectionType: SectionsTypes
+	struct ResponseData: Equatable {
+		let sectionType: SectionType
 		let sectionTasks: [Task]
 	}
 

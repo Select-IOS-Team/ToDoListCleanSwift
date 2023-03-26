@@ -22,8 +22,7 @@ class LoginPresenter: ILoginPresenter {
 	func present(response: LoginModels.Response) {
 		let viewModel = LoginModels.ViewModel(
 			success: response.success,
-			userName: response.login,
-			lastLoginDate: "\(response.lastLoginDate)"
+			userName: response.login
 		)
 		viewController?.render(viewModel: viewModel)
 	}

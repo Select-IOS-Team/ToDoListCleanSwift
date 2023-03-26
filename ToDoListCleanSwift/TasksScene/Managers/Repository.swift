@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ToDoListBusinessLogic
 
 /// Протокол репозитория
 protocol IRepository {

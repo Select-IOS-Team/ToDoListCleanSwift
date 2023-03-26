@@ -25,8 +25,7 @@ class LoginInteractor: ILoginInteractor {
 		let result = worker.login(login: request.login, password: request.password)
 		let response = LoginModels.Response(
 			success: result.success == 1,
-			login: result.login,
-			lastLoginDate: result.lastLoginDate
+			login: result.login
 		)
 		presenter.present(response: response)
 	}

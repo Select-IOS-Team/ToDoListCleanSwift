@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ToDoListBusinessLogic
 
 /// Класс сборщика
 enum TasksDependenciesBuilder {

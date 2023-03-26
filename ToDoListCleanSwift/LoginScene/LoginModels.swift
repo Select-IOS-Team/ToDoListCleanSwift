@@ -15,11 +15,9 @@ enum LoginModels {
 	struct Response {
 		var success: Bool
 		var login: String
-		var lastLoginDate: Date
 	}
 	struct ViewModel {
 		var success: Bool
 		var userName: String
-		var lastLoginDate: String
 	}
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ToDoListBusinessLogic
 
 /// Протокол презентера
 protocol ITasksPresenter {
@@ -74,5 +75,19 @@ class TasksPresenter: ITasksPresenter {
 
 	private func checkboxImageName(for task: Task) -> String {
 		task.isCompleted ? Constants.completedCheckboxImageName : Constants.uncompletedCheckboxImageName
+	}
+}
+
+private extension ImportantTask.Priority {
+	/// Описание приоритета важной задачи
+	var description: String {
+		switch self {
+		case .high:
+			return "high"
+		case .medium:
+			return "medium"
+		case .low:
+			return "low"
+		}
 	}
 }

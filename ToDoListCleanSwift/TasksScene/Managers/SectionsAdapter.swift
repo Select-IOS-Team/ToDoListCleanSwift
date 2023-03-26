@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import ToDoListBusinessLogic
 
 /// Протокол типов секций
 protocol ISectionsAdapter {
-	func getSectionsTypes() -> [SectionsTypes]
-	func getTasksForSectionsType(sectionType: SectionsTypes) -> [Task]
-	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionsTypes, index: Int)?
-	func getSectionTypeIndex(sectionType: SectionsTypes) -> Int
-	func getSectionType(index: Int) -> SectionsTypes
+	func getSectionsTypes() -> [SectionType]
+	func getTasksForSectionsType(sectionType: SectionType) -> [Task]
+	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionType, index: Int)?
+	func getSectionTypeIndex(sectionType: SectionType) -> Int
+	func getSectionType(index: Int) -> SectionType
 }
 
 /// Типы секций
-enum SectionsTypes: Int, CustomStringConvertible, CaseIterable {
+enum SectionType: Int, CustomStringConvertible, CaseIterable {
 
 	case uncompletedTasks = 0
 	case completedTasks = 1
@@ -35,18 +36,18 @@ enum SectionsTypes: Int, CustomStringConvertible, CaseIterable {
 /// Класс типов секций
 final class SectionAdapter: ISectionsAdapter {
 
-	private let sectionsTypes: [SectionsTypes] = [.uncompletedTasks, .completedTasks]
+	private let sectionsTypes: [SectionType] = [.uncompletedTasks, .completedTasks]
 	private let taskManager: ITaskManager
 
 	init(taskManager: ITaskManager) {
 		self.taskManager = taskManager
 	}
 
-	func getSectionsTypes() -> [SectionsTypes] {
+	func getSectionsTypes() -> [SectionType] {
 		sectionsTypes
 	}
 
-	func getTasksForSectionsType(sectionType: SectionsTypes) -> [Task] {
+	func getTasksForSectionsType(sectionType: SectionType) -> [Task] {
 		switch sectionType {
 		case .uncompletedTasks:
 			return taskManager.uncompletedTasks()
@@ -55,7 +56,7 @@ final class SectionAdapter: ISectionsAdapter {
 		}
 	}
 
-	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionsTypes, index: Int)? {
+	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionType, index: Int)? {
 		for sectionType in sectionsTypes {
 			if let index = getTasksForSectionsType(sectionType: sectionType).firstIndex(where: { task === $0 }) {
 				return (sectionType, index)
@@ -64,11 +65,11 @@ final class SectionAdapter: ISectionsAdapter {
 		return nil
 	}
 
-	func getSectionTypeIndex(sectionType: SectionsTypes) -> Int {
+	func getSectionTypeIndex(sectionType: SectionType) -> Int {
 		sectionsTypes.firstIndex(of: sectionType) ?? 0
 	}
 
-	func getSectionType(index: Int) -> SectionsTypes {
+	func getSectionType(index: Int) -> SectionType {
 		let indexSection = min(index, sectionsTypes.count - 1)
 		return sectionsTypes[indexSection]
 	}
