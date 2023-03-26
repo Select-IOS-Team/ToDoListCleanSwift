@@ -9,10 +9,14 @@
 
 final class LoginPresenterSpy: ILoginPresenter {
 
+	// MARK: - Internal properties
+
 	var invokedPresent = false
 	var invokedPresentCount = 0
 	var invokedPresentParameters: (response: LoginModels.Response, Void)?
 	var invokedPresentParametersList = [(response: LoginModels.Response, Void)]()
+
+	// MARK: - ILoginPresenter
 
 	func present(response: LoginModels.Response) {
 		invokedPresent = true

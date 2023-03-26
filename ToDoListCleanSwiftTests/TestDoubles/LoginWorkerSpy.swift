@@ -11,11 +11,15 @@
 
 final class LoginWorkerSpy: ILoginWorker {
 
+	// MARK: - Internal properties
+
 	var invokedLogin = false
 	var invokedLoginCount = 0
 	var invokedLoginParameters: (login: String, password: String)?
 	var invokedLoginParametersList = [(login: String, password: String)]()
 	var stubbedLoginResult: LoginDTO!
+
+	// MARK: - ILoginWorker
 
 	func login(login: String, password: String) -> LoginDTO {
 		invokedLogin = true
