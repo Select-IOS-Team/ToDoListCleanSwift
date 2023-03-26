@@ -11,7 +11,7 @@ import ToDoListBusinessLogic
 
 final class TasksPresenterTests: XCTestCase {
 
-	private let viewController = TasksViewControllerSpy()
+	private var viewControllerSpy: TasksViewControllerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func test_presentData_withValidResponce_shouldBeRenderSuccess() {
@@ -23,7 +23,7 @@ final class TasksPresenterTests: XCTestCase {
 		sut.presentData(response: response)
 
 		// assert
-		XCTAssertTrue(viewController.renderIsCalled, "Не был вызван viewController.render")
+		XCTAssertTrue(viewControllerSpy.renderIsCalled, "Не был вызван viewController.render")
 	}
 }
 
@@ -32,7 +32,8 @@ private extension TasksPresenterTests {
 		taskManagerSpy = TaskManagerSpy()
 		let sectionAdapter = SectionAdapter(taskManager: taskManagerSpy)
 		let presenter = TasksPresenter(sectionsAdapter: sectionAdapter)
-		presenter.view = viewController
+		viewControllerSpy = TasksViewControllerSpy()
+		presenter.view = viewControllerSpy
 		return presenter
 	}
 }
