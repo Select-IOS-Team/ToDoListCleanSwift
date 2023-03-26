@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AA0193629CEA9ED0086B68E /* LoginWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA0193529CEA9ED0086B68E /* LoginWorkerTests.swift */; };
 		5E0E1B5C29CDC156004B70B2 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0E1B5B29CDC156004B70B2 /* RepositoryTests.swift */; };
 		5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */; };
 		5E53E6A129C0E6C7007634A4 /* ImportantTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5AA0193529CEA9ED0086B68E /* LoginWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorkerTests.swift; sourceTree = "<group>"; };
 		5E0E1B5B29CDC156004B70B2 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTests.swift; path = ToDoListCleanSwiftTests/RepositoryTests.swift; sourceTree = SOURCE_ROOT; };
 		5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA0193429CEA9AC0086B68E /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				5AA0193529CEA9ED0086B68E /* LoginWorkerTests.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
 		5E40155029C974D0001F2DBB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		5E7E0F5129C58E1C00BD13F4 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5AA0193429CEA9AC0086B68E /* LoginScene */,
 				856D623E29CAD4EE00A0A1BB /* TasksWorkerTests.swift */,
 				5E40155029C974D0001F2DBB /* Managers */,
 			);
@@ -411,6 +422,7 @@
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 				5E0E1B5C29CDC156004B70B2 /* RepositoryTests.swift in Sources */,
+				5AA0193629CEA9ED0086B68E /* LoginWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,14 +492,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgeniMeleshin.ToDoListCS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoListCleanSwift";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/ToDoListCleanSwift";
 			};
 			name = Debug;
 		};
@@ -499,14 +511,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgeniMeleshin.ToDoListCS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoListCleanSwift";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoListCleanSwift.app/ToDoListCleanSwift";
 			};
 			name = Release;
 		};
