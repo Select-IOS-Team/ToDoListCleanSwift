@@ -7,19 +7,29 @@
 
 import Foundation
 
+/// Интерактор сцены авторизации.
 protocol ILoginInteractor {
+	/// Авторизация.
+	/// - Parameter request: Модель данных для выполнения запроса авторизации.
 	func login(request: LoginModels.Request)
 }
 
-class LoginInteractor: ILoginInteractor {
+/// Интерактор сцены авторизации.
+final class LoginInteractor: ILoginInteractor {
 
-	private var worker: ILoginWorker
-	private var presenter: ILoginPresenter
+	// MARK: - Private properties
+
+	private let worker: ILoginWorker
+	private let presenter: ILoginPresenter
+
+	// MARK: - Lifecycle
 
 	init(worker: ILoginWorker, presenter: ILoginPresenter) {
 		self.worker = worker
 		self.presenter = presenter
 	}
+
+	// MARK: - ILoginInteractor
 
 	func login(request: LoginModels.Request) {
 		let result = worker.login(login: request.login, password: request.password)
