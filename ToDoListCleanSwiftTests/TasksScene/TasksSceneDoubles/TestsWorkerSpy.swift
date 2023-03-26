@@ -14,7 +14,7 @@ final class TasksWorkerSpy: ITasksWorker {
 	private (set) var convertIsCalled = false
 
 	// MARK: - Internal Methods
-	func convertToTaskModelResponse(data: [(sectionType: ToDoListCleanSwift.SectionType, tasks: [ToDoListBusinessLogic.Task])]) -> ToDoListCleanSwift.TaskModel.Response { // swiftlint:disable:this line_length
+	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response {
 		convertIsCalled = true
 		return ToDoListCleanSwift.TaskModel.Response(data: [])
 	}
