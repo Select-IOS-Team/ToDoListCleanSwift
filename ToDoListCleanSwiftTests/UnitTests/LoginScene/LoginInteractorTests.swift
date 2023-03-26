@@ -22,7 +22,7 @@ final class LoginInteractorTests: XCTestCase {
 		// arrange
 		let sut = makeSut()
 		let request = LoginModels.Request(login: "login", password: "password")
-		let expectedLoginDTO = LoginDTO(success: 1, login: "workerLogin", lastLoginDate: Date())
+		let expectedLoginDTO = LoginDTO(success: 1, login: "workerLogin")
 		loginWorkerSpy.stubbedLoginResult = expectedLoginDTO
 
 		// act
@@ -51,11 +51,6 @@ final class LoginInteractorTests: XCTestCase {
 			expectedLoginDTO.login,
 			"Передаваемый в презентер логин отличается от логина, полученного от воркера"
 		)
-		XCTAssertEqual(
-			loginPresenterSpy.invokedPresentParameters?.response.lastLoginDate,
-			expectedLoginDTO.lastLoginDate,
-			"Передаваемое в презентер значение даты авторизации отличается от полученного от воркера"
-		)
 	}
 
 	// Проверка того, что передаваемые в воркер и в презентер данные, корректны, когда авторизация неуспешна
@@ -63,7 +58,7 @@ final class LoginInteractorTests: XCTestCase {
 		// arrange
 		let sut = makeSut()
 		let request = LoginModels.Request(login: "login", password: "password")
-		let expectedLoginDTO = LoginDTO(success: 0, login: "workerLogin", lastLoginDate: Date())
+		let expectedLoginDTO = LoginDTO(success: 0, login: "workerLogin")
 		loginWorkerSpy.stubbedLoginResult = expectedLoginDTO
 
 		// act
@@ -91,11 +86,6 @@ final class LoginInteractorTests: XCTestCase {
 			loginPresenterSpy.invokedPresentParameters?.response.login,
 			expectedLoginDTO.login,
 			"Передаваемый в презентер логин отличается от логина, полученного от воркера"
-		)
-		XCTAssertEqual(
-			loginPresenterSpy.invokedPresentParameters?.response.lastLoginDate,
-			expectedLoginDTO.lastLoginDate,
-			"Передаваемое в презентер значение даты авторизации отличается от полученного от воркера"
 		)
 	}
 }
