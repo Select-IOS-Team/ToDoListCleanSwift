@@ -9,6 +9,8 @@ import Foundation
 
 /// Интерактор сцены авторизации.
 protocol ILoginInteractor {
+	/// Авторизация.
+	/// - Parameter request: Модель данных для выполнения запроса авторизации.
 	func login(request: LoginModels.Request)
 }
 
