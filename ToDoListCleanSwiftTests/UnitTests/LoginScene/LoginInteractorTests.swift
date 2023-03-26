@@ -29,18 +29,18 @@ final class LoginInteractorTests: XCTestCase {
 		sut.login(request: request)
 
 		// assert
-		XCTAssertTrue(loginWorkerSpy.invokedLogin, "Не был вызван у воркера требуемый вызова метод login")
+		XCTAssertTrue(loginWorkerSpy.invokedLogin, "У воркера не был вызван требуемый вызова метод login")
 		XCTAssertEqual(
 			loginWorkerSpy.invokedLoginParameters?.login,
 			request.login,
-			"Передаваемый в LoginWorker логин отличается от логина в реквесте"
+			"Передаваемый в воркер логин отличается от логина в реквесте"
 		)
 		XCTAssertEqual(
 			loginWorkerSpy.invokedLoginParameters?.password,
 			request.password,
-			"Передаваемый в LoginWorker пароль отличается от пароля в реквесте"
+			"Передаваемый в воркер пароль отличается от пароля в реквесте"
 		)
-		XCTAssertTrue(loginPresenterSpy.invokedPresent, "Не был вызван у презентера требуемый вызова метод present")
+		XCTAssertTrue(loginPresenterSpy.invokedPresent, "У презентера не был вызван требуемый вызова метод present")
 		XCTAssertEqual(
 			loginPresenterSpy.invokedPresentParameters?.response.success,
 			true,
@@ -70,18 +70,18 @@ final class LoginInteractorTests: XCTestCase {
 		sut.login(request: request)
 
 		// assert
-		XCTAssertTrue(loginWorkerSpy.invokedLogin, "Не был вызван у воркера требуемый вызова метод login")
+		XCTAssertTrue(loginWorkerSpy.invokedLogin, "У воркера не был вызван требуемый вызова метод login")
 		XCTAssertEqual(
 			loginWorkerSpy.invokedLoginParameters?.login,
 			request.login,
-			"Передаваемый в LoginWorker логин отличается от логина в реквесте"
+			"Передаваемый в воркер логин отличается от логина в реквесте"
 		)
 		XCTAssertEqual(
 			loginWorkerSpy.invokedLoginParameters?.password,
 			request.password,
-			"Передаваемый в LoginWorker пароль отличается от пароля в реквесте"
+			"Передаваемый в воркер пароль отличается от пароля в реквесте"
 		)
-		XCTAssertTrue(loginPresenterSpy.invokedPresent, "Не был вызван у презентера требуемый вызова метод present")
+		XCTAssertTrue(loginPresenterSpy.invokedPresent, "У презентера не был вызван требуемый вызова метод present")
 		XCTAssertEqual(
 			loginPresenterSpy.invokedPresentParameters?.response.success,
 			false,
