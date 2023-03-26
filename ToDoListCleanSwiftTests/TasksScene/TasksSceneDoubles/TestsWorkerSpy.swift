@@ -10,10 +10,10 @@ import ToDoListBusinessLogic
 
 final class TasksWorkerSpy: ITasksWorker {
 
-	// MARK: - Internal Properties
+	// MARK: - Internal properties
 	private (set) var convertIsCalled = false
 
-	// MARK: - Internal Methods
+	// MARK: - Internal methods
 	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response {
 		convertIsCalled = true
 		return ToDoListCleanSwift.TaskModel.Response(data: [])

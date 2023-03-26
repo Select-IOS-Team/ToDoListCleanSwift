@@ -9,11 +9,11 @@
 
 final class TasksPresenterSpy: ITasksPresenter {
 
-	// MARK: - Internal Properties
+	// MARK: - Internal properties
 
 	private (set) var presentDataIsCalled = false
 
-	// MARK: - Internal Methods
+	// MARK: - Internal methods
 
 	func presentData(response: ToDoListCleanSwift.TaskModel.Response) {
 		presentDataIsCalled = true

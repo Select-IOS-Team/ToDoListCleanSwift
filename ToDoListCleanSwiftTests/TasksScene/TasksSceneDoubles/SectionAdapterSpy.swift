@@ -10,7 +10,7 @@ import ToDoListBusinessLogic
 
 final class SectionAdapterSpy: ISectionsAdapter {
 
-	// MARK: - Internal Properties
+	// MARK: - Internal properties
 
 	private (set) var getSectionsTypesIsCalled = false
 	private (set) var getTasksForSectionsTypeIsCalled = false
@@ -24,7 +24,7 @@ final class SectionAdapterSpy: ISectionsAdapter {
 		self.taskManager = taskManager
 	}
 
-	// MARK: - Internal Methods
+	// MARK: - Internal methods
 
 	func getSectionsTypes() -> [SectionType] {
 		getSectionsTypesIsCalled = true

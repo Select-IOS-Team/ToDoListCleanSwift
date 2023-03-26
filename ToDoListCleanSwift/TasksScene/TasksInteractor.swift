@@ -8,7 +8,7 @@
 import Foundation
 import ToDoListBusinessLogic
 
-/// Интерактор,  получающий секции и задачи с помощью воркера для презентера
+/// Интерактор сцены списка задач
 protocol ITasksInteractor: AnyObject {
 	/// Получает задачу по индексу и выполняет/отменяет ее
 	/// - Parameter indexPath: `indexPath` отмеченной задачи в списке
