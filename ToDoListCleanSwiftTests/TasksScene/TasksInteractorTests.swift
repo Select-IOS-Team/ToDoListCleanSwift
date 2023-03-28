@@ -12,102 +12,130 @@ import ToDoListBusinessLogic
 /// Тестирует методы TasksInteractor
 final class TasksInteractorTests: XCTestCase {
 
-	private var worker: TasksWorkerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
-	private var presenter: TasksPresenterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
-	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
+	private var workerSpy: TasksWorkerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
+	private var presenterSpy: TasksPresenterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var sectionAdapterSpy: SectionAdapterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func test_fetchSectionsWithTasksAndConvertToPresentModel_shouldBeCalled() {
 		// arrange
 		let sut = makeSut()
-		taskManagerSpy = TaskManagerSpy()
-		sectionAdapterSpy = SectionAdapterSpy(taskManager: taskManagerSpy)
-		sut.sectionsAdapter = sectionAdapterSpy
-		let request = prepareRequest()
+
+		let sectionTypes = [SectionType.uncompletedTasks, SectionType.completedTasks]
+		sectionAdapterSpy.stubbedGetSectionsTypesResult = sectionTypes
+		sectionAdapterSpy.stubbedGetTasksForSectionsTypeResult = [
+			RegularTask(title: "Task 1"),
+			RegularTask(title: "Task 2")
+		]
+		let expectedData: [(sectionType: SectionType, tasks: [Task])] = [
+			(sectionType: .uncompletedTasks, tasks: [RegularTask(title: "Task 1"), RegularTask(title: "Task 2")]),
+			(sectionType: .completedTasks, tasks: [RegularTask(title: "Task 1"), RegularTask(title: "Task 2")])
+		]
 		let expectedResponse = prepareExpectedResponse()
-		worker.stubbedResponse = expectedResponse
+		workerSpy.stubbedConvertToTaskModelResponseResult = expectedResponse
 
 		// act
 		sut.fetchSectionsWithTasksAndConvertToPresentModel()
 
 		// assert
+		XCTAssertTrue(sectionAdapterSpy.invokedGetSectionsTypes, "Не вызван метод sectionAdapter.getSectionsTypes()")
 		XCTAssertEqual(
-			worker.stubbedRequest[0].sectionType,
-			request[0].0,
-			"Переданная в воркер секция 1 отличается от первой секции в реквесте"
+			sectionTypes.count,
+			sectionAdapterSpy.invokedGetTasksForSectionsTypeCount,
+			"Количество секций полученное в методе sectionAdapter.getSectionsTypes() не соответствует ожидаемым"
+		)
+
+		XCTAssertTrue(sectionAdapterSpy.invokedGetTasksForSectionsType, "Не вызван sectionAdapter.getTasksForSectionsType()")
+		XCTAssertEqual(
+			sectionAdapterSpy.invokedGetTasksForSectionsTypeParametersList.map { $0.sectionType },
+			sectionTypes,
+			"Типы секций полученные в методе sectionAdapter.getTasksForSectionsType() не соответствуют ожидаемым"
+		)
+
+		XCTAssertTrue(workerSpy.invokedConvertToTaskModelResponse, "Не был вызван метод worker.convertToTaskModelResponse()")
+		XCTAssertEqual(
+			workerSpy.invokedConvertToTaskModelResponseParameters?.data.map { $0.sectionType },
+			expectedData.map { $0.sectionType },
+			"Типы секций полученные в методе worker.convertToTaskModelResponse() не соответствуют ожидаемым"
 		)
 		XCTAssertEqual(
-			worker.stubbedRequest[1].sectionType,
-			request[1].0,
-			"Переданная в воркер секция 2 отличается от второй секции в реквесте"
+			workerSpy.invokedConvertToTaskModelResponseParameters?.data.map { $0.tasks },
+			expectedData.map { $0.tasks },
+			"Задачи секции 1 полученные в методе worker.convertToTaskModelResponse() не соответствуют ожидаемым"
 		)
+
+		XCTAssertTrue(presenterSpy.invokedPresentData, "Не вызван presenter.presentData()")
 		XCTAssertEqual(
-			worker.stubbedRequest[0].tasks,
-			request[1].1,
-			"Переданный в воркер массив задач для секции 1 отличается от массива в реквесте"
+			presenterSpy.invokedPresentDataParameters?.response,
+			expectedResponse,
+			"Структура секций с задачами в методе presenter.presentData() не соответствует ожидаемой"
 		)
-		XCTAssertEqual(
-			presenter.invokedPresentParameters?.data,
-			expectedResponse.data,
-			"Передаваемое в презентер значение отличается от ожидаемого"
-		)
-		XCTAssertTrue(sectionAdapterSpy.getSectionsTypesIsCalled, "Не вызван метод sectionAdapter.getSectionType")
-		XCTAssertTrue(
-			sectionAdapterSpy.getTasksForSectionsTypeIsCalled,
-			"Не вызван метод sectionAdapter.getTasksForSectionsType"
-		)
-		XCTAssertTrue(worker.convertIsCalled, "Не был вызван worker.convertToTaskModelResponse")
-		XCTAssertTrue(presenter.presentDataIsCalled, "Не был вызван presenter.presentData")
 	}
 
 	func test_didCheckboxTapped_withIndexPath_shouldBeCompleteTask() {
 		// arrange
 		let sut = makeSut()
-		let task = RegularTask(title: "Regular task")
-		taskManagerSpy = TaskManagerSpy()
-		taskManagerSpy.stubbedUncompletedTasksResult = [task]
-		sectionAdapterSpy = SectionAdapterSpy(taskManager: taskManagerSpy)
-		sut.sectionsAdapter = sectionAdapterSpy
+
+		let sectionType = SectionType.uncompletedTasks
+		sectionAdapterSpy.stubbedGetSectionTypeResult = sectionType
+		let task = RegularTask(title: "Task")
+		sectionAdapterSpy.stubbedGetTasksForSectionsTypeResult = [task]
+		workerSpy.stubbedConvertToTaskModelResponseResult = prepareExpectedResponse()
+		let indexPath = IndexPath(row: 0, section: 0)
 
 		// act
-		sut.didCheckboxTapped(indexPath: IndexPath(row: 0, section: 0))
+		sut.didCheckboxTapped(indexPath: indexPath)
 
 		// assert
-		XCTAssertTrue(sectionAdapterSpy.getSectionsTypesIsCalled, "Не вызван метод sectionAdapter.getSectionType")
+		XCTAssertTrue(sectionAdapterSpy.invokedGetSectionType, "Не вызван метод sectionAdapter.getSectionType")
+		XCTAssertEqual(
+			sectionAdapterSpy.invokedGetSectionTypeParameters?.index,
+			indexPath.section,
+			"Переданный в метод sectionAdapter.getSectionType индекс секции должен быть indexPath.section [0]"
+		)
 		XCTAssertTrue(
-			sectionAdapterSpy.getTasksForSectionsTypeIsCalled,
+			sectionAdapterSpy.invokedGetTasksForSectionsType,
 			"Не вызван метод sectionAdapter.getTasksForSectionsType"
 		)
-		XCTAssertTrue(
-			presenter.presentDataIsCalled,
-			"Не вызван метод presenter.presentData"
+		XCTAssertEqual(
+			sectionAdapterSpy.invokedGetTasksForSectionsTypeParameters?.sectionType,
+			sectionType,
+			"Переданная в метод sectionAdapter.getTasksForSectionsType секция не соответствует ожидаемой"
 		)
-		XCTAssertTrue(task.isCompleted, "У задачи не произошла смена состояния выполненности")
+
+		XCTAssertEqual(
+			sectionAdapterSpy.stubbedGetTasksForSectionsTypeResult[indexPath.row],
+			task,
+			"Первая задача первой секции не соответствует ожидаемой"
+		)
+
+		XCTAssertTrue(task.isCompleted, "После выполнения метода didCheckboxTapped задача должна быть выполненной")
 	}
 }
 
 private extension TasksInteractorTests {
 	func makeSut() -> TasksInteractor {
-		worker = TasksWorkerSpy()
-		presenter = TasksPresenterSpy()
+		workerSpy = TasksWorkerSpy()
+		presenterSpy = TasksPresenterSpy()
+		sectionAdapterSpy = SectionAdapterSpy()
 		let interactor = TasksInteractor()
-		interactor.worker = worker
-		interactor.presenter = presenter
+		interactor.worker = workerSpy
+		interactor.presenter = presenterSpy
+		interactor.sectionsAdapter = sectionAdapterSpy
 		return interactor
 	}
-	private func prepareRequest() -> [(SectionType, [Task])] {
-		return [
-			(section: SectionType.uncompletedTasks, tasks: [RegularTask(title: "Regular task")]),
-			(section: SectionType.completedTasks, tasks: [])
-		]
-	}
 	private func prepareExpectedResponse() -> TaskModel.Response {
-		let dataUncompletedTasks = TaskModel.ResponseData(
-			sectionType: .uncompletedTasks, sectionTasks: [RegularTask(title: "Regular task")]
+		let expectedResponse = TaskModel.Response(
+			data: [
+				TaskModel.ResponseData(
+					sectionType: .completedTasks,
+					sectionTasks: [RegularTask(title: "Task 1"), RegularTask(title: "Task 2")]
+				),
+				TaskModel.ResponseData(
+					sectionType: .uncompletedTasks,
+					sectionTasks: [RegularTask(title: "Task 1")]
+				)
+			]
 		)
-		let dataCompletedTasks = TaskModel.ResponseData(
-			sectionType: .completedTasks, sectionTasks: []
-		)
-		return TaskModel.Response(data: [dataUncompletedTasks, dataCompletedTasks])
+		return expectedResponse
 	}
 }
