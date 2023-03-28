@@ -9,13 +9,15 @@
 
 final class TasksViewControllerSpy: ITasksViewController {
 
-	// MARK: - Internal Properties
+	var invokedRender = false
+	var invokedRenderCount = 0
+	var invokedRenderParameters: (viewData: TaskModel.ViewData, Void)?
+	var invokedRenderParametersList = [(viewData: TaskModel.ViewData, Void)]()
 
-	private(set) var renderIsCalled = false
-
-	// MARK: - Internal Methods
-
-	func render(viewData: ToDoListCleanSwift.TaskModel.ViewData) {
-		renderIsCalled = true
+	func render(viewData: TaskModel.ViewData) {
+		invokedRender = true
+		invokedRenderCount += 1
+		invokedRenderParameters = (viewData, ())
+		invokedRenderParametersList.append((viewData, ()))
 	}
 }

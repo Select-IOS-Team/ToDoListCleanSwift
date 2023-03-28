@@ -48,7 +48,7 @@
 		856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D624729CCD6C000A0A1BB /* TasksInteractorTests.swift */; };
 		856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */; };
 		856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */; };
-		856D625E29D022BA00A0A1BB /* SectionAdapterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D625D29D022BA00A0A1BB /* SectionAdapterSpy.swift */; };
+		857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */; };
 		85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +107,7 @@
 		856D625D29D022BA00A0A1BB /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
 		856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerSpy.swift; sourceTree = "<group>"; };
 		856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenterTests.swift; sourceTree = "<group>"; };
+		857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
 		85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListBusinessLogic; sourceTree = "<group>"; };
 		85E0C13129C44B0200E8A29B /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -298,7 +299,7 @@
 			children = (
 				856D624929CCDB3C00A0A1BB /* TestsWorkerSpy.swift */,
 				856D624B29CCDB7000A0A1BB /* TasksPresenerSpy.swift */,
-				856D625D29D022BA00A0A1BB /* SectionAdapterSpy.swift */,
+				857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */,
 				856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */,
 			);
 			path = TasksSceneDoubles;
@@ -476,6 +477,7 @@
 				856D625E29D022BA00A0A1BB /* SectionAdapterSpy.swift in Sources */,
 				856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */,
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
+				857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */,
 				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
 				856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,

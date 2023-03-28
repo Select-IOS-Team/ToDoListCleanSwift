@@ -38,8 +38,9 @@ final class SectionAdapterSpy: ISectionsAdapter {
 	var invokedGetSectionTypeAndIndex = false
 	var invokedGetSectionTypeAndIndexCount = 0
 	var invokedGetSectionTypeAndIndexParameters: (task: Task, Void)?
-
+	// swiftlint:disable identifier_name
 	var invokedGetSectionTypeAndIndexParametersList = [(task: Task, Void)]()
+	// swiftlint:enable identifier_name
 	// swiftlint:disable implicitly_unwrapped_optional
 	var stubbedGetSectionTypeAndIndexResult: (sectionType: SectionType, index: Int)!
 	// swiftlint:enable implicitly_unwrapped_optional
