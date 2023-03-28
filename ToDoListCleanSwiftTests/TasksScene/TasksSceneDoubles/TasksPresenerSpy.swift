@@ -9,15 +9,15 @@
 
 final class TasksPresenterSpy: ITasksPresenter {
 
-	// MARK: - Internal properties
+	var invokedPresentData = false
+	var invokedPresentDataCount = 0
+	var invokedPresentDataParameters: (response: TaskModel.Response, Void)?
+	var invokedPresentDataParametersList = [(response: TaskModel.Response, Void)]()
 
-	private (set) var presentDataIsCalled = false
-	var invokedPresentParameters: ToDoListCleanSwift.TaskModel.Response?
-
-	// MARK: - Internal methods
-
-	func presentData(response: ToDoListCleanSwift.TaskModel.Response) {
-		presentDataIsCalled = true
-		invokedPresentParameters = response
+	func presentData(response: TaskModel.Response) {
+		invokedPresentData = true
+		invokedPresentDataCount += 1
+		invokedPresentDataParameters = (response, ())
+		invokedPresentDataParametersList.append((response, ()))
 	}
 }

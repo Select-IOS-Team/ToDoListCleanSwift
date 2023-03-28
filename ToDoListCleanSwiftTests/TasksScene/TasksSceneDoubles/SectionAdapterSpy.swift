@@ -10,50 +10,75 @@ import ToDoListBusinessLogic
 
 final class SectionAdapterSpy: ISectionsAdapter {
 
-	// MARK: - Internal properties
-
-	private (set) var getSectionsTypesIsCalled = false
-	private (set) var getTasksForSectionsTypeIsCalled = false
-	private (set) var getSectionTypeAndIndexIsCalled = false
-	private (set) var getSectionTypeIndexIsCalled = false
-	private (set) var getSectionTypeIsCalled = false
-
-	private let taskManager: ITaskManager
-
-	init(taskManager: ITaskManager) {
-		self.taskManager = taskManager
-	}
-
-	// MARK: - Internal methods
+	var invokedGetSectionsTypes = false
+	var invokedGetSectionsTypesCount = 0
+	var stubbedGetSectionsTypesResult: [SectionType]! = [] // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func getSectionsTypes() -> [SectionType] {
-		getSectionsTypesIsCalled = true
-		return [.uncompletedTasks, .completedTasks]
+		invokedGetSectionsTypes = true
+		invokedGetSectionsTypesCount += 1
+		return stubbedGetSectionsTypesResult
 	}
+
+	var invokedGetTasksForSectionsType = false
+	var invokedGetTasksForSectionsTypeCount = 0
+	var invokedGetTasksForSectionsTypeParameters: (sectionType: SectionType, Void)?
+	// swiftlint:disable identifier_name
+	var invokedGetTasksForSectionsTypeParametersList = [(sectionType: SectionType, Void)]()
+	// swiftlint:enable identifier_name
+	var stubbedGetTasksForSectionsTypeResult: [Task]! = [] // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func getTasksForSectionsType(sectionType: SectionType) -> [Task] {
-		getTasksForSectionsTypeIsCalled = true
-		switch sectionType {
-		case .uncompletedTasks:
-			return taskManager.uncompletedTasks()
-		case .completedTasks:
-			return taskManager.completedTasks()
-		}
+		invokedGetTasksForSectionsType = true
+		invokedGetTasksForSectionsTypeCount += 1
+		invokedGetTasksForSectionsTypeParameters = (sectionType, ())
+		invokedGetTasksForSectionsTypeParametersList.append((sectionType, ()))
+		return stubbedGetTasksForSectionsTypeResult
 	}
+
+	var invokedGetSectionTypeAndIndex = false
+	var invokedGetSectionTypeAndIndexCount = 0
+	var invokedGetSectionTypeAndIndexParameters: (task: Task, Void)?
+	// swiftlint:disable identifier_name
+	var invokedGetSectionTypeAndIndexParametersList = [(task: Task, Void)]()
+	// swiftlint:enable identifier_name
+	// swiftlint:disable implicitly_unwrapped_optional
+	var stubbedGetSectionTypeAndIndexResult: (sectionType: SectionType, index: Int)!
+	// swiftlint:enable implicitly_unwrapped_optional
 
 	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionType, index: Int)? {
-		getSectionTypeAndIndexIsCalled = true
-		return (sectionType: .uncompletedTasks, index: 0)
+		invokedGetSectionTypeAndIndex = true
+		invokedGetSectionTypeAndIndexCount += 1
+		invokedGetSectionTypeAndIndexParameters = (task, ())
+		invokedGetSectionTypeAndIndexParametersList.append((task, ()))
+		return stubbedGetSectionTypeAndIndexResult
 	}
+
+	var invokedGetSectionTypeIndex = false
+	var invokedGetSectionTypeIndexCount = 0
+	var invokedGetSectionTypeIndexParameters: (sectionType: SectionType, Void)?
+	var invokedGetSectionTypeIndexParametersList = [(sectionType: SectionType, Void)]()
+	var stubbedGetSectionTypeIndexResult: Int! = 0 // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func getSectionTypeIndex(sectionType: SectionType) -> Int {
-		getSectionTypeIndexIsCalled = true
-		let sectionTypeIndex = 0
-		return sectionTypeIndex
+		invokedGetSectionTypeIndex = true
+		invokedGetSectionTypeIndexCount += 1
+		invokedGetSectionTypeIndexParameters = (sectionType, ())
+		invokedGetSectionTypeIndexParametersList.append((sectionType, ()))
+		return stubbedGetSectionTypeIndexResult
 	}
 
+	var invokedGetSectionType = false
+	var invokedGetSectionTypeCount = 0
+	var invokedGetSectionTypeParameters: (index: Int, Void)?
+	var invokedGetSectionTypeParametersList = [(index: Int, Void)]()
+	var stubbedGetSectionTypeResult: SectionType! // swiftlint:disable:this implicitly_unwrapped_optional
+
 	func getSectionType(index: Int) -> SectionType {
-		getSectionTypeIsCalled = true
-		return .uncompletedTasks
+		invokedGetSectionType = true
+		invokedGetSectionTypeCount += 1
+		invokedGetSectionTypeParameters = (index, ())
+		invokedGetSectionTypeParametersList.append((index, ()))
+		return stubbedGetSectionTypeResult
 	}
 }
