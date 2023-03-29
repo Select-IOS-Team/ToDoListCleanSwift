@@ -10,7 +10,7 @@ import ToDoListBusinessLogic
 /// Модель вью
 enum TaskModel {
 
-	struct Response {
+	struct Response: Equatable {
 		var data: [ResponseData]
 	}
 
