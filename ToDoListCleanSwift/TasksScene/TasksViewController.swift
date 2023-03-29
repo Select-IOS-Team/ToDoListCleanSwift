@@ -24,7 +24,7 @@ final class TasksViewController: UIViewController {
 		navigationItem.title = "To-do List"
 		setupTableView()
 		setupTableViewConstraints()
-		interactor?.fetchSectionsWithTasksAndConvertToPresentModel()
+		interactor?.fetchData()
 	}
 
 	private func setupTableView() {

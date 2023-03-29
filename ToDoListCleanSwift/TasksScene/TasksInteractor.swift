@@ -14,7 +14,7 @@ protocol ITasksInteractor: AnyObject {
 	/// - Parameter indexPath: `indexPath` отмеченной задачи в списке
 	func didCheckboxTapped(indexPath: IndexPath)
 	/// Получает секции и задачи в них и преобразует в `TaskModel.Response` для презентера
-	func fetchSectionsWithTasksAndConvertToPresentModel()
+	func fetchData()
 }
 
 /// Класс интерактора
@@ -24,7 +24,7 @@ class TasksInteractor: ITasksInteractor {
 	var presenter: ITasksPresenter?
 	var worker: ITasksWorker?
 
-	func fetchSectionsWithTasksAndConvertToPresentModel() {
+	func fetchData() {
 		var data: [(sectionType: SectionType, tasks: [Task])] = []
 		guard let sectionsTypes = sectionsAdapter?.getSectionsTypes() else { return }
 		for sectionsType in sectionsTypes {
@@ -39,6 +39,6 @@ class TasksInteractor: ITasksInteractor {
 		guard let sectionType = sectionsAdapter?.getSectionType(index: indexPath.section) else { return }
 		guard let task = sectionsAdapter?.getTasksForSectionsType(sectionType: sectionType)[indexPath.row] else { return }
 		task.toggleCompletetionState()
-		fetchSectionsWithTasksAndConvertToPresentModel()
+		fetchData()
 	}
 }

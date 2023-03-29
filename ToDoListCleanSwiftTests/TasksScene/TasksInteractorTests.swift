@@ -12,9 +12,13 @@ import ToDoListBusinessLogic
 /// Тестирует методы TasksInteractor
 final class TasksInteractorTests: XCTestCase {
 
+	// MARK: - Private properties
+
 	private var workerSpy: TasksWorkerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var presenterSpy: TasksPresenterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var sectionAdapterSpy: SectionAdapterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
+
+	// MARK: - Tests
 
 	func test_fetchSectionsWithTasksAndConvertToPresentModel_shouldBeCalled() {
 		// arrange
@@ -37,7 +41,7 @@ final class TasksInteractorTests: XCTestCase {
 		workerSpy.stubbedConvertToTaskModelResponseResult = expectedResponse
 
 		// act
-		sut.fetchSectionsWithTasksAndConvertToPresentModel()
+		sut.fetchData()
 
 		// assert
 		XCTAssertTrue(sectionAdapterSpy.invokedGetSectionsTypes, "Не вызван метод sectionAdapter.getSectionsTypes()")
@@ -115,6 +119,8 @@ final class TasksInteractorTests: XCTestCase {
 	}
 }
 
+// MARK: - Private
+
 private extension TasksInteractorTests {
 	func makeSut() -> TasksInteractor {
 		workerSpy = TasksWorkerSpy()
@@ -126,7 +132,11 @@ private extension TasksInteractorTests {
 		interactor.sectionsAdapter = sectionAdapterSpy
 		return interactor
 	}
-	private func prepareExpectedResponse() -> TaskModel.Response {
+}
+
+// MARK: - TestData
+private extension TasksInteractorTests {
+	func prepareExpectedResponse() -> TaskModel.Response {
 		let expectedResponse = TaskModel.Response(
 			data: [
 				TaskModel.ResponseData(

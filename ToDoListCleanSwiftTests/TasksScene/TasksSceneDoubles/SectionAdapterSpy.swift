@@ -10,9 +10,10 @@ import ToDoListBusinessLogic
 
 final class SectionAdapterSpy: ISectionsAdapter {
 
+	// swiftlint:disable identifier_name
 	var invokedGetSectionsTypes = false
 	var invokedGetSectionsTypesCount = 0
-	var stubbedGetSectionsTypesResult: [SectionType]! = [] // swiftlint:disable:this implicitly_unwrapped_optional
+	var stubbedGetSectionsTypesResult: [SectionType] = []
 
 	func getSectionsTypes() -> [SectionType] {
 		invokedGetSectionsTypes = true
@@ -23,10 +24,8 @@ final class SectionAdapterSpy: ISectionsAdapter {
 	var invokedGetTasksForSectionsType = false
 	var invokedGetTasksForSectionsTypeCount = 0
 	var invokedGetTasksForSectionsTypeParameters: (sectionType: SectionType, Void)?
-	// swiftlint:disable identifier_name
 	var invokedGetTasksForSectionsTypeParametersList = [(sectionType: SectionType, Void)]()
-	// swiftlint:enable identifier_name
-	var stubbedGetTasksForSectionsTypeResult: [Task]! = [] // swiftlint:disable:this implicitly_unwrapped_optional
+	var stubbedGetTasksForSectionsTypeResult: [Task] = []
 
 	func getTasksForSectionsType(sectionType: SectionType) -> [Task] {
 		invokedGetTasksForSectionsType = true
@@ -39,9 +38,8 @@ final class SectionAdapterSpy: ISectionsAdapter {
 	var invokedGetSectionTypeAndIndex = false
 	var invokedGetSectionTypeAndIndexCount = 0
 	var invokedGetSectionTypeAndIndexParameters: (task: Task, Void)?
-	// swiftlint:disable identifier_name
+
 	var invokedGetSectionTypeAndIndexParametersList = [(task: Task, Void)]()
-	// swiftlint:enable identifier_name
 	// swiftlint:disable implicitly_unwrapped_optional
 	var stubbedGetSectionTypeAndIndexResult: (sectionType: SectionType, index: Int)!
 	// swiftlint:enable implicitly_unwrapped_optional
@@ -58,7 +56,7 @@ final class SectionAdapterSpy: ISectionsAdapter {
 	var invokedGetSectionTypeIndexCount = 0
 	var invokedGetSectionTypeIndexParameters: (sectionType: SectionType, Void)?
 	var invokedGetSectionTypeIndexParametersList = [(sectionType: SectionType, Void)]()
-	var stubbedGetSectionTypeIndexResult: Int! = 0 // swiftlint:disable:this implicitly_unwrapped_optional
+	var stubbedGetSectionTypeIndexResult: Int = 0
 
 	func getSectionTypeIndex(sectionType: SectionType) -> Int {
 		invokedGetSectionTypeIndex = true
