@@ -15,7 +15,7 @@ final class TasksWorkerSpy: ITasksWorker {
 	// swiftlint:disable identifier_name
 	var invokedConvertToTaskModelResponseParameters: (data: [(sectionType: SectionType, tasks: [Task])], Void)?
 	var invokedConvertToTaskModelResponseParametersList = [(data: [(sectionType: SectionType, tasks: [Task])], Void)]()
-	// swiftlint:enable dentifier_name
+	// swiftlint:enable identifier_name
 	// swiftlint:disable: implicitly_unwrapped_optional
 	var stubbedConvertToTaskModelResponseResult: TaskModel.Response!
 	// swiftlint:enable: implicitly_unwrapped_optional
