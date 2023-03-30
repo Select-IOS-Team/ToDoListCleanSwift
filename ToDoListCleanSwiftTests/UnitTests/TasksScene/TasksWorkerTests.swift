@@ -12,7 +12,7 @@ import ToDoListBusinessLogic
 /// Класс тестирует методы worker
 final class TasksWorkerTests: XCTestCase {
 
-	// MARK: - Internal methods
+	// MARK: - Tests
 
 	// Проверка соответствия структуры TaskModel.Response на основе переданных данных
 	func test_fillResponse_withResult_shouldBeMatchPreparedData() {
@@ -43,7 +43,8 @@ final class TasksWorkerTests: XCTestCase {
 	}
 }
 
-// MARK: - Private methods
+// MARK: - TestData
+
 private extension TasksWorkerTests {
 	private func prepareStub() -> [(SectionType, [Task])] {
 		let importantTask1 = ImportantTask(title: "Important task 1", priority: .high)
