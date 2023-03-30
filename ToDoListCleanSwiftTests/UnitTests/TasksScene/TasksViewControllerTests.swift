@@ -13,17 +13,15 @@ final class TasksViewControllerTests: XCTestCase {
 
 	// MARK: - Private properties
 
-	private var sut: TasksViewController! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var interactor: TasksInteractorSpy! // swiftlint:disable:this implicitly_unwrapped_optional
-	private var worker: TasksWorkerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
-	private var presenter: TasksPresenterSpy! // swiftlint:disable:this implicitly_unwrapped_optional
-	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	// MARK: - Tests
 
 	func test_viewDidLoad_shouldBeLoadSuccess() {
 		// arrange
-		let sut = makeSut()
+		let sut = TasksViewController()
+		interactor = TasksInteractorSpy()
+		sut.interactor = interactor
 
 		// act
 		sut.viewDidLoad()
@@ -34,7 +32,9 @@ final class TasksViewControllerTests: XCTestCase {
 
 	func test_render_shouldBeReceiveValidData() {
 		// arrange
-		let sut = makeSut()
+		let sut = TasksViewController()
+		interactor = TasksInteractorSpy()
+		sut.interactor = interactor
 		let viewData = expectedViewData()
 
 		// act
@@ -46,19 +46,6 @@ final class TasksViewControllerTests: XCTestCase {
 			viewData,
 			"Переданная в метод taskViewController.render вью модель отличается от ожидаемой"
 		)
-	}
-}
-
-// MARK: - Private
-
-private extension TasksViewControllerTests {
-	func makeSut() -> TasksViewController {
-		sut = TasksViewController()
-		interactor = TasksInteractorSpy()
-		worker = TasksWorkerSpy()
-		presenter = TasksPresenterSpy()
-		sut.interactor = interactor
-		return sut
 	}
 }
 
