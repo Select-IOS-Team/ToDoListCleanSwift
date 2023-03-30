@@ -49,6 +49,8 @@
 		856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */; };
 		856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */; };
 		857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */; };
+		8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */; };
+		8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */; };
 		85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,8 @@
 		856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerSpy.swift; sourceTree = "<group>"; };
 		856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenterTests.swift; sourceTree = "<group>"; };
 		857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
+		8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractorSpy.swift; sourceTree = "<group>"; };
+		8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerTests.swift; sourceTree = "<group>"; };
 		85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListBusinessLogic; sourceTree = "<group>"; };
 		85E0C13129C44B0200E8A29B /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,6 +197,7 @@
 				5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */,
 				856D624929CCDB3C00A0A1BB /* TesksWorkerSpy.swift */,
 				856D624B29CCDB7000A0A1BB /* TasksPresenerSpy.swift */,
+				8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */,
 				856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */,
 				857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */,
 			);
@@ -290,6 +295,7 @@
 				5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */,
 				856D624729CCD6C000A0A1BB /* TasksInteractorTests.swift */,
 				856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */,
+				8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */,
 				5E40155029C974D0001F2DBB /* Managers */,
 			);
 			path = TasksScene;
@@ -466,6 +472,8 @@
 				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
 				5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */,
 				856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */,
+				8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */,
+				8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */,
 				857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */,
 				856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
