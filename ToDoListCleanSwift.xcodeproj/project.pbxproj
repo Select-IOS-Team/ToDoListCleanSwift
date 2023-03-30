@@ -104,7 +104,6 @@
 		856D624729CCD6C000A0A1BB /* TasksInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksInteractorTests.swift; sourceTree = "<group>"; };
 		856D624929CCDB3C00A0A1BB /* TestsWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsWorkerSpy.swift; sourceTree = "<group>"; };
 		856D624B29CCDB7000A0A1BB /* TasksPresenerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenerSpy.swift; sourceTree = "<group>"; };
-		856D625D29D022BA00A0A1BB /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
 		856D625529CDCA8300A0A1BB /* TasksViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerSpy.swift; sourceTree = "<group>"; };
 		856D625729CDD1B600A0A1BB /* TasksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenterTests.swift; sourceTree = "<group>"; };
 		857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
@@ -474,17 +473,13 @@
 				5E04735A29D012740076F1D0 /* LoginPresenterTests.swift in Sources */,
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
 				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
-				856D625E29D022BA00A0A1BB /* SectionAdapterSpy.swift in Sources */,
 				856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */,
-				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
 				857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */,
-				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
 				856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 				856D624C29CCDB7000A0A1BB /* TasksPresenerSpy.swift in Sources */,
 				5E04735429CFF1220076F1D0 /* LoginWorkerSpy.swift in Sources */,
 				5E04735829D012250076F1D0 /* LoginViewControllerSpy.swift in Sources */,
-				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 				5E04735229CFEFB80076F1D0 /* LoginInteractorTests.swift in Sources */,
 				5E0E1B5C29CDC156004B70B2 /* RepositoryTests.swift in Sources */,
 				5AA0193629CEA9ED0086B68E /* LoginWorkerTests.swift in Sources */,
