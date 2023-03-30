@@ -8,24 +8,48 @@
 import ToDoListBusinessLogic
 @testable import ToDoListCleanSwift
 
+// swiftlint:disable identifier_name
+// swiftlint:disable implicitly_unwrapped_optional
+
 final class SectionAdapterSpy: ISectionsAdapter {
 
-	// swiftlint:disable identifier_name
+	// MARK: - Internal properties
+
 	var invokedGetSectionsTypes = false
 	var invokedGetSectionsTypesCount = 0
 	var stubbedGetSectionsTypesResult: [SectionType] = []
-
-	func getSectionsTypes() -> [SectionType] {
-		invokedGetSectionsTypes = true
-		invokedGetSectionsTypesCount += 1
-		return stubbedGetSectionsTypesResult
-	}
 
 	var invokedGetTasksForSectionsType = false
 	var invokedGetTasksForSectionsTypeCount = 0
 	var invokedGetTasksForSectionsTypeParameters: (sectionType: SectionType, Void)?
 	var invokedGetTasksForSectionsTypeParametersList = [(sectionType: SectionType, Void)]()
 	var stubbedGetTasksForSectionsTypeResult: [Task] = []
+
+	var invokedGetSectionTypeAndIndex = false
+	var invokedGetSectionTypeAndIndexCount = 0
+	var invokedGetSectionTypeAndIndexParameters: (task: Task, Void)?
+	var invokedGetSectionTypeAndIndexParametersList = [(task: Task, Void)]()
+	var stubbedGetSectionTypeAndIndexResult: (sectionType: SectionType, index: Int)!
+
+	var invokedGetSectionTypeIndex = false
+	var invokedGetSectionTypeIndexCount = 0
+	var invokedGetSectionTypeIndexParameters: (sectionType: SectionType, Void)?
+	var invokedGetSectionTypeIndexParametersList = [(sectionType: SectionType, Void)]()
+	var stubbedGetSectionTypeIndexResult: Int = 0
+
+	var invokedGetSectionType = false
+	var invokedGetSectionTypeCount = 0
+	var invokedGetSectionTypeParameters: (index: Int, Void)?
+	var invokedGetSectionTypeParametersList = [(index: Int, Void)]()
+	var stubbedGetSectionTypeResult: SectionType!
+
+	// MARK: - ISectionsAdapter
+
+	func getSectionsTypes() -> [SectionType] {
+		invokedGetSectionsTypes = true
+		invokedGetSectionsTypesCount += 1
+		return stubbedGetSectionsTypesResult
+	}
 
 	func getTasksForSectionsType(sectionType: SectionType) -> [Task] {
 		invokedGetTasksForSectionsType = true
@@ -35,16 +59,6 @@ final class SectionAdapterSpy: ISectionsAdapter {
 		return stubbedGetTasksForSectionsTypeResult
 	}
 
-	var invokedGetSectionTypeAndIndex = false
-	var invokedGetSectionTypeAndIndexCount = 0
-	var invokedGetSectionTypeAndIndexParameters: (task: Task, Void)?
-	// swiftlint:disable identifier_name
-	var invokedGetSectionTypeAndIndexParametersList = [(task: Task, Void)]()
-	// swiftlint:enable identifier_name
-	// swiftlint:disable implicitly_unwrapped_optional
-	var stubbedGetSectionTypeAndIndexResult: (sectionType: SectionType, index: Int)!
-	// swiftlint:enable implicitly_unwrapped_optional
-
 	func getSectionTypeAndIndex(task: Task) -> (sectionType: SectionType, index: Int)? {
 		invokedGetSectionTypeAndIndex = true
 		invokedGetSectionTypeAndIndexCount += 1
@@ -53,12 +67,6 @@ final class SectionAdapterSpy: ISectionsAdapter {
 		return stubbedGetSectionTypeAndIndexResult
 	}
 
-	var invokedGetSectionTypeIndex = false
-	var invokedGetSectionTypeIndexCount = 0
-	var invokedGetSectionTypeIndexParameters: (sectionType: SectionType, Void)?
-	var invokedGetSectionTypeIndexParametersList = [(sectionType: SectionType, Void)]()
-	var stubbedGetSectionTypeIndexResult: Int = 0
-
 	func getSectionTypeIndex(sectionType: SectionType) -> Int {
 		invokedGetSectionTypeIndex = true
 		invokedGetSectionTypeIndexCount += 1
@@ -66,12 +74,6 @@ final class SectionAdapterSpy: ISectionsAdapter {
 		invokedGetSectionTypeIndexParametersList.append((sectionType, ()))
 		return stubbedGetSectionTypeIndexResult
 	}
-
-	var invokedGetSectionType = false
-	var invokedGetSectionTypeCount = 0
-	var invokedGetSectionTypeParameters: (index: Int, Void)?
-	var invokedGetSectionTypeParametersList = [(index: Int, Void)]()
-	var stubbedGetSectionTypeResult: SectionType! // swiftlint:disable:this implicitly_unwrapped_optional
 
 	func getSectionType(index: Int) -> SectionType {
 		invokedGetSectionType = true

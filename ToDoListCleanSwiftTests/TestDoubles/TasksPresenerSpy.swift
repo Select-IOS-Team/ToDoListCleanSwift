@@ -9,10 +9,14 @@
 
 final class TasksPresenterSpy: ITasksPresenter {
 
+	// MARK: - Internal properties
+
 	var invokedPresentData = false
 	var invokedPresentDataCount = 0
 	var invokedPresentDataParameters: (response: TaskModel.Response, Void)?
 	var invokedPresentDataParametersList = [(response: TaskModel.Response, Void)]()
+
+	// MARK: - ITasksPresenter
 
 	func presentData(response: TaskModel.Response) {
 		invokedPresentData = true

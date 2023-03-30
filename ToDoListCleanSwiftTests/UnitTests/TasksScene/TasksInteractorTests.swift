@@ -23,9 +23,6 @@ final class TasksInteractorTests: XCTestCase {
 	func test_fetchSectionsWithTasksAndConvertToPresentModel_shouldBeCalled() {
 		// arrange
 		let sut = makeSut()
-		taskManagerSpy = TaskManagerSpy()
-		sectionAdapterSpy = SectionAdapterSpy(taskManager: taskManagerSpy)
-		sut.sectionsAdapter = sectionAdapterSpy
 
 		let sectionTypes = [SectionType.uncompletedTasks, SectionType.completedTasks]
 		sectionAdapterSpy.stubbedGetSectionsTypesResult = sectionTypes
@@ -135,6 +132,7 @@ private extension TasksInteractorTests {
 }
 
 // MARK: - TestData
+
 private extension TasksInteractorTests {
 	func prepareExpectedResponse() -> TaskModel.Response {
 		let expectedResponse = TaskModel.Response(

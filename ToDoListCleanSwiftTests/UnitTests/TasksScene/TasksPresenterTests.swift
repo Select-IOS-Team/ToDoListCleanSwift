@@ -9,11 +9,12 @@ import XCTest
 import ToDoListBusinessLogic
 @testable import ToDoListCleanSwift
 
+// swiftlint:disable function_body_length
+
 final class TasksPresenterTests: XCTestCase {
 
 	// MARK: - Private properties
 
-	// swiftlint:disable function_body_length
 	private var viewControllerSpy: TasksViewControllerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 

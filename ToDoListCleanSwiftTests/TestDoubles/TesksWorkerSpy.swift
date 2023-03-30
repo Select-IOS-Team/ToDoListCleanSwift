@@ -1,5 +1,5 @@
 //
-//  TestsWorkerSpy.swift
+//  TasksWorkerSpy.swift
 //  ToDoListCleanSwiftTests
 //
 //  Created by Evgeni Meleshin on 23.03.2023.
@@ -8,17 +8,20 @@
 import ToDoListBusinessLogic
 @testable import ToDoListCleanSwift
 
+// swiftlint:disable identifier_name
+// swiftlint:disable: implicitly_unwrapped_optional
+
 final class TasksWorkerSpy: ITasksWorker {
+
+	// MARK: - Internal properties
 
 	var invokedConvertToTaskModelResponse = false
 	var invokedConvertToTaskModelResponseCount = 0
-	// swiftlint:disable identifier_name
 	var invokedConvertToTaskModelResponseParameters: (data: [(sectionType: SectionType, tasks: [Task])], Void)?
 	var invokedConvertToTaskModelResponseParametersList = [(data: [(sectionType: SectionType, tasks: [Task])], Void)]()
-	// swiftlint:enable identifier_name
-	// swiftlint:disable: implicitly_unwrapped_optional
 	var stubbedConvertToTaskModelResponseResult: TaskModel.Response!
-	// swiftlint:enable: implicitly_unwrapped_optional
+
+	// MARK: - ITasksWorker
 
 	func convertToTaskModelResponse(data: [(sectionType: SectionType, tasks: [Task])]) -> TaskModel.Response {
 		invokedConvertToTaskModelResponse = true

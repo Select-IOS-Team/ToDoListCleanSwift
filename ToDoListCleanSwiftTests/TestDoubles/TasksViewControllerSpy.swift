@@ -9,10 +9,14 @@
 
 final class TasksViewControllerSpy: ITasksViewController {
 
+	// MARK: - Internal properties
+
 	var invokedRender = false
 	var invokedRenderCount = 0
 	var invokedRenderParameters: (viewData: TaskModel.ViewData, Void)?
 	var invokedRenderParametersList = [(viewData: TaskModel.ViewData, Void)]()
+
+	// MARK: - ITasksViewController
 
 	func render(viewData: TaskModel.ViewData) {
 		invokedRender = true
