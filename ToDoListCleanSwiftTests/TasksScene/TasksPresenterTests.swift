@@ -11,30 +11,62 @@ import ToDoListBusinessLogic
 
 final class TasksPresenterTests: XCTestCase {
 
+	// MARK: - Private properties
+
+	// swiftlint:disable function_body_length
 	private var viewControllerSpy: TasksViewControllerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 	private var taskManagerSpy: TaskManagerSpy! // swiftlint:disable:this implicitly_unwrapped_optional
 
-	func test_presentData_withValidResponce_shouldBeRenderSuccess() {
+	// MARK: - Tests
+
+	func test_presentData_withValidResponse_shouldBeRenderSuccess() {
 		// arrange
 		let sut = makeSut()
 
-		let response = TaskModel.Response(
-			data: [
-				TaskModel.ResponseData(
-					sectionType: .uncompletedTasks,
-					sectionTasks: [RegularTask(title: "Regular task 1")]
-				)
+		let importantTask = ImportantTask(title: "Important task 1", priority: .high)
+		let responseUncompletedTasks = TaskModel.ResponseData(
+			sectionType: .uncompletedTasks,
+			sectionTasks: [
+				RegularTask(title: "Regular task 1"),
+				RegularTask(title: "Regular task 2")
 			]
 		)
+		let responseCompletedTasks = TaskModel.ResponseData(
+			sectionType: .completedTasks,
+			sectionTasks: [
+				RegularTask(title: "Regular task 3"),
+				importantTask
+			]
+		)
+		let response = TaskModel.Response(data: [responseUncompletedTasks, responseCompletedTasks])
 
-		let regularTask = TaskModel.ViewData.RegularTask(title: "Regular task 1", checkboxImageName: "circle")
-		let uncompletedTasks = [TaskModel.ViewData.Task.regularTask(regularTask)]
+		let regularTask1 = TaskModel.ViewData.RegularTask(title: "Regular task 1", checkboxImageName: "circle")
+		let regularTask2 = TaskModel.ViewData.RegularTask(title: "Regular task 2", checkboxImageName: "circle")
+		let regularTask3 = TaskModel.ViewData.RegularTask(title: "Regular task 3", checkboxImageName: "circle")
+		let importantTaskViewData = TaskModel.ViewData.ImportantTask(
+			title: "Important task 1",
+			checkboxImageName: "circle",
+			isExpired: false,
+			priorityText: "Priority: high",
+			executionDate: getStringByDate(importantTask.completionDate)
+		)
+		let uncompletedTasks = [
+			TaskModel.ViewData.Task.regularTask(regularTask1),
+			TaskModel.ViewData.Task.regularTask(regularTask2)
+		]
+		let completedTasks = [
+			TaskModel.ViewData.Task.regularTask(regularTask3),
+			TaskModel.ViewData.Task.importantTask(importantTaskViewData)
+		]
 		let sectionUncompletedTasks = TaskModel.ViewData.Section(
-			title: SectionType.uncompletedTasks.description,
+			title: "Невыполненные задачи",
 			tasks: uncompletedTasks
 		)
-		let expectedViewData = TaskModel.ViewData(tasksBySections: [sectionUncompletedTasks])
-		viewControllerSpy.invokedRenderParameters = (viewData: expectedViewData, ())
+		let sectionCompletedTasks = TaskModel.ViewData.Section(
+			title: "Выполненные задачи",
+			tasks: completedTasks
+		)
+		let expectedViewData = TaskModel.ViewData(tasksBySections: [sectionUncompletedTasks, sectionCompletedTasks])
 
 		// act
 		sut.presentData(response: response)
@@ -42,12 +74,14 @@ final class TasksPresenterTests: XCTestCase {
 		// assert
 		XCTAssertTrue(viewControllerSpy.invokedRender, "Не был вызван viewController.render")
 		XCTAssertEqual(
-			viewControllerSpy.invokedRenderParametersList.map { $0.viewData }.first,
+			viewControllerSpy.invokedRenderParameters?.viewData,
 			expectedViewData,
 			"Переданная в метод viewController.render структура вью модели отличается от ожидаемой"
 		)
 	}
 }
+
+// MARK: - Private
 
 private extension TasksPresenterTests {
 	func makeSut() -> TasksPresenter {
@@ -56,5 +90,15 @@ private extension TasksPresenterTests {
 		viewControllerSpy = TasksViewControllerSpy()
 		presenter.view = viewControllerSpy
 		return presenter
+	}
+}
+
+// MARK: - TestData
+
+private extension TasksPresenterTests {
+	private func getStringByDate(_ date: Date) -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "dd.MM.yyyy HH:mm"
+		return formatter.string(from: date)
 	}
 }
