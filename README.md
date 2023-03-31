@@ -29,6 +29,8 @@
 	
 # Project build
 
+	##Swiftlint
+	
 	* Project using *swiftlint* for code style control. All adding moduls must correspond rules.
 	For install *swiftlint* use Brew in your terminal. Do the following steps:
 	- brew install
@@ -44,3 +46,10 @@
 		fi
 		
 	Checkbox "Based on dependancy analysis" must be false.
+	
+	## PinLayout
+	
+	* Project using *PinLayout* for screen layout.
+		For install *PinLayout*:
+		- from Xcode, select from the menu File > Swift Packages > Add Package Dependency
+		- specify the URL https://github.com/layoutBox/PinLayout
