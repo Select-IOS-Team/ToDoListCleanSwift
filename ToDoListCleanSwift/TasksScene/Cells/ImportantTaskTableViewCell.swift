@@ -158,12 +158,18 @@ private extension ImportantTaskTableViewCell {
 			.height(45%)
 
 		priorityLabel.pin
+			.bottom()
 			.below(of: titleLabel)
+			.after(of: completionCheckboxImageView)
+			.left(to: titleLabel.edge.left)
+			.right(to: titleLabel.edge.right)
 			.marginHorizontal(Constants.contentSpace)
 			.height(45%)
 
 		executionDateLabel.pin
 			.after(of: priorityLabel)
+			.topLeft(to: priorityLabel.anchor.topRight)
+			.marginLeft(Constants.contentSpace)
 	}
 
 	func configureUI() {
