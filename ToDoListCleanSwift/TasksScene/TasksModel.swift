@@ -10,7 +10,7 @@ import ToDoListBusinessLogic
 /// Модель вью
 enum TaskModel {
 
-	struct Response {
+	struct Response: Equatable {
 		var data: [ResponseData]
 	}
 
@@ -19,23 +19,24 @@ enum TaskModel {
 		let sectionTasks: [Task]
 	}
 
-	struct ViewData {
-		struct RegularTask {
+	struct ViewData: Equatable {
+
+		struct RegularTask: Equatable {
 			let title: String
 			let checkboxImageName: String
 		}
-		struct ImportantTask {
+		struct ImportantTask: Equatable {
 			let title: String
 			let checkboxImageName: String
 			let isExpired: Bool
 			let priorityText: String
 			let executionDate: String
 		}
-		enum Task {
+		enum Task: Equatable {
 			case regularTask(RegularTask)
 			case importantTask(ImportantTask)
 		}
-		struct Section {
+		struct Section: Equatable {
 			let title: String
 			let tasks: [Task]
 		}

@@ -8,9 +8,12 @@
 import Foundation
 import ToDoListBusinessLogic
 
-/// Протокол интерактора
+/// Интерактор сцены списка задач
 protocol ITasksInteractor: AnyObject {
+	/// Получает задачу по индексу и выполняет/отменяет ее
+	/// - Parameter indexPath: `indexPath` отмеченной задачи в списке
 	func didCheckboxTapped(indexPath: IndexPath)
+	/// Получает секции и задачи в них и преобразует в `TaskModel.Response` для презентера
 	func fetchData()
 }
 
