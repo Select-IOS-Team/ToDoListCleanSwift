@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PinLayout
 
 /// Ячейка обычной задачи.
 final class RegularTaskTableViewCell: UITableViewCell {
@@ -29,12 +30,12 @@ final class RegularTaskTableViewCell: UITableViewCell {
 	// MARK: - Private properties
 
 	private lazy var completionCheckboxImageView: UIImageView = {
-		let imageView = UIImageView().prepareForAutoLayout()
+		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
 		return imageView
 	}()
 	private lazy var titleLabel: UILabel = {
-		let label = UILabel().prepareForAutoLayout()
+		let label = UILabel()
 		label.numberOfLines = Constants.titleLabelNumberOfLines
 		return label
 	}()
@@ -83,27 +84,21 @@ private extension RegularTaskTableViewCell {
 	}
 
 	func setupLayout() {
-		NSLayoutConstraint.activate([
-			contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.contentViewHeight),
+		contentView.pin.minHeight(Constants.contentViewHeight)
 
-			completionCheckboxImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-			completionCheckboxImageView.leadingAnchor.constraint(
-				equalTo: contentView.leadingAnchor,
-				constant: Constants.contentHorizontalInset
-			),
-			completionCheckboxImageView.widthAnchor.constraint(equalToConstant: Constants.checkboxImageViewSize),
-			completionCheckboxImageView.heightAnchor.constraint(equalToConstant: Constants.checkboxImageViewSize),
+		completionCheckboxImageView.pin
+			.start(Constants.contentHorizontalInset)
+			.size(Constants.checkboxImageViewSize)
+			.vCenter()
+			.marginBottom((Constants.contentViewHeight - Constants.checkboxImageViewSize) / 4)
 
-			titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-			titleLabel.leadingAnchor.constraint(
-				equalTo: completionCheckboxImageView.trailingAnchor,
-				constant: Constants.contentSpace
-			),
-			titleLabel.trailingAnchor.constraint(
-				equalTo: contentView.trailingAnchor,
-				constant: -Constants.contentHorizontalInset
-			)
-		])
+		titleLabel.pin
+			.vCenter()
+			.after(of: completionCheckboxImageView)
+			.marginHorizontal(Constants.contentSpace)
+			.width(of: contentView)
+			.height(75%)
+			.marginBottom((Constants.contentViewHeight - Constants.checkboxImageViewSize) / 4)
 	}
 
 	func configureUI() {
@@ -114,4 +109,6 @@ private extension RegularTaskTableViewCell {
 	func didTapCheckbox() {
 		completionCheckboxTapAction?()
 	}
+
+
 }
