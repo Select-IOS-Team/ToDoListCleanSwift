@@ -45,7 +45,6 @@ final class RegularTaskTableViewCell: UITableViewCell {
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupUI()
-		setupLayout()
 		configureUI()
 	}
 
@@ -57,6 +56,11 @@ final class RegularTaskTableViewCell: UITableViewCell {
 		super.prepareForReuse()
 		completionCheckboxImageView.image = nil
 		titleLabel.text = nil
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		setupLayout()
 	}
 }
 
@@ -81,24 +85,25 @@ private extension RegularTaskTableViewCell {
 		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
 		tapGestureRecognizer.isEnabled = true
 		completionCheckboxImageView.addGestureRecognizer(tapGestureRecognizer)
+		completionCheckboxImageView.heightAnchor.constraint(
+			greaterThanOrEqualToConstant: Constants.contentViewHeight
+		).isActive = true
 	}
 
 	func setupLayout() {
 		contentView.pin.minHeight(Constants.contentViewHeight)
 
 		completionCheckboxImageView.pin
+			.vCenter()
 			.start(Constants.contentHorizontalInset)
 			.size(Constants.checkboxImageViewSize)
-			.vCenter()
-			.marginBottom((Constants.contentViewHeight - Constants.checkboxImageViewSize) / 4)
 
 		titleLabel.pin
-			.vCenter()
-			.after(of: completionCheckboxImageView)
-			.marginHorizontal(Constants.contentSpace)
-			.width(of: contentView)
-			.height(75%)
-			.marginBottom((Constants.contentViewHeight - Constants.checkboxImageViewSize) / 4)
+			.after(of: completionCheckboxImageView, aligned: .center)
+			.end()
+			.sizeToFit(.width)
+			.marginStart(Constants.contentSpace)
+			.marginEnd(Constants.contentHorizontalInset)
 	}
 
 	func configureUI() {
@@ -109,6 +114,4 @@ private extension RegularTaskTableViewCell {
 	func didTapCheckbox() {
 		completionCheckboxTapAction?()
 	}
-
-
 }
