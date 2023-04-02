@@ -83,3 +83,5 @@ final class SectionAdapterSpy: ISectionsAdapter {
 		return stubbedGetSectionTypeResult
 	}
 }
+// swiftlint:enable identifier_name
+// swiftlint:enable implicitly_unwrapped_optional

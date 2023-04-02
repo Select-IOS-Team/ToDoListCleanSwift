@@ -7,8 +7,6 @@
 
 @testable import ToDoListCleanSwift
 
-// swiftlint:disable implicitly_unwrapped_optional
-
 final class LoginWorkerSpy: ILoginWorker {
 
 	// MARK: - Internal properties
@@ -17,7 +15,9 @@ final class LoginWorkerSpy: ILoginWorker {
 	var invokedLoginCount = 0
 	var invokedLoginParameters: (login: String, password: String)?
 	var invokedLoginParametersList = [(login: String, password: String)]()
+	// swiftlint: disable implicitly_unwrapped_optional
 	var stubbedLoginResult: LoginDTO!
+	// swiftlint: enable implicitly_unwrapped_optional
 
 	// MARK: - ILoginWorker
 
