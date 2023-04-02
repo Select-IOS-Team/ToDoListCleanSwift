@@ -34,6 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let worker = LoginWorker()
 		let presenter = LoginPresenter(viewController: viewController)
 		viewController.interactor = LoginInteractor(worker: worker, presenter: presenter)
+		viewController.router = MainRouter(loginViewController: viewController)
 		return viewController
 	}
 }
