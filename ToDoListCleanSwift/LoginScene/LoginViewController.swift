@@ -34,10 +34,8 @@ extension LoginViewController: ILoginViewController {
 
 	public func render(viewModel: LoginModels.ViewModel) {
 		if viewModel.success {
-			showAlert(title: "Success!", message: viewModel.userName) { _ in
-				let router = MainRouter(loginViewController: self)
-				router.routeToTasksViewController()
-			}
+			let router = MainRouter(loginViewController: self)
+			router.routeToTasksViewController()
 		} else {
 			showAlert(title: "Error", message: "")
 		}
