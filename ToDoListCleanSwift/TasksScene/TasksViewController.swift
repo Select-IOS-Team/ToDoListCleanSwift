@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PinLayout
 
 /// Протокол контроллера задач
 protocol ITasksViewController: AnyObject {
@@ -29,6 +28,7 @@ final class TasksViewController: UIViewController {
 	}
 
 	private func setupTableView() {
+		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
 		tasksTableView.dataSource = self
 		tasksTableView.backgroundColor = .white
 		tasksTableView.registerCell(type: RegularTaskTableViewCell.self)
@@ -37,7 +37,10 @@ final class TasksViewController: UIViewController {
 	}
 
 	private func setupTableViewConstraints() {
-		tasksTableView.pin.all()
+		tasksTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+		tasksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+		tasksTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+		tasksTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
 	}
 }
 
