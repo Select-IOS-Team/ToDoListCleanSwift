@@ -62,6 +62,12 @@ final class RegularTaskTableViewCell: UITableViewCell {
 		super.layoutSubviews()
 		setupLayout()
 	}
+
+	override func sizeThatFits(_ size: CGSize) -> CGSize {
+		setupLayout()
+		let height = max(Constants.contentViewHeight, titleLabel.frame.height)
+		return CGSize(width: contentView.frame.width, height: height)
+	}
 }
 
 // MARK: - IConfigurableTableCell
