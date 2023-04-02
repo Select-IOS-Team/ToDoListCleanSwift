@@ -14,7 +14,7 @@ protocol ILoginViewController: AnyObject {
 class LoginViewController: UIViewController {
 
 	var interactor: ILoginInteractor?
-	private var router: IMainRouter?
+	var router: IMainRouter?
 
 	@IBOutlet private weak var textFieldLogin: UITextField!
 	@IBOutlet private weak var textFieldPassword: UITextField!
@@ -34,10 +34,7 @@ extension LoginViewController: ILoginViewController {
 
 	public func render(viewModel: LoginModels.ViewModel) {
 		if viewModel.success {
-			showAlert(title: "Success!", message: viewModel.userName) { _ in
-				let router = MainRouter(loginViewController: self)
-				router.routeToTasksViewController()
-			}
+			router?.routeToTasksViewController()
 		} else {
 			showAlert(title: "Error", message: "")
 		}

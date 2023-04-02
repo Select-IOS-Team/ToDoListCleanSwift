@@ -12,7 +12,7 @@ protocol IMainRouter {
 }
 
 class MainRouter: IMainRouter {
-	private var loginViewController: ILoginViewController
+	private weak var loginViewController: ILoginViewController?
 
 	init(loginViewController: ILoginViewController) {
 		self.loginViewController = loginViewController
