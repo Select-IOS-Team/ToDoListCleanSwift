@@ -97,8 +97,6 @@ private extension RegularTaskTableViewCell {
 	}
 
 	func setupLayout() {
-		contentView.pin.minHeight(Constants.contentViewHeight)
-
 		completionCheckboxImageView.pin
 			.vCenter()
 			.start(Constants.contentHorizontalInset)
