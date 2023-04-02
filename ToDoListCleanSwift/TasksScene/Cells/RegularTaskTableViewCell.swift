@@ -91,9 +91,6 @@ private extension RegularTaskTableViewCell {
 		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
 		tapGestureRecognizer.isEnabled = true
 		completionCheckboxImageView.addGestureRecognizer(tapGestureRecognizer)
-		completionCheckboxImageView.heightAnchor.constraint(
-			greaterThanOrEqualToConstant: Constants.contentViewHeight
-		).isActive = true
 	}
 
 	func setupLayout() {
