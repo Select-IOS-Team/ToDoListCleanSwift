@@ -8,13 +8,13 @@
 import PinLayout
 import UIKit
 
-/// Вью контроллер экрана списка задач.
+/// Вью контроллер сцены списка задач.
 protocol ITasksViewController: AnyObject {
 	/// Отображает данные, соответствующие переданной модели.
 	func render(viewData: TaskModel.ViewData)
 }
 
-/// Вью контроллер экрана списка задач.
+/// Вью контроллер сцены списка задач.
 final class TasksViewController: UIViewController {
 
 	// MARK: - Internal properties
