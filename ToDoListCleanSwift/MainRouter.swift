@@ -27,7 +27,7 @@ final class MainRouter: IMainRouter {
 
 	// MARK: - Private methods
 
-	func navigateToToTasksViewController(source: LoginViewController, destination: TasksViewController) {
+	private func navigateToToTasksViewController(source: LoginViewController, destination: TasksViewController) {
 		source.show(destination, sender: nil)
 	}
 }
