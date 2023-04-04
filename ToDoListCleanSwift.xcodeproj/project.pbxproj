@@ -51,6 +51,13 @@
 		8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */; };
 		8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */; };
 		8570221529D6A3B50096AA84 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 8570221429D6A3B50096AA84 /* PinLayout */; };
+		8570221F29D971E40096AA84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8570222129D971E40096AA84 /* Localizable.strings */; };
+		8570222629D97D390096AA84 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570222429D97D390096AA84 /* Strings.swift */; };
+		8570222729D97D390096AA84 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570222529D97D390096AA84 /* Assets.swift */; };
+		8570222E29D9908F0096AA84 /* swiftgen.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8570222929D9908F0096AA84 /* swiftgen.sh */; };
+		8570222F29D9908F0096AA84 /* Assets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 8570222B29D9908F0096AA84 /* Assets.stencil */; };
+		8570223029D9908F0096AA84 /* Strings.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 8570222C29D9908F0096AA84 /* Strings.stencil */; };
+		8570223129D9908F0096AA84 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8570222D29D9908F0096AA84 /* swiftgen.yml */; };
 		85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +117,14 @@
 		857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
 		8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractorSpy.swift; sourceTree = "<group>"; };
 		8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerTests.swift; sourceTree = "<group>"; };
+		8570222029D971E40096AA84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8570222229D972BA0096AA84 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8570222429D97D390096AA84 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		8570222529D97D390096AA84 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		8570222929D9908F0096AA84 /* swiftgen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftgen.sh; sourceTree = "<group>"; };
+		8570222B29D9908F0096AA84 /* Assets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Assets.stencil; sourceTree = "<group>"; };
+		8570222C29D9908F0096AA84 /* Strings.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Strings.stencil; sourceTree = "<group>"; };
+		8570222D29D9908F0096AA84 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListBusinessLogic; sourceTree = "<group>"; };
 		85E0C13129C44B0200E8A29B /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -230,15 +245,14 @@
 		8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8570222829D9908F0096AA84 /* SwiftGen */,
+				8570221729D970600096AA84 /* SupportingFiles */,
 				5E53E6A229C0E78E007634A4 /* CommonFiles */,
 				8563F4A729A4E2C80006C378 /* AppDelegate.swift */,
 				8563F4A929A4E2C80006C378 /* SceneDelegate.swift */,
 				8563F4CF29A508750006C378 /* MainRouter.swift */,
 				8563F4BD29A4EC780006C378 /* LoginScene */,
 				8563F4C429A4F9EC0006C378 /* TasksScene */,
-				8563F4B029A4E2C90006C378 /* Assets.xcassets */,
-				8563F4B229A4E2C90006C378 /* LaunchScreen.storyboard */,
-				8563F4B529A4E2C90006C378 /* Info.plist */,
 			);
 			path = ToDoListCleanSwift;
 			sourceTree = "<group>";
@@ -300,6 +314,46 @@
 			path = TasksScene;
 			sourceTree = "<group>";
 		};
+		8570221729D970600096AA84 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8570222329D97D390096AA84 /* Autogenerated */,
+				8563F4B029A4E2C90006C378 /* Assets.xcassets */,
+				8563F4B229A4E2C90006C378 /* LaunchScreen.storyboard */,
+				8563F4B529A4E2C90006C378 /* Info.plist */,
+				8570222129D971E40096AA84 /* Localizable.strings */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8570222329D97D390096AA84 /* Autogenerated */ = {
+			isa = PBXGroup;
+			children = (
+				8570222429D97D390096AA84 /* Strings.swift */,
+				8570222529D97D390096AA84 /* Assets.swift */,
+			);
+			path = Autogenerated;
+			sourceTree = "<group>";
+		};
+		8570222829D9908F0096AA84 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				8570222929D9908F0096AA84 /* swiftgen.sh */,
+				8570222A29D9908F0096AA84 /* Templates */,
+				8570222D29D9908F0096AA84 /* swiftgen.yml */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		8570222A29D9908F0096AA84 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				8570222B29D9908F0096AA84 /* Assets.stencil */,
+				8570222C29D9908F0096AA84 /* Strings.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		85E0C12C29C445E300E8A29B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +395,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8563F4B829A4E2C90006C378 /* Build configuration list for PBXNativeTarget "ToDoListCleanSwift" */;
 			buildPhases = (
+				8570221629D96DB10096AA84 /* SwiftGen */,
 				5A411CB129BF3EC500AE3C78 /* SwiftLint */,
 				8563F4A029A4E2C80006C378 /* Sources */,
 				8563F4A129A4E2C80006C378 /* Frameworks */,
@@ -385,6 +440,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 8563F49B29A4E2C80006C378;
 			packageReferences = (
@@ -412,7 +468,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8570222E29D9908F0096AA84 /* swiftgen.sh in Resources */,
+				8570223129D9908F0096AA84 /* swiftgen.yml in Resources */,
+				8570222F29D9908F0096AA84 /* Assets.stencil in Resources */,
+				8570223029D9908F0096AA84 /* Strings.stencil in Resources */,
 				5EB995AF29BC26740046FA0C /* .gitignore in Resources */,
+				8570221F29D971E40096AA84 /* Localizable.strings in Resources */,
 				8563F4B429A4E2C90006C378 /* LaunchScreen.storyboard in Resources */,
 				8563F4B129A4E2C90006C378 /* Assets.xcassets in Resources */,
 				8563F4E929A6ACFB0006C378 /* README.md in Resources */,
@@ -460,6 +521,27 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
 		};
+		8570221629D96DB10096AA84 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/ToDoListCleanSwift/SupportingFiles/Autogenerated/Strings.swift",
+				"$(SRCROOT)/ToDoListCleanSwift/SupportingFiles/Autogenerated/Assets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ToDoListCleanSwift/SwiftGen/swiftgen.sh\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -493,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */,
+				8570222729D97D390096AA84 /* Assets.swift in Sources */,
 				5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */,
 				8563F4CA29A4FB400006C378 /* TasksInteractor.swift in Sources */,
 				8563F4C629A4FAFC0006C378 /* TasksViewController.swift in Sources */,
@@ -504,6 +587,7 @@
 				8563F4C329A4EED00006C378 /* LoginPresenter.swift in Sources */,
 				8563F4E729A666870006C378 /* TasksDependenciesBuilder.swift in Sources */,
 				8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */,
+				8570222629D97D390096AA84 /* Strings.swift in Sources */,
 				8563F4BF29A4EDFD0006C378 /* LoginInteractor.swift in Sources */,
 				8563F4DD29A511420006C378 /* SectionsAdapter.swift in Sources */,
 				8563F4D929A510100006C378 /* Repository.swift in Sources */,
@@ -533,6 +617,15 @@
 				8563F4B329A4E2C90006C378 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8570222129D971E40096AA84 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8570222029D971E40096AA84 /* en */,
+				8570222229D972BA0096AA84 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -580,6 +673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -640,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -699,7 +794,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G2VF2J7D53;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
+				INFOPLIST_FILE = ToDoListCleanSwift/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -727,7 +822,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G2VF2J7D53;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
+				INFOPLIST_FILE = ToDoListCleanSwift/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

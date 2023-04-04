@@ -103,3 +103,4 @@ private extension TasksPresenterTests {
 		return formatter.string(from: date)
 	}
 }
+// swiftlint:enable function_body_length
