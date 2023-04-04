@@ -32,11 +32,13 @@ final class RegularTaskTableViewCell: UITableViewCell {
 	private lazy var completionCheckboxImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
+		imageView.accessibilityIdentifier = AccessibilityIdentifier.checkBoxRegularTask.rawValue
 		return imageView
 	}()
 	private lazy var titleLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = Constants.titleLabelNumberOfLines
+		label.accessibilityIdentifier = AccessibilityIdentifier.titleLabelRegularTask.rawValue
 		return label
 	}()
 

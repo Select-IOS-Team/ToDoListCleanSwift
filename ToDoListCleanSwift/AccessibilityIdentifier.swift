@@ -15,4 +15,10 @@ enum AccessibilityIdentifier: String {
 
 	// MARK: - TasksScene
 	case tasksTableView
+	case checkBoxRegularTask
+	case titleLabelRegularTask
+	case checkBoxImportantTask
+	case titleLabelImportantTask
+	case priorityLabel
+	case executionDateLabel
 }

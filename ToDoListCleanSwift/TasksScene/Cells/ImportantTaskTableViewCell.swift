@@ -35,21 +35,25 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 	private lazy var completionCheckboxImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
+		imageView.accessibilityIdentifier = AccessibilityIdentifier.checkBoxImportantTask.rawValue
 		return imageView
 	}()
 	private lazy var titleLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = Constants.titleLabelNumberOfLines
+		label.accessibilityIdentifier = AccessibilityIdentifier.titleLabelImportantTask.rawValue
 		return label
 	}()
 	private lazy var priorityLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
+		label.accessibilityIdentifier = AccessibilityIdentifier.priorityLabel.rawValue
 		return label
 	}()
 	private lazy var executionDateLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
+		label.accessibilityIdentifier = AccessibilityIdentifier.executionDateLabel.rawValue
 		return label
 	}()
 
