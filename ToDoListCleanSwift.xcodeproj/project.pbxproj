@@ -23,6 +23,7 @@
 		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */; };
 		5EF3941929D5BBE4003EAD88 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */; };
+		8558592E29DC01DF002837BE /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558592D29DC01DF002837BE /* AccessibilityIdentifier.swift */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
 		8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A929A4E2C80006C378 /* SceneDelegate.swift */; };
 		8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4AB29A4E2C80006C378 /* LoginViewController.swift */; };
@@ -89,6 +90,7 @@
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksWorkerTests.swift; sourceTree = "<group>"; };
 		5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		8558592D29DC01DF002837BE /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8563F4AB29A4E2C80006C378 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */,
 				8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */,
 				8563F4C129A4EEB90006C378 /* LoginWorker.swift in Sources */,
+				8558592E29DC01DF002837BE /* AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
