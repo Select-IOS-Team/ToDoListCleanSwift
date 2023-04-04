@@ -29,7 +29,7 @@ final class LoginPresenterTests: XCTestCase {
 		XCTAssertEqual(
 			loginViewControllerSpy.invokedRenderParameters?.viewModel.success,
 			true,
-			"Передаваемый во вью значение об успешной авторизации отличается полученного в response"
+			"Передаваемое во вью значение об успешной авторизации отличается от полученного в response"
 		)
 		XCTAssertEqual(
 			loginViewControllerSpy.invokedRenderParameters?.viewModel.userName,
@@ -45,6 +45,8 @@ private extension LoginPresenterTests {
 
 	func makeSut() -> LoginPresenter {
 		loginViewControllerSpy = LoginViewControllerSpy()
-		return LoginPresenter(viewController: loginViewControllerSpy)
+		let presenter = LoginPresenter()
+		presenter.viewController = loginViewControllerSpy
+		return presenter
 	}
 }

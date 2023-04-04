@@ -17,15 +17,9 @@ protocol ILoginPresenter {
 /// Презентер сцены авторизации.
 final class LoginPresenter: ILoginPresenter {
 
-	// MARK: - Private properties
+	// MARK: - Internal properties
 
-	private weak var viewController: ILoginViewController?
-
-	// MARK: - Lifecycle
-
-	init(viewController: ILoginViewController) {
-		self.viewController = viewController
-	}
+	weak var viewController: ILoginViewController?
 
 	// MARK: - ILoginPresenter
 
