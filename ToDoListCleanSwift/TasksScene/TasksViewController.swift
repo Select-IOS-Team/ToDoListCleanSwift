@@ -5,44 +5,49 @@
 //  Created by Evgeni Meleshin on 21.02.2023.
 //
 
+import PinLayout
 import UIKit
 
-/// Протокол контроллера задач
+/// Вью контроллер сцены списка задач.
 protocol ITasksViewController: AnyObject {
+	/// Отображает данные, соответствующие переданной модели.
 	func render(viewData: TaskModel.ViewData)
 }
 
-/// Класс контроллера задач
+/// Вью контроллер сцены списка задач.
 final class TasksViewController: UIViewController {
+
+	// MARK: - Internal properties
 
 	var interactor: ITasksInteractor?
 	var viewData: TaskModel.ViewData = TaskModel.ViewData(tasksBySections: [])
-	let tasksTableView = UITableView()
+	private lazy var tasksTableView = makeTableView()
+
+	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationItem.title = "To-do List"
-		setupTableView()
-		setupTableViewConstraints()
+		setupUI()
 		interactor?.fetchData()
 	}
 
-	private func setupTableView() {
-		tasksTableView.translatesAutoresizingMaskIntoConstraints = false
-		tasksTableView.dataSource = self
-		tasksTableView.backgroundColor = .white
-		tasksTableView.registerCell(type: RegularTaskTableViewCell.self)
-		tasksTableView.registerCell(type: ImportantTaskTableViewCell.self)
-		view.addSubview(tasksTableView)
-	}
-
-	private func setupTableViewConstraints() {
-		tasksTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-		tasksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-		tasksTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-		tasksTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		tasksTableView.pin.all()
 	}
 }
+
+// MARK: - ITasksViewController
+
+extension TasksViewController: ITasksViewController {
+
+	func render(viewData: TaskModel.ViewData) {
+		self.viewData = viewData
+		tasksTableView.reloadData()
+	}
+}
+
+// MARK: - UITableViewDataSource
 
 extension TasksViewController: UITableViewDataSource {
 
@@ -92,10 +97,19 @@ extension TasksViewController: UITableViewDataSource {
 	}
 }
 
-extension TasksViewController: ITasksViewController {
+// MARK: - Private methods
 
-	func render(viewData: TaskModel.ViewData) {
-		self.viewData = viewData
-		tasksTableView.reloadData()
+private extension TasksViewController {
+
+	func makeTableView() -> UITableView {
+		let tableView = UITableView()
+		tableView.registerCell(type: RegularTaskTableViewCell.self)
+		tableView.registerCell(type: ImportantTaskTableViewCell.self)
+		tableView.dataSource = self
+		return tableView
+	}
+
+	func setupUI() {
+		view.addSubview(tasksTableView)
 	}
 }

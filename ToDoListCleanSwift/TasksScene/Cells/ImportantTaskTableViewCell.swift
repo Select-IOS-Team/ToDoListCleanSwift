@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PinLayout
 
 /// Ячейка важной задачи.
 final class ImportantTaskTableViewCell: UITableViewCell {
@@ -32,22 +33,22 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 	// MARK: - Private properties
 
 	private lazy var completionCheckboxImageView: UIImageView = {
-		let imageView = UIImageView().prepareForAutoLayout()
+		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
 		return imageView
 	}()
 	private lazy var titleLabel: UILabel = {
-		let label = UILabel().prepareForAutoLayout()
+		let label = UILabel()
 		label.numberOfLines = Constants.titleLabelNumberOfLines
 		return label
 	}()
 	private lazy var priorityLabel: UILabel = {
-		let label = UILabel().prepareForAutoLayout()
+		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
 		return label
 	}()
 	private lazy var executionDateLabel: UILabel = {
-		let label = UILabel().prepareForAutoLayout()
+		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
 		return label
 	}()
@@ -57,7 +58,6 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupUI()
-		setupLayout()
 		configureUI()
 	}
 
@@ -71,6 +71,18 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 		titleLabel.text = nil
 		priorityLabel.text = nil
 		executionDateLabel.text = nil
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		setupLayout()
+	}
+
+	override func sizeThatFits(_ size: CGSize) -> CGSize {
+		setupLayout()
+		let height = titleLabel.frame.height + max(priorityLabel.frame.height, executionDateLabel.frame.height)
+		+ Constants.contentSpace + 2 * Constants.contentVerticalInset
+		return CGSize(width: contentView.frame.width, height: height)
 	}
 }
 
@@ -105,44 +117,32 @@ private extension ImportantTaskTableViewCell {
 	}
 
 	func setupLayout() {
-		NSLayoutConstraint.activate([
-			completionCheckboxImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-			completionCheckboxImageView.leadingAnchor.constraint(
-				equalTo: contentView.leadingAnchor,
-				constant: Constants.contentHorizontalInset
-			),
-			completionCheckboxImageView.widthAnchor.constraint(equalToConstant: Constants.checkboxImageViewSize),
-			completionCheckboxImageView.heightAnchor.constraint(equalToConstant: Constants.checkboxImageViewSize),
+		completionCheckboxImageView.pin
+			.vCenter()
+			.start(Constants.contentHorizontalInset)
+			.size(Constants.checkboxImageViewSize)
 
-			titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.contentVerticalInset),
-			titleLabel.leadingAnchor.constraint(
-				equalTo: completionCheckboxImageView.trailingAnchor,
-				constant: Constants.contentSpace
-			),
-			titleLabel.trailingAnchor.constraint(
-				equalTo: contentView.trailingAnchor,
-				constant: -Constants.contentHorizontalInset
-			),
+		titleLabel.pin
+			.after(of: completionCheckboxImageView)
+			.topEnd()
+			.sizeToFit(.width)
+			.marginTop(Constants.contentVerticalInset)
+			.marginStart(Constants.contentSpace)
+			.marginEnd(Constants.contentHorizontalInset)
 
-			priorityLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.contentSpace),
-			priorityLabel.leadingAnchor.constraint(
-				equalTo: completionCheckboxImageView.trailingAnchor,
-				constant: Constants.contentSpace
-			),
-			priorityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.contentVerticalInset),
+		priorityLabel.pin
+			.topStart(to: titleLabel.anchor.bottomStart)
+			.before(of: executionDateLabel)
+			.sizeToFit(.width)
+			.marginTop(Constants.contentSpace)
+			.marginEnd(Constants.contentSpace)
 
-			executionDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.contentSpace),
-			executionDateLabel.leadingAnchor.constraint(equalTo: priorityLabel.trailingAnchor, constant: Constants.contentSpace),
-			executionDateLabel.trailingAnchor.constraint(
-				equalTo: contentView.trailingAnchor,
-				constant: -Constants.contentHorizontalInset
-			),
-			executionDateLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor,
-				constant: -Constants.contentVerticalInset
-			)
-		])
-		executionDateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+		executionDateLabel.pin
+			.topEnd(to: titleLabel.anchor.bottomEnd)
+			.bottom()
+			.sizeToFit(.widthFlexible)
+			.marginTop(Constants.contentSpace)
+			.marginBottom(Constants.contentVerticalInset)
 	}
 
 	func configureUI() {

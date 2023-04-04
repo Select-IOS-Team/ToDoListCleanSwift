@@ -11,12 +11,13 @@ protocol IMainRouter {
 	func routeToTasksViewController()
 }
 
-class MainRouter: IMainRouter {
-	private var loginViewController: ILoginViewController
+final class MainRouter: IMainRouter {
 
-	init(loginViewController: ILoginViewController) {
-		self.loginViewController = loginViewController
-	}
+	// MARK: - Internal properties
+
+	weak var loginViewController: ILoginViewController?
+
+	// MARK: - IMainRouter
 
 	func routeToTasksViewController() {
 		let tasksViewController = TasksDependenciesBuilder.build()
@@ -24,7 +25,9 @@ class MainRouter: IMainRouter {
 		navigateToToTasksViewController(source: loginViewController, destination: tasksViewController)
 	}
 
-	func navigateToToTasksViewController(source: LoginViewController, destination: TasksViewController) {
+	// MARK: - Private methods
+
+	private func navigateToToTasksViewController(source: LoginViewController, destination: TasksViewController) {
 		source.show(destination, sender: nil)
 	}
 }

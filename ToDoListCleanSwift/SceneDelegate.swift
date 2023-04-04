@@ -24,16 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	}
 
 	private func loginSceneAssembler() -> UIViewController {
-		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-		guard let viewController = storyboard.instantiateViewController(
-			withIdentifier: "LoginViewController"
-		) as? LoginViewController else {
-			fatalError("На Main.storyboard отсутствует LoginViewController!")
-		}
-
+		let presenter = LoginPresenter()
 		let worker = LoginWorker()
-		let presenter = LoginPresenter(viewController: viewController)
-		viewController.interactor = LoginInteractor(worker: worker, presenter: presenter)
+		let interactor = LoginInteractor(worker: worker, presenter: presenter)
+		let router = MainRouter()
+		let viewController = LoginViewController(interactor: interactor, router: router)
+
+		router.loginViewController = viewController
+		presenter.viewController = viewController
 		return viewController
 	}
 }
