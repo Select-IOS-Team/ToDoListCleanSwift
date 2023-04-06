@@ -21,9 +21,9 @@ class TasksPresenter: ITasksPresenter {
 	// MARK: - Nested types
 
 	private enum Constants {
-		static let completedCheckboxImageName = "checkmark.circle.fill"
-		static let uncompletedCheckboxImageName = "circle"
-		static let priorityLabelText = "Priority: "
+		static let completedCheckboxImageName = L10n.TasksScene.completedCheckboxImageName
+		static let uncompletedCheckboxImageName = L10n.TasksScene.uncompletedCheckboxImageName
+		static let priorityLabelText = L10n.TasksScene.priorityLabelText
 	}
 
 	weak var view: ITasksViewController?
@@ -71,7 +71,7 @@ class TasksPresenter: ITasksPresenter {
 
 	private func getStringByDate(_ date: Date) -> String {
 		let formatter = DateFormatter()
-		formatter.dateFormat = "dd.MM.yyyy HH:mm"
+		formatter.dateFormat = L10n.TasksScene.dateFormat
 		return formatter.string(from: date)
 	}
 
@@ -85,11 +85,11 @@ private extension ImportantTask.Priority {
 	var description: String {
 		switch self {
 		case .high:
-			return "high"
+			return L10n.TasksScene.priorityHigh
 		case .medium:
-			return "medium"
+			return L10n.TasksScene.priorityMedium
 		case .low:
-			return "low"
+			return L10n.TasksScene.priorityLow
 		}
 	}
 }
