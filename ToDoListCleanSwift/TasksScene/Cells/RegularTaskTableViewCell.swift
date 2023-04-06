@@ -19,6 +19,7 @@ final class RegularTaskTableViewCell: UITableViewCell {
 		static let contentHorizontalInset: CGFloat = 16
 		static let contentSpace: CGFloat = 12
 		static let checkboxImageViewSize: CGFloat = 32
+		static let checkboxTintColor = Palette.main
 	}
 
 	typealias ConfigurationModel = TaskModel.ViewData.RegularTask
@@ -32,6 +33,7 @@ final class RegularTaskTableViewCell: UITableViewCell {
 	private lazy var completionCheckboxImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
+		imageView.tintColor = Constants.checkboxTintColor
 		imageView.accessibilityIdentifier = AccessibilityIdentifier.checkBoxRegularTask.rawValue
 		return imageView
 	}()
