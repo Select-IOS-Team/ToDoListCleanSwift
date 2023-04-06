@@ -17,12 +17,14 @@
 		5E53E6A129C0E6C7007634A4 /* ImportantTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */; };
 		5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */; };
 		5E53E6A929C0E7E9007634A4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */; };
-		5E53E6AA29C0E7E9007634A4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */; };
 		5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */; };
 		5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */; };
+		5EB144D329DE6BFE006845CB /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */; };
+		5EB144D529DE6CB3006845CB /* UIColor+Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */; };
+		5EB144D729DE7016006845CB /* UIColorHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D629DE7015006845CB /* UIColorHexTests.swift */; };
+		5EB144DA29DE78CB006845CB /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D929DE78CB006845CB /* Palette.swift */; };
 		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */; };
-		5EF3941929D5BBE4003EAD88 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */; };
 		8558596329DE8EFA002837BE /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
 		8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A929A4E2C80006C378 /* SceneDelegate.swift */; };
@@ -83,13 +85,15 @@
 		5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableTableCell.swift; sourceTree = "<group>"; };
 		5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5E7E0F4729C58DDF00BD13F4 /* ToDoListCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListCleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerSpy.swift; sourceTree = "<group>"; };
 		5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionAdapterTests.swift; sourceTree = "<group>"; };
+		5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dynamic.swift"; sourceTree = "<group>"; };
+		5EB144D629DE7015006845CB /* UIColorHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexTests.swift; sourceTree = "<group>"; };
+		5EB144D929DE78CB006845CB /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksWorkerTests.swift; sourceTree = "<group>"; };
-		5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */,
-				5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 		5E53E6A229C0E78E007634A4 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5EB144D829DE726D006845CB /* Theme */,
 				5E53E6A329C0E797007634A4 /* Extensions */,
 				5E53E6A429C0E7A0007634A4 /* Protocols */,
 			);
@@ -183,7 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */,
-				5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */,
+				5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */,
+				5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,8 +231,17 @@
 			children = (
 				5AA0193429CEA9AC0086B68E /* LoginScene */,
 				856D624529CCD62A00A0A1BB /* TasksScene */,
+				5EB144D629DE7015006845CB /* UIColorHexTests.swift */,
 			);
 			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		5EB144D829DE726D006845CB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				5EB144D929DE78CB006845CB /* Palette.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		8563F49B29A4E2C80006C378 = {
@@ -555,13 +569,13 @@
 				856D624A29CCDB3C00A0A1BB /* TesksWorkerSpy.swift in Sources */,
 				5E04735A29D012740076F1D0 /* LoginPresenterTests.swift in Sources */,
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
-				5EF3941929D5BBE4003EAD88 /* RepositoryTests.swift in Sources */,
 				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
 				5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */,
 				856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */,
 				8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */,
 				8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */,
 				857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */,
+				5EB144D729DE7016006845CB /* UIColorHexTests.swift in Sources */,
 				856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 				856D624C29CCDB7000A0A1BB /* TasksPresenerSpy.swift in Sources */,
@@ -579,6 +593,8 @@
 			files = (
 				8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */,
 				8570222729D97D390096AA84 /* Assets.swift in Sources */,
+				5EB144DA29DE78CB006845CB /* Palette.swift in Sources */,
+				5EB144D329DE6BFE006845CB /* UIColor+Hex.swift in Sources */,
 				5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */,
 				8563F4CA29A4FB400006C378 /* TasksInteractor.swift in Sources */,
 				8563F4C629A4FAFC0006C378 /* TasksViewController.swift in Sources */,
@@ -597,8 +613,8 @@
 				8563F4CE29A4FB600006C378 /* TasksPresenter.swift in Sources */,
 				5E53E6A929C0E7E9007634A4 /* UITableView+Extension.swift in Sources */,
 				8558596329DE8EFA002837BE /* AccessibilityIdentifier.swift in Sources */,
-				5E53E6AA29C0E7E9007634A4 /* UIView+Extension.swift in Sources */,
 				5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */,
+				5EB144D529DE6CB3006845CB /* UIColor+Dynamic.swift in Sources */,
 				8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */,
 				8563F4C129A4EEB90006C378 /* LoginWorker.swift in Sources */,
 				8558592E29DC01DF002837BE /* AccessibilityIdentifier.swift in Sources */,

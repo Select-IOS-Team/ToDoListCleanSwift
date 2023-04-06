@@ -54,7 +54,7 @@ final class LoginViewController: UIViewController {
 	private lazy var loginButton: UIButton = {
 		let button = UIButton()
 		button.setTitle(Constants.signInButtonTitle, for: .normal)
-		button.backgroundColor = .systemBlue
+		button.backgroundColor = Palette.main
 		button.layer.cornerRadius = Constants.signInButtonCornerRadius
 		button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
 		button.accessibilityIdentifier = AccessibilityIdentifier.loginButton.rawValue
@@ -113,7 +113,7 @@ extension LoginViewController: ILoginViewController {
 private extension LoginViewController {
 
 	func setupUI() {
-		view.backgroundColor = .white
+		view.backgroundColor = Palette.background
 		view.addSubview(loginTextField)
 		view.addSubview(passwordTextField)
 		view.addSubview(loginButton)
