@@ -39,6 +39,7 @@ final class LoginViewController: UIViewController {
 		textField.placeholder = Constants.loginTextFieldPlaceholder
 		textField.borderStyle = .roundedRect
 		textField.textContentType = .username
+		textField.accessibilityIdentifier = AccessibilityIdentifier.loginTextField.rawValue
 		return textField
 	}()
 	private lazy var passwordTextField: UITextField = {
@@ -47,6 +48,7 @@ final class LoginViewController: UIViewController {
 		textField.borderStyle = .roundedRect
 		textField.textContentType = .password
 		textField.isSecureTextEntry = true
+		textField.accessibilityIdentifier = AccessibilityIdentifier.passwordTextField.rawValue
 		return textField
 	}()
 	private lazy var loginButton: UIButton = {
@@ -55,6 +57,7 @@ final class LoginViewController: UIViewController {
 		button.backgroundColor = .systemBlue
 		button.layer.cornerRadius = Constants.signInButtonCornerRadius
 		button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+		button.accessibilityIdentifier = AccessibilityIdentifier.loginButton.rawValue
 		return button
 	}()
 

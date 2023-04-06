@@ -29,3 +29,4 @@ final class LoginWorkerSpy: ILoginWorker {
 		return stubbedLoginResult
 	}
 }
+// swiftlint:enable implicitly_unwrapped_optional
