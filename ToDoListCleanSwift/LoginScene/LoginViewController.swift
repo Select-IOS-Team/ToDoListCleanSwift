@@ -95,17 +95,6 @@ extension LoginViewController: ILoginViewController {
 			showAlert(title: L10n.LoginScene.AlertActions.error, message: "")
 		}
 	}
-
-	private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
-		let alert = UIAlertController(
-			title: title,
-			message: message,
-			preferredStyle: .alert
-		)
-		let action = UIAlertAction(title: L10n.LoginScene.AlertActions.ok, style: .default, handler: completion)
-		alert.addAction(action)
-		present(alert, animated: true)
-	}
 }
 
 // MARK: - Private methods
@@ -133,6 +122,17 @@ private extension LoginViewController {
 			.below(of: passwordTextField, aligned: .center)
 			.size(Constants.loginButtonSize)
 			.marginTop(Constants.loginButtonTopSpace)
+	}
+
+	func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+		let alert = UIAlertController(
+			title: title,
+			message: message,
+			preferredStyle: .alert
+		)
+		let action = UIAlertAction(title: L10n.LoginScene.AlertActions.ok, style: .default, handler: completion)
+		alert.addAction(action)
+		present(alert, animated: true)
 	}
 
 	@objc
