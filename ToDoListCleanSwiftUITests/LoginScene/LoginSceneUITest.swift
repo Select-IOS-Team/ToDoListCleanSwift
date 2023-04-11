@@ -21,6 +21,7 @@ final class LoginSceneUITest: XCTestCase {
 			.set(login: "1")
 			.set(password: "1")
 			.login()
+			.alertIsNotExist()
 	}
 
 	func test_login_withInvalidCredentials_shouldBeFailure() {
@@ -34,7 +35,7 @@ final class LoginSceneUITest: XCTestCase {
 			.set(login: "2")
 			.set(password: "2")
 			.login()
+			.alertIsExist()
 	}
-
 }
 // swiftlint: enable all
