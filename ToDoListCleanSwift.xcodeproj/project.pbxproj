@@ -31,6 +31,7 @@
 		855AF4D629E419CE00E45023 /* BaseScreenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AF4D529E419CE00E45023 /* BaseScreenObject.swift */; };
 		855AF4D829E41A9E00E45023 /* Predicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AF4D729E41A9E00E45023 /* Predicates.swift */; };
 		855AF4DA29E45E0600E45023 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */; };
+		855AF4DC29E5374800E45023 /* TasksScreenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AF4DB29E5374800E45023 /* TasksScreenObject.swift */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
 		8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A929A4E2C80006C378 /* SceneDelegate.swift */; };
 		8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4AB29A4E2C80006C378 /* LoginViewController.swift */; };
@@ -111,6 +112,7 @@
 		855AF4D329E4197800E45023 /* LoginScreenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenObject.swift; sourceTree = "<group>"; };
 		855AF4D529E419CE00E45023 /* BaseScreenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenObject.swift; sourceTree = "<group>"; };
 		855AF4D729E41A9E00E45023 /* Predicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicates.swift; sourceTree = "<group>"; };
+		855AF4DB29E5374800E45023 /* TasksScreenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksScreenObject.swift; sourceTree = "<group>"; };
 		855E979A29E3FF8100DB5127 /* ToDoListCleanSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListCleanSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,9 +288,18 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		855AF4DD29E53A3400E45023 /* TasksScene */ = {
+			isa = PBXGroup;
+			children = (
+				855AF4DB29E5374800E45023 /* TasksScreenObject.swift */,
+			);
+			path = TasksScene;
+			sourceTree = "<group>";
+		};
 		855E979B29E3FF8100DB5127 /* ToDoListCleanSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				855AF4DD29E53A3400E45023 /* TasksScene */,
 				855AF4D929E41AD700E45023 /* Common */,
 				855AF4D229E418EB00E45023 /* LoginScene */,
 			);
@@ -675,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				855AF4D829E41A9E00E45023 /* Predicates.swift in Sources */,
+				855AF4DC29E5374800E45023 /* TasksScreenObject.swift in Sources */,
 				855AF4DA29E45E0600E45023 /* AccessibilityIdentifier.swift in Sources */,
 				855AF4D429E4197800E45023 /* LoginScreenObject.swift in Sources */,
 				855AF4D129E4028100E45023 /* LoginSceneUITest.swift in Sources */,

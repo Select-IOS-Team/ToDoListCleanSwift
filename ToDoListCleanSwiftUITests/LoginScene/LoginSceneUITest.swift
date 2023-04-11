@@ -20,8 +20,10 @@ final class LoginSceneUITest: XCTestCase {
 			.isLoginScreen()
 			.set(login: "1")
 			.set(password: "1")
-			.login()
-			.alertIsNotExist()
+			//.login()
+			//.alertIsNotExist()
+			.successfulLogin()
+			.isTasksScreen()
 	}
 
 	func test_login_withInvalidCredentials_shouldBeFailure() {

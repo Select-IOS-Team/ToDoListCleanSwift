@@ -50,6 +50,13 @@ class LoginScreenObject: BaseScreenObject {
 	}
 
 	@discardableResult
+	func successfulLogin() -> TasksScreenObject {
+		assert(loginButton, [.exists])
+		loginButton.tap()
+		return TasksScreenObject(app: app)
+	}
+
+	@discardableResult
 	func alertIsExist() -> Self {
 		assert(alert, [.exists])
 		return self
