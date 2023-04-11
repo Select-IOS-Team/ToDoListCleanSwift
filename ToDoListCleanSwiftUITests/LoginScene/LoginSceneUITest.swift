@@ -20,8 +20,6 @@ final class LoginSceneUITest: XCTestCase {
 			.isLoginScreen()
 			.set(login: "1")
 			.set(password: "1")
-			//.login()
-			//.alertIsNotExist()
 			.successfulLogin()
 			.isTasksScreen()
 	}
