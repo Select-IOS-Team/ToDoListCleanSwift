@@ -26,11 +26,12 @@ class TasksPresenter: ITasksPresenter {
 		static let priorityLabelText = L10n.TasksScene.priorityLabelText
 	}
 
-	weak var view: ITasksViewController?
+	private weak var viewController: ITasksViewController?
 	private var sectionsAdapter: ISectionsAdapter
 
-	init(sectionsAdapter: ISectionsAdapter) {
+	init(sectionsAdapter: ISectionsAdapter, viewController: ITasksViewController) {
 		self.sectionsAdapter = sectionsAdapter
+		self.viewController = viewController
 	}
 
 	func presentData(response: TaskModel.Response) {
@@ -42,7 +43,7 @@ class TasksPresenter: ITasksPresenter {
 			)
 			sectionTypes.append(section)
 		}
-		view?.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
+		viewController?.render(viewData: TaskModel.ViewData(tasksBySections: sectionTypes))
 	}
 
 	private func createViewDataFromTasks(tasks: [Task]) -> [TaskModel.ViewData.Task] {

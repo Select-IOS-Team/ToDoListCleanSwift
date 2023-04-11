@@ -20,9 +20,15 @@ protocol ITasksInteractor: AnyObject {
 /// Класс интерактора
 class TasksInteractor: ITasksInteractor {
 
-	var sectionsAdapter: ISectionsAdapter?
-	var presenter: ITasksPresenter?
-	var worker: ITasksWorker?
+	private let sectionsAdapter: ISectionsAdapter?
+	private let presenter: ITasksPresenter?
+	private let worker: ITasksWorker?
+
+	init(sectionsAdapter: ISectionsAdapter, presenter: ITasksPresenter, worker: ITasksWorker) {
+		self.sectionsAdapter = sectionsAdapter
+		self.presenter = presenter
+		self.worker = worker
+	}
 
 	func fetchData() {
 		var data: [(sectionType: SectionType, tasks: [Task])] = []

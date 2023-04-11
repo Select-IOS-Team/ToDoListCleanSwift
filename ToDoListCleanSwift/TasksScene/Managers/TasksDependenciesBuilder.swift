@@ -16,17 +16,17 @@ enum TasksDependenciesBuilder {
 		let tasksWorker: ITasksWorker = TasksWorker()
 		let taskManager = OrderedTaskManager(taskManager: TaskManager())
 		let repository: IRepository = Repository()
-		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
-		let tasksPresenter = TasksPresenter(sectionsAdapter: sectionsAdapter)
-		let tasksInteractor = TasksInteractor()
-
-		tasksPresenter.view = tasksViewController
-		tasksViewController.interactor = tasksInteractor
-		tasksInteractor.presenter = tasksPresenter
-		tasksInteractor.worker = tasksWorker
-		tasksInteractor.sectionsAdapter = sectionsAdapter
-
 		taskManager.addTasks(tasks: repository.getAllTasks())
+
+		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
+		let tasksPresenter = TasksPresenter(sectionsAdapter: sectionsAdapter, viewController: tasksViewController)
+		let tasksInteractor = TasksInteractor(
+			sectionsAdapter: sectionsAdapter,
+			presenter: tasksPresenter,
+			worker: tasksWorker
+		)
+		tasksViewController.interactor = tasksInteractor
+
 		return tasksViewController
 	}
 }
