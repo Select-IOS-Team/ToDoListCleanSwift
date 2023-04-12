@@ -38,6 +38,17 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "855E979929E3FF8100DB5127"
+               BuildableName = "ToDoListCleanSwiftUITests.xctest"
+               BlueprintName = "ToDoListCleanSwiftUITests"
+               ReferencedContainer = "container:../ToDoListCleanSwift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

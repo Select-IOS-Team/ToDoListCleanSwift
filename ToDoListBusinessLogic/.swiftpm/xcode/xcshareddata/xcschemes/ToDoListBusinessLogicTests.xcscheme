@@ -22,6 +22,17 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "855E979929E3FF8100DB5127"
+               BuildableName = "ToDoListCleanSwiftUITests.xctest"
+               BlueprintName = "ToDoListCleanSwiftUITests"
+               ReferencedContainer = "container:../ToDoListCleanSwift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -51,15 +62,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8563F4A329A4E2C80006C378"
-            BuildableName = "ToDoListCleanSwift.app"
-            BlueprintName = "ToDoListCleanSwift"
-            ReferencedContainer = "container:../ToDoListCleanSwift.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
