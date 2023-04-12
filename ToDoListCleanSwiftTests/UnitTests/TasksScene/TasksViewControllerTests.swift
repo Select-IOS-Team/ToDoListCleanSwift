@@ -19,9 +19,8 @@ final class TasksViewControllerTests: XCTestCase {
 
 	func test_viewDidLoad_shouldBeLoadSuccess() {
 		// arrange
-		let sut = TasksViewController()
 		interactor = TasksInteractorSpy()
-		sut.interactor = interactor
+		let sut = TasksViewController(interactor: interactor)
 
 		// act
 		sut.viewDidLoad()
@@ -32,9 +31,8 @@ final class TasksViewControllerTests: XCTestCase {
 
 	func test_render_shouldBeReceiveValidData() {
 		// arrange
-		let sut = TasksViewController()
 		interactor = TasksInteractorSpy()
-		sut.interactor = interactor
+		let sut = TasksViewController(interactor: interactor)
 		let viewData = expectedViewData()
 
 		// act
