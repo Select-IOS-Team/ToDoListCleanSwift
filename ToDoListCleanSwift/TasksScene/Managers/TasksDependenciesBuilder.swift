@@ -12,7 +12,6 @@ import ToDoListBusinessLogic
 enum TasksDependenciesBuilder {
 	static func build() -> TasksViewController {
 
-		let tasksViewController = TasksViewController()
 		let tasksWorker: ITasksWorker = TasksWorker()
 		let taskManager = OrderedTaskManager(taskManager: TaskManager())
 		let repository: IRepository = Repository()
@@ -20,13 +19,13 @@ enum TasksDependenciesBuilder {
 
 		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
 		let tasksPresenter = TasksPresenter()
-		tasksPresenter.viewController = tasksViewController
 		let tasksInteractor = TasksInteractor(
 			sectionsAdapter: sectionsAdapter,
 			presenter: tasksPresenter,
 			worker: tasksWorker
 		)
-		tasksViewController.interactor = tasksInteractor
+		let tasksViewController = TasksViewController(interactor: tasksInteractor)
+		tasksPresenter.viewController = tasksViewController
 
 		return tasksViewController
 	}

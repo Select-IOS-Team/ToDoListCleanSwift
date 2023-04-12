@@ -17,13 +17,25 @@ protocol ITasksViewController: AnyObject {
 /// Вью контроллер сцены списка задач.
 final class TasksViewController: UIViewController {
 
-	// MARK: - Internal properties
+	// MARK: - Private properties
 
-	var interactor: ITasksInteractor?
-	var viewData: TaskModel.ViewData = TaskModel.ViewData(tasksBySections: [])
+	private let interactor: ITasksInteractor?
 	private lazy var tasksTableView = makeTableView()
 
+	// MARK: - Internal properties
+
+	var viewData: TaskModel.ViewData = TaskModel.ViewData(tasksBySections: [])
+
 	// MARK: - Lifecycle
+
+	init(interactor: ITasksInteractor) {
+		self.interactor = interactor
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
