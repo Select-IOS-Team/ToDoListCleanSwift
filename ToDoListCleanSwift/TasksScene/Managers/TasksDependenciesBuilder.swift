@@ -19,7 +19,8 @@ enum TasksDependenciesBuilder {
 		taskManager.addTasks(tasks: repository.getAllTasks())
 
 		let sectionsAdapter = SectionAdapter(taskManager: taskManager)
-		let tasksPresenter = TasksPresenter(sectionsAdapter: sectionsAdapter, viewController: tasksViewController)
+		let tasksPresenter = TasksPresenter()
+		tasksPresenter.viewController = tasksViewController
 		let tasksInteractor = TasksInteractor(
 			sectionsAdapter: sectionsAdapter,
 			presenter: tasksPresenter,
