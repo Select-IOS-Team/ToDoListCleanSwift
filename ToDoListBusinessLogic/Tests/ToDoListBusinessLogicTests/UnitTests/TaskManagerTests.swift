@@ -13,7 +13,7 @@ final class TaskManagerTests: XCTestCase {
 	// MARK: - Tests
 
 	// Проверка того, что менеджер после инициализации имеет пустой список задач
-	func test_taskListIsEmptyAfterInit() {
+	func test_init_taskListIsEmptyAfterInit() {
 		// arrange
 		let sut = TaskManager()
 

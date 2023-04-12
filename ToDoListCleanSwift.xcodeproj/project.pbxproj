@@ -13,16 +13,22 @@
 		5E04735629CFF17B0076F1D0 /* LoginPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04735529CFF17B0076F1D0 /* LoginPresenterSpy.swift */; };
 		5E04735829D012250076F1D0 /* LoginViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04735729D012250076F1D0 /* LoginViewControllerSpy.swift */; };
 		5E04735A29D012740076F1D0 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04735929D012740076F1D0 /* LoginPresenterTests.swift */; };
+		5E4D76AD29E049EC0055CC22 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D76AC29E049EC0055CC22 /* LoginViewControllerTests.swift */; };
+		5E4D76AF29E04A330055CC22 /* LoginInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D76AE29E04A330055CC22 /* LoginInteractorSpy.swift */; };
+		5E4D76B129E04BD70055CC22 /* MainRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D76B029E04BD70055CC22 /* MainRouterSpy.swift */; };
 		5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */; };
 		5E53E6A129C0E6C7007634A4 /* ImportantTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */; };
 		5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */; };
 		5E53E6A929C0E7E9007634A4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */; };
-		5E53E6AA29C0E7E9007634A4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */; };
 		5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */; };
 		5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */; };
+		5EB144D329DE6BFE006845CB /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */; };
+		5EB144D529DE6CB3006845CB /* UIColor+Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */; };
+		5EB144D729DE7016006845CB /* UIColorHexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D629DE7015006845CB /* UIColorHexTests.swift */; };
+		5EB144DA29DE78CB006845CB /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D929DE78CB006845CB /* Palette.swift */; };
 		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */; };
-		5EF3941929D5BBE4003EAD88 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */; };
+		8558596329DE8EFA002837BE /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */; };
 		8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A729A4E2C80006C378 /* AppDelegate.swift */; };
 		8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4A929A4E2C80006C378 /* SceneDelegate.swift */; };
 		8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563F4AB29A4E2C80006C378 /* LoginViewController.swift */; };
@@ -51,6 +57,13 @@
 		8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */; };
 		8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */; };
 		8570221529D6A3B50096AA84 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 8570221429D6A3B50096AA84 /* PinLayout */; };
+		8570221F29D971E40096AA84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8570222129D971E40096AA84 /* Localizable.strings */; };
+		8570222629D97D390096AA84 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570222429D97D390096AA84 /* Strings.swift */; };
+		8570222729D97D390096AA84 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570222529D97D390096AA84 /* Assets.swift */; };
+		8570222E29D9908F0096AA84 /* swiftgen.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8570222929D9908F0096AA84 /* swiftgen.sh */; };
+		8570222F29D9908F0096AA84 /* Assets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 8570222B29D9908F0096AA84 /* Assets.stencil */; };
+		8570223029D9908F0096AA84 /* Strings.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 8570222C29D9908F0096AA84 /* Strings.stencil */; };
+		8570223129D9908F0096AA84 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8570222D29D9908F0096AA84 /* swiftgen.yml */; };
 		85E0C13029C4463100E8A29B /* ToDoListBusinessLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 85E0C12F29C4463100E8A29B /* ToDoListBusinessLogic */; };
 /* End PBXBuildFile section */
 
@@ -71,17 +84,23 @@
 		5E04735529CFF17B0076F1D0 /* LoginPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterSpy.swift; sourceTree = "<group>"; };
 		5E04735729D012250076F1D0 /* LoginViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpy.swift; sourceTree = "<group>"; };
 		5E04735929D012740076F1D0 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
+		5E4D76AC29E049EC0055CC22 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		5E4D76AE29E04A330055CC22 /* LoginInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorSpy.swift; sourceTree = "<group>"; };
+		5E4D76B029E04BD70055CC22 /* MainRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterSpy.swift; sourceTree = "<group>"; };
 		5E53E69E29C0E6C6007634A4 /* RegularTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E69F29C0E6C6007634A4 /* ImportantTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantTaskTableViewCell.swift; sourceTree = "<group>"; };
 		5E53E6A529C0E7D6007634A4 /* ConfigurableTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableTableCell.swift; sourceTree = "<group>"; };
 		5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5E7E0F4729C58DDF00BD13F4 /* ToDoListCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListCleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerSpy.swift; sourceTree = "<group>"; };
 		5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionAdapterTests.swift; sourceTree = "<group>"; };
+		5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dynamic.swift"; sourceTree = "<group>"; };
+		5EB144D629DE7015006845CB /* UIColorHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexTests.swift; sourceTree = "<group>"; };
+		5EB144D929DE78CB006845CB /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksWorkerTests.swift; sourceTree = "<group>"; };
-		5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		8563F4A729A4E2C80006C378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8563F4A929A4E2C80006C378 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8563F4AB29A4E2C80006C378 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +129,14 @@
 		857021D529D2FF8B0096AA84 /* SectionAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterSpy.swift; sourceTree = "<group>"; };
 		8570220F29D5C4D40096AA84 /* TasksInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractorSpy.swift; sourceTree = "<group>"; };
 		8570221129D5C4E50096AA84 /* TasksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewControllerTests.swift; sourceTree = "<group>"; };
+		8570222029D971E40096AA84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8570222229D972BA0096AA84 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8570222429D97D390096AA84 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		8570222529D97D390096AA84 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		8570222929D9908F0096AA84 /* swiftgen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftgen.sh; sourceTree = "<group>"; };
+		8570222B29D9908F0096AA84 /* Assets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Assets.stencil; sourceTree = "<group>"; };
+		8570222C29D9908F0096AA84 /* Strings.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Strings.stencil; sourceTree = "<group>"; };
+		8570222D29D9908F0096AA84 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		85E0C12D29C445E300E8A29B /* ToDoListBusinessLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListBusinessLogic; sourceTree = "<group>"; };
 		85E0C13129C44B0200E8A29B /* ToDoListCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +167,7 @@
 				5E04735129CFEFB80076F1D0 /* LoginInteractorTests.swift */,
 				5E04735929D012740076F1D0 /* LoginPresenterTests.swift */,
 				5AA0193529CEA9ED0086B68E /* LoginWorkerTests.swift */,
+				5E4D76AC29E049EC0055CC22 /* LoginViewControllerTests.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -148,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				5E7E0F5429C58E6800BD13F4 /* SectionAdapterTests.swift */,
-				5EF3941829D5BBE4003EAD88 /* RepositoryTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -156,6 +183,7 @@
 		5E53E6A229C0E78E007634A4 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5EB144D829DE726D006845CB /* Theme */,
 				5E53E6A329C0E797007634A4 /* Extensions */,
 				5E53E6A429C0E7A0007634A4 /* Protocols */,
 			);
@@ -166,7 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				5E53E6A729C0E7E9007634A4 /* UITableView+Extension.swift */,
-				5E53E6A829C0E7E9007634A4 /* UIView+Extension.swift */,
+				5EB144D229DE6BFE006845CB /* UIColor+Hex.swift */,
+				5EB144D429DE6CB3006845CB /* UIColor+Dynamic.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,7 +220,9 @@
 		5E7E0F5029C58E1600BD13F4 /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
+				5E4D76B029E04BD70055CC22 /* MainRouterSpy.swift */,
 				5E04735329CFF1220076F1D0 /* LoginWorkerSpy.swift */,
+				5E4D76AE29E04A330055CC22 /* LoginInteractorSpy.swift */,
 				5E04735529CFF17B0076F1D0 /* LoginPresenterSpy.swift */,
 				5E04735729D012250076F1D0 /* LoginViewControllerSpy.swift */,
 				5E7E0F5229C58E3400BD13F4 /* TaskManagerSpy.swift */,
@@ -209,8 +240,17 @@
 			children = (
 				5AA0193429CEA9AC0086B68E /* LoginScene */,
 				856D624529CCD62A00A0A1BB /* TasksScene */,
+				5EB144D629DE7015006845CB /* UIColorHexTests.swift */,
 			);
 			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		5EB144D829DE726D006845CB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				5EB144D929DE78CB006845CB /* Palette.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		8563F49B29A4E2C80006C378 = {
@@ -230,15 +270,15 @@
 		8563F4A629A4E2C80006C378 /* ToDoListCleanSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8570222829D9908F0096AA84 /* SwiftGen */,
+				8570221729D970600096AA84 /* SupportingFiles */,
 				5E53E6A229C0E78E007634A4 /* CommonFiles */,
+				8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */,
 				8563F4A729A4E2C80006C378 /* AppDelegate.swift */,
 				8563F4A929A4E2C80006C378 /* SceneDelegate.swift */,
 				8563F4CF29A508750006C378 /* MainRouter.swift */,
 				8563F4BD29A4EC780006C378 /* LoginScene */,
 				8563F4C429A4F9EC0006C378 /* TasksScene */,
-				8563F4B029A4E2C90006C378 /* Assets.xcassets */,
-				8563F4B229A4E2C90006C378 /* LaunchScreen.storyboard */,
-				8563F4B529A4E2C90006C378 /* Info.plist */,
 			);
 			path = ToDoListCleanSwift;
 			sourceTree = "<group>";
@@ -300,6 +340,46 @@
 			path = TasksScene;
 			sourceTree = "<group>";
 		};
+		8570221729D970600096AA84 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8570222329D97D390096AA84 /* Autogenerated */,
+				8563F4B029A4E2C90006C378 /* Assets.xcassets */,
+				8563F4B229A4E2C90006C378 /* LaunchScreen.storyboard */,
+				8563F4B529A4E2C90006C378 /* Info.plist */,
+				8570222129D971E40096AA84 /* Localizable.strings */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8570222329D97D390096AA84 /* Autogenerated */ = {
+			isa = PBXGroup;
+			children = (
+				8570222429D97D390096AA84 /* Strings.swift */,
+				8570222529D97D390096AA84 /* Assets.swift */,
+			);
+			path = Autogenerated;
+			sourceTree = "<group>";
+		};
+		8570222829D9908F0096AA84 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				8570222929D9908F0096AA84 /* swiftgen.sh */,
+				8570222A29D9908F0096AA84 /* Templates */,
+				8570222D29D9908F0096AA84 /* swiftgen.yml */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		8570222A29D9908F0096AA84 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				8570222B29D9908F0096AA84 /* Assets.stencil */,
+				8570222C29D9908F0096AA84 /* Strings.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		85E0C12C29C445E300E8A29B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +421,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8563F4B829A4E2C90006C378 /* Build configuration list for PBXNativeTarget "ToDoListCleanSwift" */;
 			buildPhases = (
+				8570221629D96DB10096AA84 /* SwiftGen */,
 				5A411CB129BF3EC500AE3C78 /* SwiftLint */,
 				8563F4A029A4E2C80006C378 /* Sources */,
 				8563F4A129A4E2C80006C378 /* Frameworks */,
@@ -385,6 +466,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 8563F49B29A4E2C80006C378;
 			packageReferences = (
@@ -412,7 +494,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8570222E29D9908F0096AA84 /* swiftgen.sh in Resources */,
+				8570223129D9908F0096AA84 /* swiftgen.yml in Resources */,
+				8570222F29D9908F0096AA84 /* Assets.stencil in Resources */,
+				8570223029D9908F0096AA84 /* Strings.stencil in Resources */,
 				5EB995AF29BC26740046FA0C /* .gitignore in Resources */,
+				8570221F29D971E40096AA84 /* Localizable.strings in Resources */,
 				8563F4B429A4E2C90006C378 /* LaunchScreen.storyboard in Resources */,
 				8563F4B129A4E2C90006C378 /* Assets.xcassets in Resources */,
 				8563F4E929A6ACFB0006C378 /* README.md in Resources */,
@@ -460,6 +547,27 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
 		};
+		8570221629D96DB10096AA84 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/ToDoListCleanSwift/SupportingFiles/Autogenerated/Strings.swift",
+				"$(SRCROOT)/ToDoListCleanSwift/SupportingFiles/Autogenerated/Assets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ToDoListCleanSwift/SwiftGen/swiftgen.sh\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -470,14 +578,16 @@
 				856D624A29CCDB3C00A0A1BB /* TesksWorkerSpy.swift in Sources */,
 				5E04735A29D012740076F1D0 /* LoginPresenterTests.swift in Sources */,
 				5E7E0F5329C58E3400BD13F4 /* TaskManagerSpy.swift in Sources */,
-				5EF3941929D5BBE4003EAD88 /* RepositoryTests.swift in Sources */,
 				856D624D29CCE95700A0A1BB /* TasksInteractorTests.swift in Sources */,
 				5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */,
 				856D625629CDCA8300A0A1BB /* TasksViewControllerSpy.swift in Sources */,
 				8570221229D5C4E50096AA84 /* TasksViewControllerTests.swift in Sources */,
 				8570221029D5C4D40096AA84 /* TasksInteractorSpy.swift in Sources */,
 				857021D629D2FF8B0096AA84 /* SectionAdapterSpy.swift in Sources */,
+				5EB144D729DE7016006845CB /* UIColorHexTests.swift in Sources */,
 				856D625829CDD1B600A0A1BB /* TasksPresenterTests.swift in Sources */,
+				5E4D76AF29E04A330055CC22 /* LoginInteractorSpy.swift in Sources */,
+				5E4D76B129E04BD70055CC22 /* MainRouterSpy.swift in Sources */,
 				5E7E0F5529C58E6800BD13F4 /* SectionAdapterTests.swift in Sources */,
 				856D624C29CCDB7000A0A1BB /* TasksPresenerSpy.swift in Sources */,
 				5E04735429CFF1220076F1D0 /* LoginWorkerSpy.swift in Sources */,
@@ -485,6 +595,7 @@
 				5E04735229CFEFB80076F1D0 /* LoginInteractorTests.swift in Sources */,
 				5AA0193629CEA9ED0086B68E /* LoginWorkerTests.swift in Sources */,
 				5E04735629CFF17B0076F1D0 /* LoginPresenterSpy.swift in Sources */,
+				5E4D76AD29E049EC0055CC22 /* LoginViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +604,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8563F4AC29A4E2C80006C378 /* LoginViewController.swift in Sources */,
+				8570222729D97D390096AA84 /* Assets.swift in Sources */,
+				5EB144DA29DE78CB006845CB /* Palette.swift in Sources */,
+				5EB144D329DE6BFE006845CB /* UIColor+Hex.swift in Sources */,
 				5E53E6A029C0E6C7007634A4 /* RegularTaskTableViewCell.swift in Sources */,
 				8563F4CA29A4FB400006C378 /* TasksInteractor.swift in Sources */,
 				8563F4C629A4FAFC0006C378 /* TasksViewController.swift in Sources */,
@@ -504,13 +618,15 @@
 				8563F4C329A4EED00006C378 /* LoginPresenter.swift in Sources */,
 				8563F4E729A666870006C378 /* TasksDependenciesBuilder.swift in Sources */,
 				8563F4A829A4E2C80006C378 /* AppDelegate.swift in Sources */,
+				8570222629D97D390096AA84 /* Strings.swift in Sources */,
 				8563F4BF29A4EDFD0006C378 /* LoginInteractor.swift in Sources */,
 				8563F4DD29A511420006C378 /* SectionsAdapter.swift in Sources */,
 				8563F4D929A510100006C378 /* Repository.swift in Sources */,
 				8563F4CE29A4FB600006C378 /* TasksPresenter.swift in Sources */,
 				5E53E6A929C0E7E9007634A4 /* UITableView+Extension.swift in Sources */,
-				5E53E6AA29C0E7E9007634A4 /* UIView+Extension.swift in Sources */,
+				8558596329DE8EFA002837BE /* AccessibilityIdentifier.swift in Sources */,
 				5E53E6A629C0E7D6007634A4 /* ConfigurableTableCell.swift in Sources */,
+				5EB144D529DE6CB3006845CB /* UIColor+Dynamic.swift in Sources */,
 				8563F4AA29A4E2C80006C378 /* SceneDelegate.swift in Sources */,
 				8563F4C129A4EEB90006C378 /* LoginWorker.swift in Sources */,
 			);
@@ -533,6 +649,15 @@
 				8563F4B329A4E2C90006C378 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8570222129D971E40096AA84 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8570222029D971E40096AA84 /* en */,
+				8570222229D972BA0096AA84 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -580,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -640,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -699,7 +826,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G2VF2J7D53;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
+				INFOPLIST_FILE = ToDoListCleanSwift/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -727,7 +854,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G2VF2J7D53;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoListCleanSwift/Info.plist;
+				INFOPLIST_FILE = ToDoListCleanSwift/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

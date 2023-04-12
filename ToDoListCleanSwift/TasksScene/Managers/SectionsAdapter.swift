@@ -26,9 +26,9 @@ enum SectionType: Int, CustomStringConvertible, CaseIterable {
 	var description: String {
 		switch self {
 		case .uncompletedTasks:
-			return "Невыполненные задачи"
+			return L10n.TasksScene.uncompletedTasks
 		case .completedTasks:
-			return "Выполненные задачи"
+			return L10n.TasksScene.completedTasks
 		}
 	}
 }

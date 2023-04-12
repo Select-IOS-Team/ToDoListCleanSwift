@@ -8,9 +8,7 @@
 import ToDoListBusinessLogic
 @testable import ToDoListCleanSwift
 
-// swiftlint:disable identifier_name
-// swiftlint:disable: implicitly_unwrapped_optional
-
+// swiftlint:disable all
 final class TasksWorkerSpy: ITasksWorker {
 
 	// MARK: - Internal properties
@@ -31,3 +29,4 @@ final class TasksWorkerSpy: ITasksWorker {
 		return stubbedConvertToTaskModelResponseResult
 	}
 }
+// swiftlint:enable all

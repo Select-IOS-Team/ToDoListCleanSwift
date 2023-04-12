@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  ToDoListCleanSwift
+
+  Created by Evgeni Meleshin on 02.04.2023.
+  
+*/
+ 
+"LoginScene.signInButtonTitle" = "Войти";
+"LoginScene.loginTextFieldPlaceholder" = "Введите логин";
+"LoginScene.passwordTextFieldPlaceholder" = "Введите пароль";
+"LoginScene.AlertActions.OK" = "ОК";
+"LoginScene.AlertActions.Error" = "Ошибка";
+
+"TasksScene.title" = "Список задач";
+"TasksScene.priorityLabelText" = "Приоритет: ";
+"TasksScene.priorityHigh" = "высокий";
+"TasksScene.priorityMedium" = "средний";
+"TasksScene.priorityLow" = "низкий";
+"TasksScene.completedTasks" = "Выполненные задачи";
+"TasksScene.uncompletedTasks" = "Невыполненные задачи";
+"TasksScene.completedCheckboxImageName" = "checkmark.circle.fill";
+"TasksScene.uncompletedCheckboxImageName" = "circle";
+"TasksScene.dateFormat" = "dd.MM.yyyy HH:mm";

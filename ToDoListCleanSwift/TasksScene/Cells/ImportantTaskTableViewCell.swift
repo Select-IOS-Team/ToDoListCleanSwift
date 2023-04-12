@@ -15,9 +15,10 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 
 	private enum Constants {
 		static let titleLabelNumberOfLines: Int = 2
-		static let expiredTaskBackgroundColor: UIColor = .red.withAlphaComponent(0.2)
-		static let unexpiredTaskBackgroundColor: UIColor = .white
-		static let additionalTextColor: UIColor = .darkGray
+		static let checkboxTintColor = Palette.main
+		static let expiredTaskBackgroundColor = Palette.accentWarning
+		static let unexpiredTaskBackgroundColor = UIColor.clear
+		static let additionalTextColor = Palette.additionalText
 		static let contentVerticalInset: CGFloat = 12
 		static let contentHorizontalInset: CGFloat = 16
 		static let contentSpace: CGFloat = 12
@@ -35,21 +36,26 @@ final class ImportantTaskTableViewCell: UITableViewCell {
 	private lazy var completionCheckboxImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.isUserInteractionEnabled = true
+		imageView.tintColor = Constants.checkboxTintColor
+		imageView.accessibilityIdentifier = AccessibilityIdentifier.checkBoxImportantTask.rawValue
 		return imageView
 	}()
 	private lazy var titleLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = Constants.titleLabelNumberOfLines
+		label.accessibilityIdentifier = AccessibilityIdentifier.titleLabelImportantTask.rawValue
 		return label
 	}()
 	private lazy var priorityLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
+		label.accessibilityIdentifier = AccessibilityIdentifier.priorityLabel.rawValue
 		return label
 	}()
 	private lazy var executionDateLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Constants.additionalTextColor
+		label.accessibilityIdentifier = AccessibilityIdentifier.executionDateLabel.rawValue
 		return label
 	}()
 

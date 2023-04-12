@@ -60,11 +60,11 @@ final class TasksPresenterTests: XCTestCase {
 			TaskModel.ViewData.Task.importantTask(importantTaskViewData)
 		]
 		let sectionUncompletedTasks = TaskModel.ViewData.Section(
-			title: "Невыполненные задачи",
+			title: "Uncompleted tasks",
 			tasks: uncompletedTasks
 		)
 		let sectionCompletedTasks = TaskModel.ViewData.Section(
-			title: "Выполненные задачи",
+			title: "Completed tasks",
 			tasks: completedTasks
 		)
 		let expectedViewData = TaskModel.ViewData(tasksBySections: [sectionUncompletedTasks, sectionCompletedTasks])
@@ -103,3 +103,4 @@ private extension TasksPresenterTests {
 		return formatter.string(from: date)
 	}
 }
+// swiftlint:enable function_body_length

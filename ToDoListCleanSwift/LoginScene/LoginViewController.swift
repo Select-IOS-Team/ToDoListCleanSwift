@@ -19,9 +19,9 @@ final class LoginViewController: UIViewController {
 	// MARK: - Nested types
 
 	private enum Constants {
-		static let loginTextFieldPlaceholder = "Login"
-		static let passwordTextFieldPlaceholder = "Password"
-		static let signInButtonTitle = "Sign in"
+		static let loginTextFieldPlaceholder = L10n.LoginScene.loginTextFieldPlaceholder
+		static let passwordTextFieldPlaceholder = L10n.LoginScene.passwordTextFieldPlaceholder
+		static let signInButtonTitle = L10n.LoginScene.signInButtonTitle
 		static let signInButtonCornerRadius: CGFloat = 6
 		static let textFieldSize = CGSize(width: 250, height: 40)
 		static let loginButtonSize = CGSize(width: 100, height: 40)
@@ -39,6 +39,7 @@ final class LoginViewController: UIViewController {
 		textField.placeholder = Constants.loginTextFieldPlaceholder
 		textField.borderStyle = .roundedRect
 		textField.textContentType = .username
+		textField.accessibilityIdentifier = AccessibilityIdentifier.loginTextField.rawValue
 		return textField
 	}()
 	private lazy var passwordTextField: UITextField = {
@@ -47,14 +48,16 @@ final class LoginViewController: UIViewController {
 		textField.borderStyle = .roundedRect
 		textField.textContentType = .password
 		textField.isSecureTextEntry = true
+		textField.accessibilityIdentifier = AccessibilityIdentifier.passwordTextField.rawValue
 		return textField
 	}()
 	private lazy var loginButton: UIButton = {
 		let button = UIButton()
 		button.setTitle(Constants.signInButtonTitle, for: .normal)
-		button.backgroundColor = .systemBlue
+		button.backgroundColor = Palette.main
 		button.layer.cornerRadius = Constants.signInButtonCornerRadius
 		button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+		button.accessibilityIdentifier = AccessibilityIdentifier.loginButton.rawValue
 		return button
 	}()
 
@@ -89,19 +92,8 @@ extension LoginViewController: ILoginViewController {
 		if viewModel.success {
 			router.routeToTasksViewController()
 		} else {
-			showAlert(title: "Error", message: "")
+			showAlert(title: L10n.LoginScene.AlertActions.error, message: "")
 		}
-	}
-
-	private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
-		let alert = UIAlertController(
-			title: title,
-			message: message,
-			preferredStyle: .alert
-		)
-		let action = UIAlertAction(title: "OK", style: .default, handler: completion)
-		alert.addAction(action)
-		present(alert, animated: true)
 	}
 }
 
@@ -110,7 +102,7 @@ extension LoginViewController: ILoginViewController {
 private extension LoginViewController {
 
 	func setupUI() {
-		view.backgroundColor = .white
+		view.backgroundColor = Palette.background
 		view.addSubview(loginTextField)
 		view.addSubview(passwordTextField)
 		view.addSubview(loginButton)
@@ -130,6 +122,17 @@ private extension LoginViewController {
 			.below(of: passwordTextField, aligned: .center)
 			.size(Constants.loginButtonSize)
 			.marginTop(Constants.loginButtonTopSpace)
+	}
+
+	func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+		let alert = UIAlertController(
+			title: title,
+			message: message,
+			preferredStyle: .alert
+		)
+		let action = UIAlertAction(title: L10n.LoginScene.AlertActions.ok, style: .default, handler: completion)
+		alert.addAction(action)
+		present(alert, animated: true)
 	}
 
 	@objc
