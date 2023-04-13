@@ -123,10 +123,11 @@ private extension TasksInteractorTests {
 		workerSpy = TasksWorkerSpy()
 		presenterSpy = TasksPresenterSpy()
 		sectionAdapterSpy = SectionAdapterSpy()
-		let interactor = TasksInteractor()
-		interactor.worker = workerSpy
-		interactor.presenter = presenterSpy
-		interactor.sectionsAdapter = sectionAdapterSpy
+		let interactor = TasksInteractor(
+			sectionsAdapter: sectionAdapterSpy,
+			presenter: presenterSpy,
+			worker: workerSpy
+		)
 		return interactor
 	}
 }
