@@ -28,6 +28,7 @@
 		5EB144DA29DE78CB006845CB /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB144D929DE78CB006845CB /* Palette.swift */; };
 		5EB995AF29BC26740046FA0C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5EB995AE29BC26740046FA0C /* .gitignore */; };
 		5EF3941729D5BAC4003EAD88 /* TasksWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */; };
+		8548CB2729E9198900518090 /* TasksSceneUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548CB2629E9198900518090 /* TasksSceneUITest.swift */; };
 		8558596329DE8EFA002837BE /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */; };
 		855AF4D129E4028100E45023 /* LoginSceneUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AF4D029E4028000E45023 /* LoginSceneUITest.swift */; };
 		855AF4D429E4197800E45023 /* LoginScreenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AF4D329E4197800E45023 /* LoginScreenObject.swift */; };
@@ -113,6 +114,7 @@
 		5EB144D929DE78CB006845CB /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		5EB995AE29BC26740046FA0C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5EF3941629D5BAC4003EAD88 /* TasksWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksWorkerTests.swift; sourceTree = "<group>"; };
+		8548CB2629E9198900518090 /* TasksSceneUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksSceneUITest.swift; sourceTree = "<group>"; };
 		8558596229DE8EFA002837BE /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		855AF4D029E4028000E45023 /* LoginSceneUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneUITest.swift; sourceTree = "<group>"; };
 		855AF4D329E4197800E45023 /* LoginScreenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenObject.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				855AF4DB29E5374800E45023 /* TasksScreenObject.swift */,
+				8548CB2629E9198900518090 /* TasksSceneUITest.swift */,
 			);
 			path = TasksScene;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				855AF4D829E41A9E00E45023 /* Predicates.swift in Sources */,
+				8548CB2729E9198900518090 /* TasksSceneUITest.swift in Sources */,
 				855AF4DC29E5374800E45023 /* TasksScreenObject.swift in Sources */,
 				855AF4DA29E45E0600E45023 /* AccessibilityIdentifier.swift in Sources */,
 				855AF4D429E4197800E45023 /* LoginScreenObject.swift in Sources */,

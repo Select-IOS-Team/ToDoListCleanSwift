@@ -84,7 +84,7 @@ extension TasksViewController: UITableViewDataSource {
 				guard let self = self else { return }
 				self.interactor?.didCheckboxTapped(indexPath: indexPath)
 			}
-			cell.accessibilityIdentifier = "cell-\(indexPath.section)-\(indexPath.row)"
+			cell.accessibilityIdentifier = "\(AccessibilityIdentifier.cell.rawValue)-\(indexPath.section)-\(indexPath.row)"
 			return cell
 		case .regularTask(let model):
 			guard let cell = tableView.dequeue(
@@ -97,7 +97,7 @@ extension TasksViewController: UITableViewDataSource {
 				guard let self = self else { return }
 				self.interactor?.didCheckboxTapped(indexPath: indexPath)
 			}
-			cell.accessibilityIdentifier = "cell-\(indexPath.section)-\(indexPath.row)"
+			cell.accessibilityIdentifier = "\(AccessibilityIdentifier.cell.rawValue)-\(indexPath.section)-\(indexPath.row)"
 			return cell
 		}
 	}
@@ -111,6 +111,25 @@ extension TasksViewController: UITableViewDataSource {
 	}
 }
 
+// MARK: - UITableViewDelegate
+
+extension TasksViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UIView()
+		let sectionLabel = UILabel()
+		sectionLabel.text = viewData.tasksBySections[section].title
+		sectionLabel.textColor = .systemGray
+		sectionLabel.sizeToFit()
+		sectionLabel.pin
+			.vCenter()
+			.start(16)
+		sectionLabel.accessibilityIdentifier = "\(AccessibilityIdentifier.sectionLabel.rawValue)-\(section)"
+		headerView.addSubview(sectionLabel)
+		headerView.accessibilityIdentifier = "\(AccessibilityIdentifier.section.rawValue)-\(section)"
+		return headerView
+	}
+}
+
 // MARK: - Private methods
 
 private extension TasksViewController {
@@ -120,6 +139,7 @@ private extension TasksViewController {
 		tableView.registerCell(type: RegularTaskTableViewCell.self)
 		tableView.registerCell(type: ImportantTaskTableViewCell.self)
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.accessibilityIdentifier = AccessibilityIdentifier.tasksTableView.rawValue
 		return tableView
 	}
