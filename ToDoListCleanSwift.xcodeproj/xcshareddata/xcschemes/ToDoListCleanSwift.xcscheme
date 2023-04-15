@@ -20,13 +20,43 @@
                ReferencedContainer = "container:ToDoListCleanSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "855E979929E3FF8100DB5127"
+               BuildableName = "ToDoListCleanSwiftUITests.xctest"
+               BlueprintName = "ToDoListCleanSwiftUITests"
+               ReferencedContainer = "container:ToDoListCleanSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E7E0F4629C58DDF00BD13F4"
+               BuildableName = "ToDoListCleanSwiftTests.xctest"
+               BlueprintName = "ToDoListCleanSwiftTests"
+               ReferencedContainer = "container:ToDoListCleanSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      language = "en"
+      region = "US">
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -42,6 +72,17 @@
                identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
                referenceType = "1">
             </LocationScenarioReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "855E979929E3FF8100DB5127"
+               BuildableName = "ToDoListCleanSwiftUITests.xctest"
+               BlueprintName = "ToDoListCleanSwiftUITests"
+               ReferencedContainer = "container:ToDoListCleanSwift.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>

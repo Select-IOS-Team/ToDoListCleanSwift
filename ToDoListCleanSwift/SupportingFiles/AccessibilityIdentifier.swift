@@ -21,4 +21,7 @@ enum AccessibilityIdentifier: String {
 	case titleLabelImportantTask
 	case priorityLabel
 	case executionDateLabel
+	case section
+	case sectionLabel
+	case cell
 }
