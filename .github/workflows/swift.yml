@@ -15,3 +15,5 @@ jobs:
         run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwiftTests -destination 'platform=iOS Simulator,name=iPhone 13'
       - name: Run UI tests
         run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwiftUITests -destination 'platform=iOS Simulator,name=iPhone 13'
+      - name: Run package's unit tests
+        run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListBusinessLogicTests -destination 'platform=iOS Simulator,name=iPhone 13'
