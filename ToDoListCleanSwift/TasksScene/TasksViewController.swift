@@ -17,6 +17,12 @@ protocol ITasksViewController: AnyObject {
 /// Вью контроллер сцены списка задач.
 final class TasksViewController: UIViewController {
 
+	// MARK: - Nested types
+
+	private enum Constants {
+		static let contentHorizontalInset: CGFloat = 16
+	}
+
 	// MARK: - Private properties
 
 	private let interactor: ITasksInteractor?
@@ -74,31 +80,9 @@ extension TasksViewController: UITableViewDataSource {
 
 		switch taskData {
 		case .importantTask(let model):
-			guard let cell = tableView.dequeue(
-				type: ImportantTaskTableViewCell.self,
-				for: indexPath
-			) else { return UITableViewCell() }
-
-			cell.configure(with: model)
-			cell.completionCheckboxTapAction = { [weak self] in
-				guard let self = self else { return }
-				self.interactor?.didCheckboxTapped(indexPath: indexPath)
-			}
-			cell.accessibilityIdentifier = "cell-\(indexPath.section)-\(indexPath.row)"
-			return cell
+			return importantTaskCell(with: model, at: indexPath)
 		case .regularTask(let model):
-			guard let cell = tableView.dequeue(
-				type: RegularTaskTableViewCell.self,
-				for: indexPath
-			) else { return UITableViewCell() }
-
-			cell.configure(with: model)
-			cell.completionCheckboxTapAction = { [weak self] in
-				guard let self = self else { return }
-				self.interactor?.didCheckboxTapped(indexPath: indexPath)
-			}
-			cell.accessibilityIdentifier = "cell-\(indexPath.section)-\(indexPath.row)"
-			return cell
+			return regularTaskCell(with: model, at: indexPath)
 		}
 	}
 
@@ -111,6 +95,25 @@ extension TasksViewController: UITableViewDataSource {
 	}
 }
 
+// MARK: - UITableViewDelegate
+
+extension TasksViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UIView()
+		let sectionLabel = UILabel()
+		sectionLabel.text = viewData.tasksBySections[section].title
+		sectionLabel.textColor = Palette.additionalText
+		sectionLabel.sizeToFit()
+		sectionLabel.pin
+			.vCenter()
+			.start(Constants.contentHorizontalInset)
+		sectionLabel.accessibilityIdentifier = "\(AccessibilityIdentifier.sectionLabel.rawValue)-\(section)"
+		headerView.addSubview(sectionLabel)
+		headerView.accessibilityIdentifier = "\(AccessibilityIdentifier.section.rawValue)-\(section)"
+		return headerView
+	}
+}
+
 // MARK: - Private methods
 
 private extension TasksViewController {
@@ -120,11 +123,46 @@ private extension TasksViewController {
 		tableView.registerCell(type: RegularTaskTableViewCell.self)
 		tableView.registerCell(type: ImportantTaskTableViewCell.self)
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.accessibilityIdentifier = AccessibilityIdentifier.tasksTableView.rawValue
 		return tableView
 	}
 
 	func setupUI() {
 		view.addSubview(tasksTableView)
+	}
+
+	func importantTaskCell(with model: TaskModel.ViewData.ImportantTask, at indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tasksTableView.dequeue(
+			type: ImportantTaskTableViewCell.self,
+			for: indexPath
+		) else { return UITableViewCell() }
+
+		cell.configure(with: model)
+		cell.completionCheckboxTapAction = { [weak self] in
+			guard let self = self else { return }
+			self.interactor?.didCheckboxTapped(indexPath: indexPath)
+		}
+		cell.accessibilityIdentifier = createAccessibilityIdentifierForCell(indexPath: indexPath)
+		return cell
+	}
+
+	func regularTaskCell(with model: TaskModel.ViewData.RegularTask, at indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tasksTableView.dequeue(
+			type: RegularTaskTableViewCell.self,
+			for: indexPath
+		) else { return UITableViewCell() }
+
+		cell.configure(with: model)
+		cell.completionCheckboxTapAction = { [weak self] in
+			guard let self = self else { return }
+			self.interactor?.didCheckboxTapped(indexPath: indexPath)
+		}
+		cell.accessibilityIdentifier = createAccessibilityIdentifierForCell(indexPath: indexPath)
+		return cell
+	}
+
+	func createAccessibilityIdentifierForCell(indexPath: IndexPath) -> String {
+		return "\(AccessibilityIdentifier.cell.rawValue)-\(indexPath.section)-\(indexPath.row)"
 	}
 }

@@ -86,7 +86,6 @@ final class TasksPresenterTests: XCTestCase {
 
 private extension TasksPresenterTests {
 	func makeSut() -> TasksPresenter {
-		let sectionAdapterSpy = SectionAdapterSpy()
 		let presenter = TasksPresenter()
 		viewControllerSpy = TasksViewControllerSpy()
 		presenter.viewController = viewControllerSpy
