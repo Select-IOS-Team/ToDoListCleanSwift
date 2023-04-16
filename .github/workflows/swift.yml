@@ -10,10 +10,8 @@ jobs:
       - name: Install SwiftGen
         run: brew install swiftgen
       - name: Build
+        run: xcodebuild -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwift -destination 'platform=iOS Simulator,name=iPhone 13'
+      - name: Run tests
         run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwift -destination 'platform=iOS Simulator,name=iPhone 13'
-      - name: Run unit tests
-        run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwiftTests -destination 'platform=iOS Simulator,name=iPhone 13'
-      - name: Run UI tests
-        run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListCleanSwiftUITests -destination 'platform=iOS Simulator,name=iPhone 13'
-      - name: Run package's unit tests
-        run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListBusinessLogicTests -destination 'platform=iOS Simulator,name=iPhone 13'
+      - name: Run package's tests
+        run: xcodebuild test -project ToDoListCleanSwift.xcodeproj -scheme ToDoListBusinessLogic -destination 'platform=iOS Simulator,name=iPhone 13'
