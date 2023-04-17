@@ -10,7 +10,7 @@ import XCTest
 // swiftlint: disable all
 final class TasksSceneUITest: XCTestCase {
 
-	func test_uncompletedTasksSection_forRegularTask_MustHaveCorrectTitle() {
+	func test_uncompletedTasksSection_forRegularTask_mustHaveCorrectTitle() {
 		let app = XCUIApplication()
 		let loginScreen = LoginScreenObject(app: app)
 
@@ -26,7 +26,7 @@ final class TasksSceneUITest: XCTestCase {
 			.uncompletedTasksSectionTitleIsCorrect(title: "Uncompleted tasks")
 	}
 
-	func test_completedTasksSection_forRegularTask_MustHaveCorrectTitle() {
+	func test_completedTasksSection_forRegularTask_mustHaveCorrectTitle() {
 		let app = XCUIApplication()
 		let loginScreen = LoginScreenObject(app: app)
 
@@ -42,7 +42,7 @@ final class TasksSceneUITest: XCTestCase {
 			.completedTasksSectionTitleIsCorrect(title: "Completed tasks")
 	}
 
-	func test_regularTask_MustBeComplete() {
+	func test_regularTask_mustBeComplete() {
 		let app = XCUIApplication()
 		let loginScreen = LoginScreenObject(app: app)
 
